@@ -32,68 +32,58 @@
         /* ==================================================== */
         html {
             scroll-behavior: smooth;
-            /* スムーズスクロールの追加 */
         }
 
         /* bodyのデフォルトスタイル（PC向け） */
-body {
-    font-family: 'Inter', sans-serif;
-    background-color: transparent; /* body自体の背景色は透明に */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: transparent;
+            color: #333333;
 
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    min-height: 100vh;
-    padding: 20px;
-    box-sizing: border-box;
-    overflow-x: hidden;
-    overflow-y: auto;
-    padding-top: 130px;
-    position: relative; /* ::before擬似要素の基準にするため */
-    z-index: 1; /* コンテンツが背景の上に表示されるように */
-}
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+            box-sizing: border-box;
+            overflow-x: hidden;
+            overflow-y: auto;
+            padding-top: 130px;
+            position: relative;
+            z-index: 1;
+        }
 
-/* ★変更点: bodyの背景として画像とぼかし、カラーリングを適用 (PC・スマホ共通) */
-body::before {
-    content: '';
-    position: fixed; /* 固定背景として */
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: url('images/PC透かし2.jpeg'); /* ここに指定された画像を使用 */
-    background-repeat: no-repeat;
-    background-size: cover; /* 画面全体を覆うように拡大縮小 */
-    background-position: center center;
-    background-attachment: fixed; /* 背景画像を固定 */
-    z-index: -1; /* bodyコンテンツの下に表示されるように */
+        /* ★変更点: bodyの背景を明るく鮮やかなグラデーションに */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #A0E7FD 0%, #C0A0FD 100%); /* スカイブルーから藤色へのグラデーション */
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center center;
+            background-attachment: fixed;
+            z-index: -1;
+            filter: none;
+            opacity: 1;
+        }
 
-    /* ぼかし効果 */
-    filter: blur(5px); /* ぼかしの強さを調整してください (例: 3px, 5px, 10px) */
-
-    /* 薄い青紫色のオーバーレイ */
-    background-color: rgba(179, 136, 255, 0.2); /* 薄い青紫色と透明度 */
-    background-blend-mode: overlay; /* 画像と色のブレンドモード */
-    opacity: 0.8; /* 背景全体の透明度を調整して、画像をさらに薄く見せる */
-}
-
-        /* ヘッダーのスタイル - 新しいヘッダーに合わせて大幅変更 */
+        /* ヘッダーのスタイル */
         .p-header {
             width: 100%;
-            background-color: #ffffff;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+            background-color: #FFFFFF;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
             padding: 10px 30px;
-            /* 既存のヘッダーより上下のパディングを少し減らしました */
             display: flex;
             justify-content: center;
             align-items: center;
-
-            /* ★固定ヘッダーのプロパティ */
             position: fixed;
             top: 0;
             left: 0;
             z-index: 1000;
-            /* 他のコンテンツの上に表示されるようにする */
         }
 
         .p-header__inner {
@@ -102,168 +92,159 @@ body::before {
             align-items: center;
             width: 100%;
             max-width: 1200px;
-            /* サイト全体の最大幅に合わせる */
         }
 
         .p-header__logo img {
             height: auto;
             max-height: 70px;
-            /* ロゴの高さを調整 */
             width: auto;
             vertical-align: middle;
+            filter: none;
         }
 
         .p-header__right {
             display: flex;
             align-items: center;
             gap: 15px;
-            /* ボタン間のスペース */
         }
 
         /* ヘッダー内のボタンの共通スタイル */
         .p-header__btn {
             display: inline-block;
             padding: 8px 15px;
-            border-radius: 8px;
+            border-radius: 25px;
             font-weight: 700;
             text-decoration: none;
-            transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
             white-space: nowrap;
+            border: none;
+            transform: translateY(0);
         }
 
         .p-header__btn a {
-            color: #333333;
-            /* テキストの色 */
+            color: #FFFFFF;
             text-decoration: none;
             display: flex;
-            /* アイコンとテキストを並べるため */
             align-items: center;
             justify-content: center;
             gap: 5px;
-            /* アイコンとテキストの間隔 */
         }
 
-        /* 各ボタンの背景色 */
+        /* 各ボタンの背景色を鮮やかに */
         .p-btn__session {
-            background-color: #BBDEFB;
-            /* ライトブルー */
+            background-color: #00C0F0; /* スカイブルー */
         }
 
         .p-btn__recruit {
-            background-color: #A5D6A7;
-            /* ミディアムグリーン */
+            background-color: #76DD6F; /* 明るいグリーン */
         }
 
         .p-btn__seminar {
-            background-color: #FFECB3;
-            /* ライトイエロー */
+            background-color: #FF6B8B; /* ポップなピンク */
         }
 
         .p-btn__company {
-            /* グローバルナビゲーション内の企業サイトボタン */
-            background-color: #FFD1DC;
-            /* ピンク */
+            background-color: #FFD166; /* ウォームイエロー */
         }
 
         .p-btn__entry {
-            /* グローバルナビゲーション内のエントリーボタン */
-            background-color: #FFEB3B;
-            /* 明るい黄色 */
+            background-color: #A06CD5; /* パープル */
         }
 
         .p-header__btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+            filter: brightness(1.1);
         }
 
         /* グローバルナビゲーションのスタイル */
         .p-g-nav {
             display: none;
-            /* デフォルトでは非表示 (ハンバーガーメニューで切り替える想定) */
-            position: absolute;
-            /* ハンバーガーメニューで開くときに位置調整 */
-            top: 100%;
-            /* ヘッダーのすぐ下に配置 */
+            position: fixed; /* fixedに変更 */
+            top: 0; /* 全画面を覆う */
             left: 0;
             width: 100%;
-            background-color: #f0f4f8;
-            /* 背景色 */
+            height: 100%; /* 全画面を覆う */
+            background-color: rgba(255, 255, 255, 0.98); /* ほぼ不透明な白 */
             padding: 20px;
-            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.08);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
             z-index: 999;
-            /* ヘッダーよりは下、コンテンツよりは上に */
             flex-direction: column;
             gap: 15px;
+            justify-content: center; /* 縦方向中央寄せ */
+            align-items: center; /* 横方向中央寄せ */
+            opacity: 0; /* 初期は非表示で透明 */
+            visibility: hidden; /* 初期は非表示 */
+            transition: opacity 0.3s ease, visibility 0.3s ease;
         }
 
         .p-g-nav.is-active {
             display: flex;
-            /* アクティブ時に表示 */
+            opacity: 1; /* アクティブ時に表示 */
+            visibility: visible; /* アクティブ時に表示 */
         }
 
         .p-g-nav__inner {
             display: flex;
             flex-direction: column;
             gap: 15px;
-            max-width: 1200px;
+            width: 90%; /* スマホでの幅調整 */
+            max-width: 400px; /* スマホでの最大幅 */
             margin: 0 auto;
         }
 
         .p-g-nav__item a {
             display: block;
-            padding: 10px 15px;
-            background-color: #ffffff;
-            border-radius: 8px;
+            padding: 12px 20px;
+            background-color: #F0F8FF;
+            border-radius: 10px;
             text-decoration: none;
-            color: #2d3748;
-            transition: background-color 0.3s ease, transform 0.2s ease;
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            color: #333333;
+            transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08);
+            text-align: center; /* リンクテキスト中央寄せ */
         }
 
         .p-g-nav__item a:hover {
-            background-color: #e2e8f0;
-            transform: translateY(-1px);
+            background-color: #E6EFFF;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
         }
 
         .p-g-nav__sub-title {
             font-size: 0.8rem;
-            color: #718096;
+            color: #777777;
             margin-bottom: 2px;
         }
 
         .p-g-nav__title {
             font-size: 1.1rem;
             font-weight: 600;
+            color: #007BFF;
         }
 
         .p-g-nav__btn {
             margin-top: 10px;
-            /* グローバルナビ内のボタンの上マージン */
             width: 100%;
-            /* 幅いっぱい */
             text-align: center;
         }
 
         .p-g-nav__btn img.p-footer__btn__icon {
             height: 20px;
-            /* アイコンのサイズ調整 */
             width: auto;
             vertical-align: middle;
         }
 
-
         /* ハンバーガーメニューのスタイル */
         .p-hamburger {
-            display: none;
-            /* デフォルトではデスクトップで非表示 */
+            display: none; /* デフォルトでは非表示 */
             background: none;
             border: none;
             cursor: pointer;
             padding: 10px;
             position: relative;
             z-index: 1001;
-            /* ヘッダーボタンよりも上に表示 */
         }
 
         .p-hamburger__lines {
@@ -280,7 +261,7 @@ body::before {
             display: block;
             width: 100%;
             height: 2px;
-            background-color: #4a5568;
+            background-color: #333333;
             transition: all 0.3s ease;
         }
 
@@ -298,232 +279,129 @@ body::before {
 
         .p-hamburger__menu {
             font-size: 0.8rem;
-            color: #4a5568;
+            color: #333333;
             margin-top: 5px;
         }
 
-
-        /* 旧ヘッダーナビゲーションのスタイルは削除 */
-        /* header nav ul { ... } */
-        /* header nav ul li a { ... } */
-
-
         /* section */
         section {
-    width: 100%;
-    max-width: 1200px;
-    background-color: rgba(255, 255, 255, 0.8); /* 半透明の白で維持 */
-    border-radius: 12px;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-    padding: 30px;
-    margin-bottom: 30px;
-    text-align: left;
-    transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
-}
+            width: 100%;
+            max-width: 1200px;
+            background-color: rgba(255, 255, 255, 0.95);
+            color: #333333;
+            border-radius: 18px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            padding: 40px;
+            margin-bottom: 30px;
+            text-align: left;
+            transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
+        }
 
         section:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
         }
 
-        /* ★変更点: 各セクションのh2のスタイルを統一し、文字色を白に */
+        /* 各セクションのh2のスタイルをポップなグラデーションに */
         section h2 {
-            font-size: 2.25rem;
-            font-weight: 700;
-            color: #ffffff;
-            /* 文字色を白に */
-            margin-bottom: 20px;
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #FFFFFF;
+            margin-bottom: 25px;
             text-align: center;
             border-bottom: none;
-            padding: 15px 20px;
-            /* パディングを調整 */
-            border-radius: 8px;
-            /* より丸みを持たせる */
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
-            /* シャドウを強める */
-            background-color: #4299e1;
-            /* デフォルトのh2背景色 (各セクションで上書き) */
+            padding: 18px 25px;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            background: linear-gradient(45deg, #00C0F0, #A06CD5);
+            transition: all 0.3s ease;
         }
 
-        /* 各セクションの h2 に個別の背景色を設定 */
-        #company-overview h2 {
-            background-color: #FFD1DC;
-        }
+        /* 各セクションのh2に個別のグラデーションを設定 */
+        #company-overview h2 { background: linear-gradient(45deg, #00C0F0, #76DD6F); } /* スカイブルー -> グリーン */
+        #business-overview h2 { background: linear-gradient(45deg, #76DD6F, #FFD166); } /* グリーン -> イエロー */
+        #organization-chart h2 { background: linear-gradient(45deg, #FFD166, #FF6B8B); } /* イエロー -> ピンク */
+        #ceo-intro h2 { background: linear-gradient(45deg, #FF6B8B, #A06CD5); } /* ピンク -> パープル */
+        #history h2 { background: linear-gradient(45deg, #A06CD5, #00C0F0); } /* パープル -> スカイブルー */
+        #engineer-career h2 { background: linear-gradient(45deg, #00C0F0, #FFD166); } /* スカイブルー -> イエロー */
+        #engineer-interviews h2 { background: linear-gradient(45deg, #FFD166, #76DD6F); } /* イエロー -> グリーン */
+        #company-video h2 { background: linear-gradient(45deg, #76DD6F, #FF6B8B); } /* グリーン -> ピンク */
+        #mvv h2 { background: linear-gradient(45deg, #FF6B8B, #A06CD5); } /* ピンク -> パープル */
+        #business-model h2 { background: linear-gradient(45deg, #A06CD5, #00C0F0); } /* パープル -> スカイブルー */
+        #culture h2 { background: linear-gradient(45deg, #00C0F0, #FFD166); } /* スカイブルー -> イエロー */
+        #strengths h2 { background: linear-gradient(45deg, #FFD166, #76DD6F); } /* イエロー -> グリーン */
+        #rules-systems h2 { background: linear-gradient(45deg, #76DD6F, #FF6B8B); } /* グリーン -> ピンク */
+        #future h2 { background: linear-gradient(45deg, #FF6B8B, #A06CD5); } /* ピンク -> パープル */
+        #summary h2 { background: linear-gradient(45deg, #A06CD5, #00C0F0); } /* パープル -> スカイブルー */
+        #contact h2 { background: linear-gradient(45deg, #00C0F0, #FF6B8B); } /* スカイブルー -> ピンク */
 
-        #business-overview h2 {
-            background-color: #FFECB3;
-        }
-
-        #organization-chart h2 {
-            background-color: #D1C4E9;
-        }
-
-        #ceo-intro h2 {
-            background-color: #C8E6C9;
-        }
-
-        #history h2 {
-            background-color: #FFAB91;
-        }
-
-        #engineer-career h2 {
-            background-color: #BBDEFB;
-        }
-
-        /* NEW: 先輩エンジニアへインタビューセクションのH2背景色 (ここから追記) */
-        #engineer-interviews h2 {
-            background-color: #90CAF9; /* ライトブルー */
-        }
-
-        /* 先輩エンジニアの画像とテキストの配置調整 */
-#engineer-interviews .gallery-item {
-    display: flex; /* Flexboxを使って横並びにする */
-    align-items: flex-start; /* アイテムを上端揃えにする */
-    gap: 20px; /* 写真とテキストの間の隙間 */
-    text-align: left; /* テキスト全体を左揃えにする (個別のPタグなどは引き続き左揃え) */
-    flex-wrap: wrap; /* 画面が狭くなったら折り返すようにする */
-}
-
-#engineer-interviews .engineer-photo {
-    flex-shrink: 0; /* 写真が縮まないようにする */
-    width: 100px; /* 写真の固定幅 (調整可能) */
-    height: 100px; /* 写真の固定高さ (調整可能) */
-    border-radius: 50%; /* 写真を円形にする */
-    overflow: hidden; /* 円形からはみ出る部分を隠す */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* 写真に影をつける */
-}
-
-#engineer-interviews .engineer-photo img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* 画像をボックスに収まるようにトリミング（縦横比維持） */
-    display: block; /* ブロック要素にしてレイアウトを安定させる */
-}
-
-#engineer-interviews .engineer-text {
-    flex-grow: 1; /* 残りのスペースを埋めるようにテキスト部分を広げる */
-}
-
-/* モバイルでの調整 */
-@media (max-width: 768px) {
-    #engineer-interviews .gallery-item {
-        flex-direction: column; /* 画面が狭くなったら縦並びにする */
-        align-items: center; /* 縦並び時に中央揃えにする */
-        text-align: center; /* テキストも中央揃えにする */
-    }
-    #engineer-interviews .engineer-photo {
-        margin-bottom: 15px; /* 写真の下に余白を追加 */
-    }
-}
-
-        /* NEW: 会社の雰囲気（動画）セクションのH2背景色 (ここから追記) */
-        #company-video h2 {
-            background-color: #F48FB1; /* ライトピンク */
-        }
-
-        #mvv h2 {
-            background-color: #F8BBD0;
-        }
-
-        #business-model h2 {
-            background-color: #FFE082;
-        }
-
-        #culture h2 {
-            background-color: #B39DDB;
-        }
-
-        #strengths h2 {
-            background-color: #A5D6A7;
-        }
-
-        #rules-systems h2 {
-            background-color: #FFCCBC;
-        }
-
-        #welfare h2 {
-            background-color: #CFD8DC;
-        }
-
-        #future h2 {
-            background-color: #B2DFDB;
-        }
-
-        #summary h2 {
-            background-color: #E6EE9C;
-        }
-
-        #contact h2 {
-            background-color: #FFEFD5;
-        }
 
         /* hero */
         #hero {
-            /* ★変更点: ヒーローセクションの背景を3枚目の画像に合わせる */
-            background: linear-gradient(to right, #4299e1, #63b3ed);
+            background: linear-gradient(45deg, #00C0F0, #A06CD5); /* スカイブルーからパープルへのグラデーション */
             color: white;
             text-align: center;
-            padding: 60px 20px;
-            margin-bottom: 30px;
-            border-radius: 12px;
-            /* ★変更点: box-shadowを調整 */
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+            padding: 100px 20px;
+            margin-bottom: 40px;
+            border-radius: 20px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
             transition: none;
         }
 
         #hero h2 {
-            color: #ffffff;
-            font-size: 3rem;
-            margin-bottom: 15px;
-            border-bottom: none;
-            padding-bottom: 0;
-            box-shadow: none;
-            /* ヒーロー内のh2にはシャドウを適用しない */
+            color: #FFFFFF;
+            font-size: 4.5rem;
+            margin-bottom: 20px;
+            text-shadow: 3px 3px 15px rgba(0, 0, 0, 0.5);
             background-color: transparent;
-            /* ヒーロー内のh2には背景色を適用しない */
+            box-shadow: none;
+            padding: 0;
+            border-radius: 0;
         }
 
         #hero p {
-            font-size: 1.3rem;
-            color: #FFEB3B;
-            margin-bottom: 25px;
+            font-size: 1.8rem;
+            color: #FFD166;
+            margin-bottom: 40px;
+            font-weight: 600;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.4);
         }
 
         section a.btn {
             display: inline-block;
-            background-color: #FFEB3B;
+            background-color: #FFD166;
             color: #333333;
-            padding: 12px 25px;
-            border-radius: 8px;
+            padding: 16px 35px;
+            border-radius: 30px;
             text-decoration: none;
-            font-weight: 700;
+            font-weight: 800;
             margin-top: 20px;
-            transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
         }
 
         section a.btn:hover {
-            background-color: #FFD54F;
-            transform: translateY(-3px);
-            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+            background-color: #FFEA99;
+            transform: translateY(-7px) scale(1.05);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
         }
 
         /* footer */
         footer {
             width: 100%;
-            /* ★変更点: フッターの背景色をより濃い青系に */
-            background-color: #2a52be;
+            background-color: #1F4068;
             color: #ffffff;
             text-align: center;
-            padding: 20px 0;
-            margin-top: 30px;
-            border-top-left-radius: 12px;
-            border-top-right-radius: 12px;
+            padding: 25px 0;
+            margin-top: 40px;
+            border-top-left-radius: 15px;
+            border-top-right-radius: 15px;
+            box-shadow: 0 -5px 15px rgba(0, 0, 0, 0.2);
         }
 
         footer p {
             margin: 0;
-            font-size: 0.9rem;
+            font-size: 0.95rem;
         }
 
         /* content-image, image-gallery, qr-code-container */
@@ -531,9 +409,9 @@ body::before {
             max-width: 100%;
             height: auto;
             display: block;
-            margin: 20px auto;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin: 25px auto;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
         }
 
         .image-gallery {
@@ -541,44 +419,48 @@ body::before {
             flex-direction: column;
             flex-wrap: nowrap;
             align-items: center;
-            gap: 40px;
-            margin-top: 20px;
-            margin-bottom: 20px;
+            gap: 50px;
+            margin-top: 30px;
+            margin-bottom: 30px;
         }
 
         .image-gallery .gallery-item {
             flex: none;
             width: 100%;
-            max-width: 600px;
+            max-width: 650px;
             box-sizing: border-box;
             text-align: center;
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
         }
 
         .image-gallery .gallery-item img {
             width: 100%;
             height: auto;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
         }
 
         .image-gallery .gallery-item p {
-            font-size: 0.9rem;
-            color: #666;
-            margin-top: 10px;
+            font-size: 1rem;
+            color: #555555;
+            margin-top: 15px;
         }
 
-        /* NEW: ビデオコンテナのスタイル (ここから追記) */
+        /* NEW: ビデオコンテナのスタイル */
         .video-container {
             position: relative;
             width: 100%;
-            max-width: 800px; /* 動画の最大幅 */
-            margin: 20px auto;
-            padding-bottom: 56.25%; /* 16:9のアスペクト比 (動画が16:9の場合) */
+            max-width: 850px;
+            margin: 30px auto;
+            padding-bottom: 56.25%;
             height: 0;
             overflow: hidden;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            background-color: #000; /* 動画が読み込まれるまでの背景色 */
+            border-radius: 12px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+            background-color: #000;
         }
 
         .video-container video {
@@ -587,11 +469,11 @@ body::before {
             left: 0;
             width: 100%;
             height: 100%;
-            object-fit: contain; /* 動画全体を表示し、アスペクト比を維持 */
+            object-fit: contain;
         }
 
         .qr-code-container {
-            margin-top: 30px;
+            margin-top: 40px;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -599,90 +481,80 @@ body::before {
 
         .qr-code-container img {
             width: 100%;
-            max-width: 300px;
+            max-width: 320px;
             height: auto;
-            border: 5px solid #f0f4f8;
-            border-radius: 8px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            margin-bottom: 10px;
+            border: 6px solid #FFD166;
+            border-radius: 12px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+            margin-bottom: 15px;
         }
 
         .qr-code-container p {
             margin-top: 0;
-            font-size: 1rem;
-            color: #4a5568;
-        }
-
-        .qr-code-container p {
-            margin-top: 0;
-            font-size: 1rem;
-            color: #4a5568;
+            font-size: 1.1rem;
+            color: #555555;
         }
 
         /* ================================================= */
         /* === 組織図のスタイル (タブ形式) === */
         /* ================================================= */
         .tabs {
-            background-color: #ffffff;
-            border-radius: 15px;
-            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.04);
-            padding: 20px;
-            margin: 15px auto;
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 18px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            margin: 20px auto;
             text-align: center;
             width: 100%;
-            max-width: 900px;
-            /* タブ全体の最大幅 */
+            max-width: 950px;
             box-sizing: border-box;
+            color: #333333;
         }
 
         .tab-buttons {
             display: flex;
             justify-content: center;
-            margin-bottom: 15px;
+            margin-bottom: 20px;
         }
 
         .tab-button {
-            background-color: #f0f4f8;
-            color: #4a5568;
-            border: 1px solid #d1d5db;
-            padding: 8px 15px;
-            border-radius: 8px;
+            background-color: #E2E8F0;
+            color: #555555;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 25px;
             cursor: pointer;
-            transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0 0.2s ease;
-            margin: 0 5px;
-            font-size: 0.9rem;
-        }
-
-        .tab-button.active {
-            background-color: #a0aec0;
-            color: #ffffff;
-            border-color: #a0aec0;
+            transition: all 0.3s ease;
+            margin: 0 8px;
+            font-size: 1rem;
+            font-weight: 600;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
         }
 
+        .tab-button.active {
+            background: linear-gradient(45deg, #00C0F0, #A06CD5);
+            color: #FFFFFF;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            transform: translateY(-3px);
+        }
+
         .tab-button:hover {
-            background-color: #cbd5e0;
-            color: #2d3748;
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            background-color: #D1D8E0;
+            transform: translateY(-2px);
+            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
         }
 
         .tab-content-container {
-            /* 各タブコンテンツの白い背景部分 */
             overflow-x: auto;
-            /* 必要に応じて横スクロールを許可 */
             overflow-y: hidden;
-            /* 縦スクロールは隠す */
-            border: 1px solid #e2e8f0;
-            /* 境界線 */
-            border-radius: 8px;
-            padding: 15px;
-            background-color: #ffffff;
+            border: 1px solid #E2E8F0;
+            border-radius: 15px;
+            padding: 20px;
+            background-color: #FFFFFF;
             height: auto;
-            /* コンテンツに合わせて自動調整 */
-            min-height: 250px;
-            /* 最小高さを設定 */
+            min-height: 280px;
             position: relative;
-            /* 子要素のabsolute基準 */
+            box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.05);
         }
 
         .org-chart {
@@ -693,70 +565,68 @@ body::before {
         .org-chart ul {
             display: flex;
             flex-direction: column;
-            /* 縦並びのFlexbox */
             align-items: center;
-            /* 中央寄せ */
             padding: 0;
             margin: 0 auto;
             list-style: none;
             width: fit-content;
-            /* 内容にフィット */
             max-width: 100%;
-            /* 親を超えない */
             box-sizing: border-box;
         }
 
         .org-chart li {
             text-align: center;
-            margin: 10px 0;
-            /* 上下マージン */
+            margin: 15px 0;
             position: relative;
-            /* 線の基準 */
             flex-shrink: 0;
-            /* 縮小させない */
         }
 
         .node {
-            background-color: #ffffff;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-            padding: 10px 15px;
-            min-width: 140px;
-            /* ★修正: ノードの最小幅 */
+            background-color: #F0F8FF;
+            color: #333333;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            padding: 12px 18px;
+            min-width: 150px;
             text-align: center;
-            font-size: 0.8rem;
-            line-height: 1.2;
-            border: 1px solid #e2e8f0;
+            font-size: 0.9rem;
+            line-height: 1.3;
+            border: 1px solid #D1E9FF;
             box-sizing: border-box;
+            transition: all 0.2s ease;
+        }
+
+        .node:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 12px rgba(0, 0, 0, 0.15);
         }
 
         .node .department-icon {
-            font-size: 1.2rem;
-            margin-bottom: 5px;
-            color: #4a5568;
+            font-size: 1.4rem;
+            margin-bottom: 8px;
+            color: #007BFF;
             display: block;
         }
 
         .node .title {
-            font-size: 0.7rem;
-            color: #718096;
-            margin-top: 3px;
+            font-size: 0.8rem;
+            color: #666666;
+            margin-top: 5px;
+            font-weight: 600;
         }
 
         .node .details {
-            font-size: 0.6rem;
-            color: #4a5568;
+            font-size: 0.7rem;
+            color: #777777;
             margin-top: 5px;
-            line-height: 1.3;
+            line-height: 1.4;
         }
 
-        /* 部署役割の説明テキストのスタイル (各ノードに適用) */
         .node .role-description {
-            font-size: 0.55rem;
-            color: #555;
-            margin-top: 3px;
-            margin-bottom: 3px;
-            line-height: 1.2;
+            font-size: 0.65rem;
+            color: #888888;
+            margin-top: 5px;
+            line-height: 1.3;
             display: block;
             margin-left: auto;
             margin-right: auto;
@@ -764,15 +634,14 @@ body::before {
             max-width: 90%;
         }
 
-
         /* 線の共通スタイル (縦線) */
         .org-chart ul li::before {
             content: '';
             position: absolute;
             left: 50%;
-            border-left: 1px solid #cbd5e0;
-            top: -20px;
-            height: 20px;
+            border-left: 1px dashed #A0E7FD;
+            top: -25px;
+            height: 25px;
             transform: translateX(-50%);
         }
 
@@ -780,282 +649,417 @@ body::before {
         .org-chart ul ul {
             display: flex;
             flex-direction: row;
-            /* 横並び */
             justify-content: center;
             list-style: none;
             padding: 0;
-            margin: 20px 0 0 0;
-            /* 上マージンで距離をとる */
-            gap: 20px;
-            /* ノード間の横方向のギャップ */
+            margin: 25px 0 0 0;
+            gap: 25px;
             position: relative;
             width: fit-content;
-            /* 内容にフィット */
             max-width: 100%;
-            /* 親を超えない */
             box-sizing: border-box;
         }
 
         .org-chart ul ul::before {
             content: '';
             position: absolute;
-            top: -10px;
-            /* 親ノードから横線までの距離 */
+            top: -15px;
             left: 0;
-            /* 全幅に伸ばす */
             right: 0;
-            /* 全幅に伸ばす */
-            border-top: 1px solid #cbd5e0;
+            border-top: 1px dashed #A0E7FD;
             height: 0;
         }
 
         .org-chart ul ul li::before {
             content: '';
             position: absolute;
-            top: -10px;
-            /* 横線から子ノードまでの縦線 */
+            top: -15px;
             left: 50%;
-            border-left: 1px solid #cbd5e0;
-            height: 10px;
+            border-left: 1px dashed #A0E7FD;
+            height: 15px;
             transform: translateX(-50%);
         }
 
-        /* 組織全体図のノード色 */
+        /* 組織全体図のノード色をポップに */
         #overall-org-chart-container-tab .node.ceo {
-            background-color: #FFCCCC;
-            /* 薄い赤 */
-            color: #000000;
-            /* 薄い赤だと文字色を黒にした方が見やすいかもしれません */
+            background-color: #FF6B8B;
+            color: #FFFFFF;
         }
 
         #overall-org-chart-container-tab .node.engineering {
-            background-color: #e0f7fa;
-            /* 水色 */
-            border: 1px solid #80deea;
+            background-color: #A0E7FD;
+            border: 1px solid #00C0F0;
         }
 
         #overall-org-chart-container-tab .node.sales {
-            background-color: #dcedc8;
-            /* 薄緑 */
-            border: 1px solid #aed581;
+            background-color: #76DD6F;
+            border: 1px solid #5BC557;
         }
 
         #overall-org-chart-container-tab .node.hr {
-            background-color: #ffe0b2;
-            /* 薄オレンジ */
-            border: 1px solid #ffb74d;
+            background-color: #FFD166;
+            border: 1px solid #FFC033;
         }
 
         #overall-org-chart-container-tab .node.accounting {
-            background-color: #f3e5f5;
-            /* 薄紫 */
-            border: 1px solid #ce93d8;
+            background-color: #A06CD5;
+            border: 1px solid #8B4AD2;
         }
 
-        /* その他の部門ノードのデフォルトスタイル (残りのノードに適用) */
+        /* その他の部門ノードのデフォルトスタイル */
         #overall-org-chart-container-tab .node {
-            background-color: #e2e8f0;
-            /* 灰色 */
-            border: 1px solid #cbd5e0;
+            background-color: #F0F8FF;
+            border: 1px solid #D1E9FF;
         }
 
         #overall-org-chart-container-tab .node.ceo .department-icon {
-            font-size: 1.8rem;
-            color: #ffffff;
+            font-size: 2rem;
+            color: #FFFFFF;
         }
 
-
-        /* エンジニアリング事業部のノード色 */
+        /* エンジニアリング事業部のノード色をポップに */
         #engineering-dept-org-chart-container-tab .node.top-level {
-            background-color: #FFFF00;
-            /* 黄色 */
-            color: #000000;
-            /* 黄色だと文字色を黒にした方が見やすいかもしれません */
+            background: linear-gradient(45deg, #00C0F0, #A06CD5);
+            color: #FFFFFF;
             font-weight: bold;
         }
 
         #engineering-dept-org-chart-container-tab .node.infra-dept-1 {
-            background-color: #e0f2fe;
-            /* 薄い青紫 */
-            border: 1px solid #90cdf4;
+            background-color: #A0E7FD;
+            border: 1px solid #00C0F0;
         }
 
         #engineering-dept-org-chart-container-tab .node.infra-dept-2 {
-            background-color: #ede9fe;
-            /* 薄い紫 */
-            border: 1px solid #c4b5fd;
+            background-color: #76DD6F;
+            border: 1px solid #5BC557;
         }
 
         #engineering-dept-org-chart-container-tab .node.dev-dept {
-            background-color: #fff7ed;
-            /* 薄いオレンジ */
-            border: 1px solid #fed7aa;
+            background-color: #FFD166;
+            border: 1px solid #FFC033;
         }
 
         #engineering-dept-org-chart-container-tab .node.consult-dept {
-            background-color: #e6fffa;
-            /* 薄い緑 */
-            border: 1px solid #b2f5ea;
+            background-color: #FF6B8B;
+            border: 1px solid #FF4A6F;
         }
 
-        /* 重複していた .node.engineer-group のスタイルを一つにまとめました */
         #engineering-dept-org-chart-container-tab .node.engineer-group {
-            background-color: #e8f5e9;
-            /* 薄い緑 */
-            border: 1px solid #a5d6a7;
-            color: #2e7d32;
+            background-color: #F0F8FF;
+            border: 1px solid #D1E9FF;
+            color: #333333;
         }
 
         #engineering-dept-org-chart-container-tab .node.data-science-dept {
-            background-color: #dbeafe;
-            /* 薄い赤 */
-            border: 1px solid #93c5fd;
+            background-color: #A06CD5;
+            border: 1px solid #8B4AD2;
         }
 
         /* エンジニアリング事業部内の階層構造の線 */
         #engineering-dept-org-chart-container-tab .org-chart ul ul ul {
             margin-top: 30px;
-            /* 上の階層との間隔 */
         }
 
         #engineering-dept-org-chart-container-tab .org-chart ul ul ul::before {
-            top: -10px;
+            top: -15px;
         }
 
         #engineering-dept-org-chart-container-tab .org-chart ul ul ul li::before {
-            top: -10px;
-            height: 10px;
+            top: -15px;
+            height: 15px;
         }
 
 
-        /* レスポンシブ対応 */
+        /* ================================================= */
+        /* === レスポンシブ対応（追加・修正箇所） === */
+        /* ================================================= */
+
+        /* PC (769px以上) のみ表示 */
+        .u-desktop {
+            display: flex !important; /* ボタンがinline-blockなのでflexを優先 */
+        }
+
+        /* モバイル (768px以下) のみ表示 */
+        .u-mobile {
+            display: block !important;
+        }
+
+        /* PCでのヘッダーボタンとハンバーガーメニューの表示切り替え */
+        @media (min-width: 769px) {
+            .p-header__btn {
+                display: inline-block;
+            }
+            .p-hamburger {
+                display: none;
+            }
+        }
+
+        /* 768px以下の画面幅に適用 (タブレット・スマホ) */
         @media (max-width: 768px) {
-            .tabs {
+            body {
                 padding: 15px;
-                max-width: 100%;
+                padding-top: 100px; /* ヘッダーの高さに合わせて調整 */
             }
 
-            .tab-buttons {
-                flex-direction: column;
-                align-items: stretch;
+            .p-header {
+                padding: 5px 15px;
             }
 
-            .tab-button {
-                margin: 5px 0;
+            .p-header__logo img {
+                max-height: 55px; /* ロゴのサイズを調整 */
             }
 
-            .tab-content-container {
-                padding: 10px;
-                min-height: 200px;
+            .p-header__right {
+                gap: 5px; /* ボタン間のスペースを調整 */
             }
 
-            .org-chart ul ul {
+            .u-desktop {
+                display: none !important; /* デスクトップ用ボタンを非表示 */
+            }
+
+            .p-hamburger {
+                display: block; /* ハンバーガーメニューを表示 */
+            }
+
+            /* グローバルナビゲーションを全画面オーバーレイに調整 */
+            .p-g-nav {
+                padding-top: 80px; /* ヘッダー分を開ける */
+                overflow-y: auto; /* コンテンツがはみ出たらスクロール可能に */
+            }
+
+            .p-g-nav__inner {
+                width: 90%;
+                max-width: none; /* スマホで最大幅を無効化 */
+                gap: 12px; /* ナビ内アイテム間のスペースを調整 */
+            }
+
+            .p-g-nav__item a,
+            .p-g-nav__btn {
+                padding: 12px 15px;
+                font-size: 1rem;
+            }
+
+            section {
+                padding: 25px; /* セクションのパディングを調整 */
+                margin-bottom: 25px;
+            }
+
+            section h2 {
+                font-size: 2rem; /* セクションタイトルの文字サイズを調整 */
+                padding: 15px 20px;
+            }
+
+            #hero {
+                padding: 60px 15px;
+            }
+
+            #hero h2 {
+                font-size: 3rem; /* ヒーローセクションタイトルの文字サイズを調整 */
+            }
+
+            #hero p {
+                font-size: 1.4rem; /* ヒーローセクション説明文の文字サイズを調整 */
+            }
+
+            section a.btn {
+                padding: 12px 25px;
+                font-size: 1rem;
+            }
+
+            .image-gallery {
+                gap: 30px; /* 画像ギャラリーのギャップを調整 */
+            }
+
+            .qr-code-container img {
+                max-width: 250px; /* QRコードの最大幅を調整 */
+            }
+
+            .qr-code-container p {
+                font-size: 1rem; /* QRコード説明文の文字サイズを調整 */
+            }
+
+            /* 動画コンテナのモバイル調整 */
+            .video-container {
+                padding-bottom: 56.25%; /* アスペクト比維持 */
+            }
+
+            /* 社長紹介セクションのモバイルでの調整 */
+            #ceo-intro .ceo-content-wrapper {
                 flex-direction: column;
                 align-items: center;
-                /* 縦並び時は中央寄せ */
-                gap: 10px;
-                margin-top: 20px;
-                width: 100%;
+                gap: 20px;
             }
 
+            #ceo-intro .ceo-image-right {
+                order: -1;
+                max-width: 280px; /* 画像の最大幅を調整 */
+            }
+
+            #ceo-intro .ceo-text-left {
+                text-align: center;
+            }
+
+            /* 事業概要の小見出し */
+            #business-overview h3.sub-heading {
+                font-size: 1.3rem;
+            }
+
+            /* エンジニアのキャリアパスの項目 */
+            #engineer-career .gallery-item h3.career-title {
+                font-size: 1.3rem;
+            }
+
+            /* 組織文化の導入文 */
+            #culture .intro-text {
+                font-size: 1.5rem;
+            }
+
+            /* 会社の強みの4つの自信 */
+            #strengths .strength-point {
+                font-size: 1.3rem;
+            }
+
+            /* ビジネスモデルのリスト */
+            #business-model ul>li {
+                font-size: 1rem;
+            }
+
+            #business-model>p:nth-child(3)+ul>li {
+                font-size: 1rem;
+            }
+
+            /* 組織図のモバイル対応 */
+            .tab-buttons {
+                flex-wrap: wrap; /* ボタンが折り返すように */
+                gap: 10px; /* ボタン間のスペース */
+            }
+            .tab-button {
+                width: calc(50% - 16px); /* 2列表示 */
+                box-sizing: border-box;
+                font-size: 0.9rem;
+                padding: 10px 15px;
+            }
+            .org-chart ul ul {
+                flex-direction: column; /* 縦並びに強制 */
+                align-items: center;
+                gap: 15px;
+            }
             .org-chart ul ul::before {
                 left: 50%;
                 right: auto;
-                transform: translateX(-50%);
                 width: 1px;
-                /* 縦線に見えるようにする */
                 border-top: none;
-                border-left: 1px solid #cbd5e0;
-                top: -15px;
-                height: 15px;
+                border-left: 1px dashed #A0E7FD;
+                height: 20px; /* 縦線の長さを調整 */
             }
-
-            .org-chart ul ul li {
-                margin: 0;
-                width: 100%;
-                flex-basis: auto;
-            }
-
             .org-chart ul ul li::before {
-                display: none;
-                /* 個別の縦線を非表示 */
+                display: none; /* 個別の縦線を非表示に */
             }
-
-            /* 組織全体図のノードサイズ調整 (モバイル) */
-            #overall-org-chart-container-tab .node {
-                min-width: 100px;
-                /* ★修正: さらに縮小 */
-                padding: 6px 8px;
-                /* ★修正: さらに縮小 */
-                font-size: 0.65rem;
-                /* ★修正: さらに縮小 */
+            .node {
+                min-width: 120px; /* ノードの最小幅を調整 */
+                font-size: 0.8rem;
+                padding: 10px 15px;
             }
-
-            #overall-org-chart-container-tab .node.ceo {
-                font-size: 0.9rem;
-                /* ★修正: さらに縮小 */
-                padding: 8px 12px;
-                /* ★修正: さらに縮小 */
+            .node .department-icon {
+                font-size: 1.2rem;
             }
-
-            #overall-org-chart-container-tab .node .details,
-            #overall-org-chart-container-tab .node .role-description {
-                font-size: 0.5rem;
-                /* ★修正: さらに縮小 */
+            .node .title {
+                font-size: 0.7rem;
             }
-
-            #overall-org-chart-container-tab .node .department-icon {
-                font-size: 0.9rem;
-                /* ★修正: さらに縮小 */
-            }
-
-            /* エンジニアリング事業部のノードサイズ調整 (モバイル) */
-            #engineering-dept-org-chart-container-tab .node {
-                min-width: 90px;
-                /* ★修正: さらに縮小 */
-                padding: 5px 6px;
-                /* ★修正: さらに縮小 */
+            .node .details, .node .role-description {
                 font-size: 0.6rem;
-                /* ★修正: さらに縮小 */
+            }
+        }
+
+        /* 480px以下の画面幅に適用 (さらに小さいスマートフォン向け) */
+        @media (max-width: 480px) {
+            body {
+                padding: 10px;
+                padding-top: 90px;
             }
 
-            #engineering-dept-org-chart-container-tab .node.top-level {
-                font-size: 0.75rem;
-                /* ★修正: さらに縮小 */
-                padding: 6px 10px;
-                /* ★修正: さらに縮小 */
+            .p-header__logo img {
+                max-height: 45px;
             }
 
-            #engineering-dept-org-chart-container-tab .node .details {
-                font-size: 0.5rem;
-                /* ★修正: さらに縮小 */
+            .p-hamburger__menu {
+                font-size: 0.65rem;
             }
 
-            #engineering-dept-org-chart-container-tab .org-chart ul ul ul {
-                flex-direction: column;
-                align-items: center;
-                gap: 6px;
-                /* ★修正: さらに縮小 */
-                margin-top: 10px;
-                /* ★修正: さらに縮小 */
-                width: 100%;
+            section {
+                padding: 20px;
+                margin-bottom: 20px;
             }
 
-            #engineering-dept-org-chart-container-tab .org-chart ul ul ul::before {
-                left: 50%;
-                right: auto;
-                width: 1px;
-                border-top: none;
-                border-left: 1px solid #cbd5e0;
-                top: -8px;
-                /* ★修正: さらに縮小 */
-                height: 8px;
-                /* ★修正: さらに縮小 */
-                transform: translateX(-50%);
+            section h2 {
+                font-size: 1.7rem;
+                padding: 12px 18px;
             }
 
-            #engineering-dept-org-chart-container-tab .org-chart ul ul ul li::before {
-                display: none;
+            #hero {
+                padding: 50px 10px;
+            }
+
+            #hero h2 {
+                font-size: 2.5rem;
+            }
+
+            #hero p {
+                font-size: 1.2rem;
+            }
+
+            section a.btn {
+                padding: 10px 20px;
+                font-size: 0.9rem;
+            }
+
+            .tab-button {
+                width: 100%; /* 1列表示 */
+                margin: 5px 0;
+                font-size: 0.9rem;
+            }
+
+            .tab-content-container {
+                min-height: 150px;
+            }
+
+            /* 社長紹介セクションのモバイルでの調整 */
+            #ceo-intro .ceo-content-wrapper {
+                max-width: 250px;
+            }
+
+            /* 事業概要の小見出し */
+            #business-overview h3.sub-heading {
+                font-size: 1.2rem;
+            }
+
+            /* エンジニアのキャリアパスの項目 */
+            #engineer-career .gallery-item h3.career-title {
+                font-size: 1.2rem;
+            }
+
+            /* 組織文化の導入文 */
+            #culture .intro-text {
+                font-size: 1.3rem;
+            }
+
+            /* 会社の強みの4つの自信 */
+            #strengths .strength-point {
+                font-size: 1.2rem;
+            }
+
+            /* ビジネスモデルのリスト */
+            #business-model ul>li {
+                font-size: 0.9rem;
+            }
+
+            #business-model>p:nth-child(3)+ul>li {
+                font-size: 0.9rem;
+            }
+            .node {
+                min-width: 100px; /* ノードの最小幅をさらに調整 */
+                font-size: 0.7rem;
+                padding: 8px 12px;
             }
         }
     </style>
@@ -1066,83 +1070,60 @@ body::before {
         /* 1. 事業概要の小見出し */
         #business-overview h3.sub-heading {
             font-size: 1.5rem;
-            /* 小見出し (h3) くらいのサイズ */
             font-weight: 600;
-            /* 見出しと同じ太さ */
-            color: #4a5568;
-            /* 見出しと同じ色 */
+            color: #00C0F0; /* スカイブルー */
             margin-top: 20px;
             margin-bottom: 10px;
         }
 
-        /* 2. エンジニアのキャリアパスの項目 (pタグからh3タグに変更したためセレクタを修正) */
+        /* 2. エンジニアのキャリアパスの項目 */
         #engineer-career .gallery-item h3.career-title {
             font-size: 1.5rem;
-            /* 小見出し (h3) くらいのサイズ */
             font-weight: 600;
-            /* 見出しと同じ太さ */
-            color: #2d3748;
-            /* 黒字 */
+            color: #76DD6F; /* 明るいグリーン */
             margin-top: 15px;
-            /* 上部の余白を調整 */
             margin-bottom: 10px;
         }
 
-        /* 3. MVVの項目を赤文字に */
+        /* 3. MVVの項目 */
         #mvv .mvv-title {
-            color: #e53e3e;
-            /* 赤色 */
+            color: #FF6B8B; /* ポップなピンク */
             font-weight: 700;
-            /* 必要に応じて太字に */
         }
 
         /* 4. 組織文化の導入文 */
         #culture .intro-text {
             font-size: 1.75rem;
-            /* 組織文化（研修）と同じh3サイズ */
             font-weight: 600;
-            /* 見出しと同じ太さ */
-            color: #4a5568;
-            /* 見出しと同じ色 */
+            color: #FFD166; /* ウォームイエロー */
             margin-bottom: 20px;
         }
 
         /* 5. 会社の強みの4つの自信 */
         #strengths .strength-point {
             font-size: 1.5rem;
-            /* 小見出し (h3) くらいのサイズ */
             font-weight: 600;
-            /* 見出しと同じ太さ */
-            color: #2d3748;
-            /* 見出しと同じ色 */
+            color: #A06CD5; /* パープル */
             margin-top: 20px;
             margin-bottom: 10px;
         }
 
-        /* 6. 規則と制度、福利厚生の※一部抜粋を赤文字に */
+        /* 6. 規則と制度、福利厚生の※一部抜粋 */
         .red-note {
-            color: #e53e3e;
-            /* 赤色 */
+            color: #FF6B8B; /* ポップなピンク */
             font-weight: 700;
-            /* 必要に応じて太字に */
         }
 
         /* まとめセクションの呼びかけテキストのスタイル */
         .future-call-to-action {
             font-size: 1.8rem;
-            /* 文字を大きく */
             font-weight: 800;
-            /* 文字をさらに太く */
-            color: #3182ce;
-            /* 目立つ青色に設定（ヒーローセクションの青に近い色） */
+            color: #00C0F0; /* スカイブルー */
             text-align: center;
-            /* 中央寄せ */
             margin-top: 30px;
-            /* 上部の余白を確保 */
             margin-bottom: 30px;
-            /* 下部の余白を確保 */
             line-height: 1.5;
-            /* 行の高さを調整して読みやすく */
+            text-shadow: 2px 2px 8px rgba(0, 192, 240, 0.5); /* スカイブルーのシャドウ */
         }
 
         /* レスポンシブ調整: 小さい画面での文字サイズ調整 */
@@ -1161,21 +1142,13 @@ body::before {
         /* 「私たちの目指す未来」セクションのサブタイトルスタイル */
         .future-subtitle {
             font-size: 1.4rem;
-            /* 大きめのフォントサイズ */
             font-weight: 700;
-            /* 太字 */
-            color: #4299e1;
-            /* テーマカラーの青 */
+            color: #A06CD5; /* パープル */
             margin-top: 25px;
-            /* 上部に余白 */
             margin-bottom: 10px;
-            /* 下部に余白 */
             text-align: left;
-            /* 左寄せ（デフォルトですが明示） */
             padding-bottom: 5px;
-            /* 下線との間に少し余白 */
-            border-bottom: 2px solid #ebf8ff;
-            /* 控えめな下線を追加 */
+            border-bottom: 2px solid #FFD166; /* ウォームイエローの下線 */
         }
 
         /* レスポンシブ調整: 小さい画面での文字サイズ調整 */
@@ -1196,33 +1169,19 @@ body::before {
         /* お問い合わせセクションの呼びかけテキストのスタイル */
         .contact-call-to-action {
             font-size: 1.5rem;
-            /* 小見出し (h3) くらいのサイズ、ただし少し小さめに */
             font-weight: 700;
-            /* 太字に */
-            color: #2d3748;
-            /* 通常のテキストより濃い色 */
+            color: #FF6B8B; /* ポップなピンク */
             text-align: center;
-            /* テキスト自体を中央寄せ */
             margin-top: 35px;
-            /* 上部にQRコードとの余白を多めに確保 */
             margin-bottom: 25px;
-            /* 下部の余白を確保 */
             line-height: 1.5;
-            /* 行の高さ */
             padding-bottom: 5px;
-            /* 下線との間に少し余白 */
-            border-bottom: 2px dashed #cbd5e0;
-            /* 点線の下線を追加して、柔らかい区切り */
+            border-bottom: 2px dashed #00C0F0; /* スカイブルーの点線の下線 */
             display: block;
-            /* ブロック要素にして幅いっぱいにし、margin: auto で中央寄せを可能に */
             width: fit-content;
-            /* コンテンツの幅に合わせる */
             max-width: 80%;
-            /* テキストが長すぎないように幅を制限 */
             margin-left: auto;
-            /* 左マージンを自動調整 */
             margin-right: auto;
-            /* 右マージンを自動調整 */
         }
 
         /* レスポンシブ調整: 小さい画面での文字サイズ調整 */
@@ -1245,355 +1204,65 @@ body::before {
         /* 社長紹介セクションの画像とテキストのレイアウト */
         #ceo-intro .ceo-content-wrapper {
             display: flex;
-            /* Flexboxを有効にする */
             flex-direction: row;
-            /* テキストと画像を横並びに配置 */
             align-items: flex-start;
-            /* アイテムを上端に揃える */
             gap: 30px;
-            /* テキストと画像の間の隙間 */
             margin-top: 20px;
-            /* 上部に余白 */
             flex-wrap: wrap;
-            /* 画面が狭くなったら折り返す */
         }
 
         #ceo-intro .ceo-text-left {
             flex: 1;
-            /* 利用可能なスペースを埋めるように伸縮 */
             min-width: 280px;
-            /* テキスト領域の最小幅を設定 */
         }
 
         #ceo-intro .ceo-image-right {
             flex-shrink: 0;
-            /* 画像コンテナが縮小しないようにする */
             max-width: 350px;
-            /* 画像コンテナの最大幅を制限 */
             width: 100%;
-            /* コンテナ内で画像がレスポンシブに調整されるように */
             margin-left: auto;
-            /* 画像を右に寄せる */
         }
 
         #ceo-intro .ceo-image-right img {
             width: 100%;
-            /* 画像を親コンテナの幅に合わせる */
             height: auto;
-            /* アスペクト比を維持 */
-            /* content-image クラスが既に適用されているため、box-shadowやborder-radiusはそのまま利用されます */
         }
 
         /* レスポンシブ調整: 画面幅が狭い場合 */
         @media (max-width: 768px) {
             #ceo-intro .ceo-content-wrapper {
                 flex-direction: column;
-                /* 縦方向に積み重ねる */
                 align-items: center;
-                /* 積み重ねた際に中央寄せにする */
                 gap: 20px;
             }
 
             #ceo-intro .ceo-image-right {
                 order: -1;
-                /* 画像をテキストの上に移動させる */
                 max-width: 250px;
-                /* 画像の最大幅を調整 */
             }
 
             #ceo-intro .ceo-text-left {
                 text-align: center;
-                /* テキストを中央寄せにする */
             }
         }
 
         @media (max-width: 480px) {
             #ceo-intro .ceo-image-right {
                 max-width: 200px;
-                /* さらに小さい画面での画像サイズ調整 */
             }
         }
 
         /* ここにビジネスモデルセクションの特定テキストのスタイルを追加 */
         #business-model ul>li {
             font-size: 1.1rem;
-            /* 少し大きくしました */
             font-family: "游ゴシック体", "Yu Gothic", YuGothic, "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "メイリオ", Meiryo, Osaka, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
-            /* ゴシック体に変更 */
             margin-bottom: 0.8rem;
-            /* 行間を少し調整 */
         }
 
         #business-model>p:nth-child(3)+ul>li {
-            /* 「私たちは、」以下のリスト */
             font-size: 1.1rem;
-            /* 少し大きくしました */
             font-family: "游ゴシック体", "Yu Gothic", YuGothic, "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "メイリオ", Meiryo, Osaka, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
-            /* ゴシック体に変更 */
             margin-bottom: 0.6rem;
-            /* 行間を少し調整 */
-        }
-
-        /* ================================================= */
-        /* === レスポンシブ対応（追加・修正箇所） === */
-        /* ================================================= */
-
-        /* 768px以下の画面幅に適用 */
-        @media (max-width: 768px) {
-            body {
-                padding: 15px;
-                /* 全体のパディングを調整 */
-                padding-top: 110px;
-                /* ヘッダーの高さに合わせて調整 */
-            }
-
-            .p-header {
-                padding: 5px 15px;
-                /* ヘッダーのパディングを調整 */
-            }
-
-            .p-header__logo img {
-                max-height: 60px;
-                /* モバイルでのロゴの高さ */
-            }
-
-            .p-header__right {
-                gap: 10px;
-                /* ヘッダーボタン間のスペースを調整 */
-            }
-
-            .u-desktop {
-                display: none;
-                /* デスクトップ用ボタンを非表示 */
-            }
-
-            .p-hamburger {
-                display: block;
-                /* ハンバーガーメニューを表示 */
-            }
-
-            .p-g-nav {
-                padding: 15px;
-                /* グローバルナビのパディングを調整 */
-                gap: 10px;
-                /* ナビ内アイテム間のスペースを調整 */
-            }
-
-            .p-g-nav__inner {
-                flex-direction: column;
-                /* ナビ内アイテムを縦並びにする */
-                gap: 10px;
-                /* ナビ内アイテム間のスペースを調整 */
-            }
-
-            .p-g-nav__left,
-            .p-g-nav__center,
-            .p-g-nav__right {
-                display: flex;
-                flex-direction: column;
-                /* 各列を縦並びにする */
-                gap: 10px;
-                width: 100%;
-            }
-
-            .p-g-nav__item a,
-            .p-g-nav__btn {
-                padding: 10px;
-                /* ナビ内ボタンのパディングを調整 */
-                font-size: 0.9rem;
-                /* 文字サイズを調整 */
-            }
-
-            section {
-                padding: 20px;
-                /* セクションのパディングを調整 */
-                margin-bottom: 20px;
-            }
-
-            section h2 {
-                font-size: 1.8rem;
-                /* セクションタイトルの文字サイズを調整 */
-                padding: 8px 15px;
-            }
-
-            #hero {
-                padding: 40px 15px;
-            }
-
-            #hero h2 {
-                font-size: 2.2rem;
-                /* ヒーローセクションタイトルの文字サイズを調整 */
-            }
-
-            #hero p {
-                font-size: 1.1rem;
-                /* ヒーローセクション説明文の文字サイズを調整 */
-            }
-
-            section a.btn {
-                padding: 10px 20px;
-                font-size: 0.95rem;
-            }
-
-            .image-gallery {
-                gap: 20px;
-                /* 画像ギャラリーのギャップを調整 */
-            }
-
-            .qr-code-container img {
-                max-width: 200px;
-                /* QRコードの最大幅を調整 */
-            }
-
-            .qr-code-container p {
-                font-size: 0.9rem;
-                /* QRコード説明文の文字サイズを調整 */
-            }
-            
-            /* NEW: 動画コンテナのモバイル調整 (ここから追記) */
-            .video-container {
-                padding-bottom: 56.25%; /* アスペクト比維持 */
-            }
-
-            /* 社長紹介セクションのモバイルでの調整 */
-            #ceo-intro .ceo-content-wrapper {
-                flex-direction: column;
-                /* 縦方向に積み重ねる */
-                align-items: center;
-                /* 中央寄せ */
-                gap: 20px;
-            }
-
-            #ceo-intro .ceo-image-right {
-                order: -1;
-                /* 画像をテキストの上に移動 */
-                max-width: 250px;
-                /* 画像の最大幅を調整 */
-            }
-
-            #ceo-intro .ceo-text-left {
-                text-align: center;
-                /* テキストを中央寄せ */
-            }
-
-            /* 事業概要の小見出し */
-            #business-overview h3.sub-heading {
-                font-size: 1.3rem;
-            }
-
-            /* エンジニアのキャリアパスの項目 */
-            #engineer-career .gallery-item h3.career-title {
-                /* pからh3にセレクタを修正 */
-                font-size: 1.3rem;
-            }
-
-            /* 組織文化の導入文 */
-            #culture .intro-text {
-                font-size: 1.5rem;
-            }
-
-            /* 会社の強みの4つの自信 */
-            #strengths .strength-point {
-                font-size: 1.3rem;
-            }
-
-            /* ビジネスモデルのリスト */
-            #business-model ul>li {
-                font-size: 1rem;
-            }
-
-            #business-model>p:nth-child(3)+ul>li {
-                font-size: 1rem;
-            }
-        }
-
-        /* 480px以下の画面幅に適用 (さらに小さいスマートフォン向け) */
-        @media (max-width: 480px) {
-            body {
-                padding: 10px;
-                padding-top: 100px;
-                /* ヘッダーの高さに合わせて調整 */
-            }
-
-            .p-header__logo img {
-                max-height: 50px;
-            }
-
-            .p-hamburger__menu {
-                font-size: 0.7rem;
-            }
-
-            section {
-                padding: 15px;
-                margin-bottom: 15px;
-            }
-
-            section h2 {
-                font-size: 1.5rem;
-                padding: 6px 10px;
-            }
-
-            #hero {
-                padding: 30px 10px;
-            }
-
-            #hero h2 {
-                font-size: 1.8rem;
-            }
-
-            #hero p {
-                font-size: 1rem;
-            }
-
-            section a.btn {
-                padding: 8px 18px;
-                font-size: 0.9rem;
-            }
-
-            .tab-button {
-                font-size: 0.8rem;
-                padding: 6px 10px;
-            }
-
-            .tab-content-container {
-                min-height: 180px;
-            }
-
-            /* 社長紹介セクションのモバイルでの調整 */
-            #ceo-intro .ceo-content-wrapper {
-                max-width: 200px;
-                /* さらに小さい画面での画像サイズ調整 */
-            }
-
-            /* 事業概要の小見出し */
-            #business-overview h3.sub-heading {
-                font-size: 1.1rem;
-            }
-
-            /* エンジニアのキャリアパスの項目 */
-            #engineer-career .gallery-item h3.career-title {
-                /* pからh3にセレクタを修正 */
-                font-size: 1.1rem;
-            }
-
-            /* 組織文化の導入文 */
-            #culture .intro-text {
-                font-size: 1.3rem;
-            }
-
-            /* 会社の強みの4つの自信 */
-            #strengths .strength-point {
-                font-size: 1.1rem;
-            }
-
-            /* ビジネスモデルのリスト */
-            #business-model ul>li {
-                font-size: 0.9rem;
-            }
-
-            #business-model>p:nth-child(3)+ul>li {
-                font-size: 0.9rem;
-            }
         }
     </style>
 </head>
@@ -1657,6 +1326,11 @@ body::before {
                             </a>
                         </div>
                     </div>
+                    <div class="p-g-nav__item p-g-nav__btn">
+                        <a href="#contact" class="p-btn p-btn__session"><span>お問い合わせはコチラ</span></a>
+                    </div>
+                    <div class="p-g-nav__item p-g-nav__btn">
+                        <a href="#culture" class="p-btn p-btn__recruit"><span>お役立ち情報</span></a>
                     </div>
                 </div>
             </nav>
@@ -1747,7 +1421,7 @@ body::before {
                                         <div class="node engineering" data-aos="slide-up" data-aos-delay="100">
                                             <i class="fas fa-cogs department-icon"></i><br>
                                             エンジニアリング事業部
-                                            <div class="details">部長5名<br>エンジニア: 265名</div>
+                                            <div class="details">部長5名<br>マネージャー18名<br>エンジニア</div>
                                         </div>
                                     </li>
                                     <li>
@@ -1791,7 +1465,7 @@ body::before {
                                         <div class="node infra-dept-1" data-aos="slide-up" data-aos-delay="100">
                                             <i class="fas fa-server department-icon"></i><br>
                                             第一事業部
-                                            <div class="details">部長<br>マネジメントメンバー: 4名</div>
+                                            <div class="details">部長<br>マネージャー: 4名</div>
                                         </div>
                                         <ul>
                                             <li>
@@ -1804,7 +1478,7 @@ body::before {
                                         <div class="node infra-dept-2" data-aos="slide-up" data-aos-delay="150">
                                             <i class="fas fa-network-wired department-icon"></i><br>
                                             第二事業部
-                                            <div class="details">部長<br>マネジメントメンバー: 4名</div>
+                                            <div class="details">部長<br>マネージャー: 4名</div>
                                         </div>
                                         <ul>
                                             <li>
@@ -1817,7 +1491,7 @@ body::before {
                                         <div class="node dev-dept" data-aos="slide-up" data-aos-delay="200">
                                             <i class="fas fa-code department-icon"></i><br>
                                             第三事業部
-                                            <div class="details">部長<br>マネジメントメンバー: 4名</div>
+                                            <div class="details">部長<br>マネージャー: 4名</div>
                                         </div>
                                         <ul>
                                             <li>
@@ -1830,7 +1504,7 @@ body::before {
                                         <div class="node consult-dept" data-aos="slide-up" data-aos-delay="250">
                                             <i class="fas fa-lightbulb department-icon"></i><br>
                                             第四事業部
-                                            <div class="details">部長<br>マネジメントメンバー: 4名</div>
+                                            <div class="details">部長<br>マネージャー: 4名</div>
                                         </div>
                                         <ul>
                                             <li>
@@ -1843,7 +1517,7 @@ body::before {
                                         <div class="node data-science-dept" data-aos="slide-up" data-aos-delay="300">
                                             <i class="fas fa-chart-line department-icon"></i><br>
                                             第五事業部
-                                            <div class="details">部長<br>マネジメントメンバー: 2名</div>
+                                            <div class="details">部長<br>マネージャー: 2名</div>
                                         </div>
                                         <ul>
                                             <li>
@@ -1923,39 +1597,16 @@ body::before {
         <h2>7. 先輩エンジニアへインタビュー</h2>
         <div class="image-gallery">
             <div class="gallery-item" data-aos="fade-up" data-aos-delay="100">
-                <div class="engineer-photo">
-                    <img src="images/engineer_ji.jpg" alt="インフラエンジニア J・I さんの写真" loading="lazy">
-                </div>
-                <div class="engineer-text">
-                    <h3 class="career-title">インフラエンジニア：J・I</h3>
-                    <p>「未経験からこの会社に入社し、充実した研修と先輩方のサポートのおかげで、今ではAWSの設計・構築を担当しています。毎日が新しい学びの連続で、自分の成長を実感できる環境です。」</p>
-                </div>
-            </div>
-            <div class="gallery-item" data-aos="fade-up" data-aos-delay="100"> <div class="engineer-photo">
-                    <img src="images/engineer_kn.jpg" alt="インフラエンジニア K・N さんの写真" loading="lazy">
-                </div>
-                <div class="engineer-text">
-                    <h3 class="career-title">インフラエンジニア：K・N</h3>
-                    <p>「未経験からこの会社に入社し、充実した研修と先輩方のサポートのおかげで、今ではAWSの設計・構築を担当しています。毎日が新しい学びの連続で、自分の成長を実感できる環境です。」</p>
-                </div>
+                <h3 class="career-title">インフラエンジニア：田中 太郎</h3>
+                <p>「未経験からこの会社に入社し、充実した研修と先輩方のサポートのおかげで、今ではAWSの設計・構築を担当しています。毎日が新しい学びの連続で、自分の成長を実感できる環境です。」</p>
             </div>
             <div class="gallery-item" data-aos="fade-up" data-aos-delay="200">
-                <div class="engineer-photo">
-                    <img src="images/engineer_rk.jpg" alt="開発エンジニア R・K さんの写真" loading="lazy">
-                </div>
-                <div class="engineer-text">
-                    <h3 class="career-title">開発エンジニア：R・K</h3>
-                    <p>「私はWebアプリケーション開発を担当しています。ここでは新しい技術に積極的に挑戦できる文化があり、最先端の技術を実務で活かす機会が豊富です。チームで協力し、大きなプロジェクトを成功させる喜びを感じています。」</p>
-                </div>
+                <h3 class="career-title">開発エンジニア：佐藤 花子</h3>
+                <p>「私はWebアプリケーション開発を担当しています。ここでは新しい技術に積極的に挑戦できる文化があり、最先端の技術を実務で活かす機会が豊富です。チームで協力し、大きなプロジェクトを成功させる喜びを感じています。」</p>
             </div>
             <div class="gallery-item" data-aos="fade-up" data-aos-delay="300">
-                <div class="engineer-photo">
-                    <img src="images/engineer_tu.jpg" alt="コンサルエンジニア T・U さんの写真" loading="lazy">
-                </div>
-                <div class="engineer-text">
-                    <h3 class="career-title">コンサルエンジニア：T・U</h3>
-                    <p>「お客様のビジネス課題をITで解決するコンサルティング業務に魅力を感じています。技術力だけでなく、コミュニケーション能力や提案力も磨けるため、多角的に成長したい方には最適な環境だと思います。」</p>
-                </div>
+                <h3 class="career-title">コンサルエンジニア：鈴木 一郎</h3>
+                <p>「お客様のビジネス課題をITで解決するコンサルティング業務に魅力を感じています。技術力だけでなく、コミュニケーション能力や提案力も磨けるため、多角的に成長したい方には最適な環境だと思います。」</p>
             </div>
         </div>
     </section>
@@ -2016,8 +1667,7 @@ body::before {
         </ol>
         <p class="future-call-to-action" data-aos="zoom-in" data-aos-delay="200">ビジネス研修</p>
         <div class="gallery-item" data-aos="fade-up" data-aos-delay="550">
-            <img src="images/キャリア研修4.jpeg" alt="ビジネス研修風景のイメージ" class="content-image" loading="lazy" data-aos="zoom-in"
-                data-aos-delay="300" width="600" height="400">
+            <img src="images/キャリア研修4.jpeg" alt="ビジネス研修風景のイメージ" class="content-image" loading="lazy" width="600" height="400">
         </div>
 
         <h3 id="culture-club" data-aos="fade-up" data-aos-delay="500">組織文化（部活）</h3>
@@ -2053,14 +1703,15 @@ body::before {
             </div>
         </div>
     </section>
-    
+
     <section id="company-video" data-aos="fade-up">
         <h2>11. 会社の雰囲気（動画）</h2>
         <p data-aos="fade-up" data-aos-delay="100">SPINTECHNOLOGYの活気ある職場環境や社員の様子をご紹介します。</p>
         <div class="video-container" data-aos="fade-up" data-aos-delay="200">
-            <video controls playsinline autoplay muted loop preload="metadata" poster="images/2025.6総会movie_poster.jpg">
-                <source src="videos/2025.6総会movie.mp4" type="video/mp4"> 
-                </video>
+            <video controls preload="metadata" poster="images/2025.6総会movie_poster.jpg">
+                <source src="videos/2025.6総会movie.mp4" type="video/mp4">
+                お使いのブラウザは動画タグをサポートしていません。
+            </video>
         </div>
         <p data-aos="fade-up" data-aos-delay="300">※動画はイメージです。</p>
     </section>
@@ -2134,13 +1785,13 @@ body::before {
         <h2>16. 採用情報とお問い合わせ</h2>
         <ul>
             <li data-aos="fade-up" data-aos-delay="100">公式ホームページ<br><a href="https://spintechnology.jp"
-                    target="_blank">https://spintechnology.jp?hl=ja</a></li>
+                        target="_blank">https://spintechnology.jp?hl=ja</a></li>
             <li data-aos="fade-up" data-aos-delay="100">公式Instagram<br><a
-                    href="https://www.instagram.com/spintec.official/?hl=ja"
-                    target="_blank">https://www.instagram.com/spintec.official//</a></li>
+                        href="https://www.instagram.com/spintec.official/?hl=ja"
+                        target="_blank">https://www.instagram.com/spintec.official//</a></li>
             <li data-aos="fade-up" data-aos-delay="100">26卒生の説明会はこちら<br><a
-                    href="https://job.mynavi.jp/26/pc/corpinfo/displaySeminar/index?optNo=S1YStC&corpId=271969"
-                    target="_blank">https://job.mynavi.jp/26/pc/corpinfo/displaySeminar/index?optNo=S1YStC&corpId=271969</a>
+                        href="https://job.mynavi.jp/26/pc/corpinfo/displaySeminar/index?optNo=S1YStC&corpId=271969"
+                        target="_blank">https://job.mynavi.jp/26/pc/corpinfo/displaySeminar/index?optNo=S1YStC&corpId=271969</a>
             </li>
         </ul>
         <h4 class="contact-call-to-action" data-aos="fade-up" data-aos-delay="150">ご質問があれば、お気軽にお問い合わせ・ご連絡ください。</h4>
@@ -2176,7 +1827,10 @@ body::before {
                 buttons[i].classList.remove("active");
             }
             document.getElementById(tabName).style.display = "block";
-            event.currentTarget.classList.add("active");
+            // event.currentTargetがnullになる場合があるためチェック
+            if (event.currentTarget) {
+                event.currentTarget.classList.add("active");
+            }
         }
 
         // 初期表示で「組織全体図」タブをアクティブにする
@@ -2202,8 +1856,12 @@ body::before {
 
         gNavItems.forEach(item => {
             item.addEventListener('click', () => {
+                // ページ内リンクでタブが閉じない場合は、以下を追加することで対応できます
+                // const isPageLink = item.getAttribute('href').startsWith('#');
+                // if (isPageLink) {
                 hamburger.classList.remove('is-active'); // ハンバーガーアイコンを非アクティブに
-                gNav.classList.remove('is-active');     // グローバルナビゲーションを非表示に
+                gNav.classList.remove('is-active');      // グローバルナビゲーションを非表示に
+                // }
             });
         });
 
@@ -2213,13 +1871,13 @@ body::before {
         gNavBtns.forEach(btn => {
             btn.addEventListener('click', () => {
                 hamburger.classList.remove('is-active'); // ハンバーガーアイコンを非アクティブに
-                gNav.classList.remove('is-active');     // グローバルナビゲーションを非表示に
+                gNav.classList.remove('is-active');      // グローバルナビゲーションを非表示に
             });
         });
         // --- ここまで追加 ---
-        
-
     </script>
-
 </body>
+
 </html>
+
+
