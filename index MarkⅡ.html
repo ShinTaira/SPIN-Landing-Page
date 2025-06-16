@@ -1264,6 +1264,48 @@
             font-family: "游ゴシック体", "Yu Gothic", YuGothic, "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "メイリオ", Meiryo, Osaka, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
             margin-bottom: 0.6rem;
         }
+
+        /* 先輩エンジニアの画像とテキストの配置調整 */
+#engineer-interviews .gallery-item {
+    display: flex; /* Flexboxを使って横並びにする */
+    align-items: flex-start; /* アイテムを上端揃えにする */
+    gap: 20px; /* 写真とテキストの間の隙間 */
+    text-align: left; /* テキスト全体を左揃えにする (個別のPタグなどは引き続き左揃え) */
+    flex-wrap: wrap; /* 画面が狭くなったら折り返すようにする */
+}
+
+#engineer-interviews .engineer-photo {
+    flex-shrink: 0; /* 写真が縮まないようにする */
+    width: 100px; /* 写真の固定幅 (調整可能) */
+    height: 100px; /* 写真の固定高さ (調整可能) */
+    border-radius: 50%; /* 写真を円形にする */
+    overflow: hidden; /* 円形からはみ出る部分を隠す */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* 写真に影をつける */
+}
+
+#engineer-interviews .engineer-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* 画像をボックスに収まるようにトリミング（縦横比維持） */
+    display: block; /* ブロック要素にしてレイアウトを安定させる */
+}
+
+#engineer-interviews .engineer-text {
+    flex-grow: 1; /* 残りのスペースを埋めるようにテキスト部分を広げる */
+}
+
+/* モバイルでの調整 */
+@media (max-width: 768px) {
+    #engineer-interviews .gallery-item {
+        flex-direction: column; /* 画面が狭くなったら縦並びにする */
+        align-items: center; /* 縦並び時に中央揃えにする */
+        text-align: center; /* テキストも中央揃えにする */
+    }
+    #engineer-interviews .engineer-photo {
+        margin-bottom: 15px; /* 写真の下に余白を追加 */
+    }
+}
+
     </style>
 </head>
 
@@ -1597,16 +1639,39 @@
         <h2>7. 先輩エンジニアへインタビュー</h2>
         <div class="image-gallery">
             <div class="gallery-item" data-aos="fade-up" data-aos-delay="100">
-                <h3 class="career-title">インフラエンジニア：田中 太郎</h3>
-                <p>「未経験からこの会社に入社し、充実した研修と先輩方のサポートのおかげで、今ではAWSの設計・構築を担当しています。毎日が新しい学びの連続で、自分の成長を実感できる環境です。」</p>
+                <div class="engineer-photo">
+                    <img src="images/engineer_ji.jpg" alt="インフラエンジニア J・I さんの写真" loading="lazy">
+                </div>
+                <div class="engineer-text">
+                    <h3 class="career-title">インフラエンジニア：J・I</h3>
+                    <p>「未経験からこの会社に入社し、充実した研修と先輩方のサポートのおかげで、今ではAWSの設計・構築を担当しています。毎日が新しい学びの連続で、自分の成長を実感できる環境です。」</p>
+                </div>
+            </div>
+            <div class="gallery-item" data-aos="fade-up" data-aos-delay="100"> <div class="engineer-photo">
+                    <img src="images/engineer_kn.jpg" alt="インフラエンジニア K・N さんの写真" loading="lazy">
+                </div>
+                <div class="engineer-text">
+                    <h3 class="career-title">インフラエンジニア：K・N</h3>
+                    <p>「未経験からこの会社に入社し、充実した研修と先輩方のサポートのおかげで、今ではAWSの設計・構築を担当しています。毎日が新しい学びの連続で、自分の成長を実感できる環境です。」</p>
+                </div>
             </div>
             <div class="gallery-item" data-aos="fade-up" data-aos-delay="200">
-                <h3 class="career-title">開発エンジニア：佐藤 花子</h3>
-                <p>「私はWebアプリケーション開発を担当しています。ここでは新しい技術に積極的に挑戦できる文化があり、最先端の技術を実務で活かす機会が豊富です。チームで協力し、大きなプロジェクトを成功させる喜びを感じています。」</p>
+                <div class="engineer-photo">
+                    <img src="images/engineer_rk.jpg" alt="開発エンジニア R・K さんの写真" loading="lazy">
+                </div>
+                <div class="engineer-text">
+                    <h3 class="career-title">開発エンジニア：R・K</h3>
+                    <p>「私はWebアプリケーション開発を担当しています。ここでは新しい技術に積極的に挑戦できる文化があり、最先端の技術を実務で活かす機会が豊富です。チームで協力し、大きなプロジェクトを成功させる喜びを感じています。」</p>
+                </div>
             </div>
             <div class="gallery-item" data-aos="fade-up" data-aos-delay="300">
-                <h3 class="career-title">コンサルエンジニア：鈴木 一郎</h3>
-                <p>「お客様のビジネス課題をITで解決するコンサルティング業務に魅力を感じています。技術力だけでなく、コミュニケーション能力や提案力も磨けるため、多角的に成長したい方には最適な環境だと思います。」</p>
+                <div class="engineer-photo">
+                    <img src="images/engineer_tu.jpg" alt="コンサルエンジニア T・U さんの写真" loading="lazy">
+                </div>
+                <div class="engineer-text">
+                    <h3 class="career-title">コンサルエンジニア：T・U</h3>
+                    <p>「お客様のビジネス課題をITで解決するコンサルティング業務に魅力を感じています。技術力だけでなく、コミュニケーション能力や提案力も磨けるため、多角的に成長したい方には最適な環境だと思います。」</p>
+                </div>
             </div>
         </div>
     </section>
@@ -1708,10 +1773,9 @@
         <h2>11. 会社の雰囲気（動画）</h2>
         <p data-aos="fade-up" data-aos-delay="100">SPINTECHNOLOGYの活気ある職場環境や社員の様子をご紹介します。</p>
         <div class="video-container" data-aos="fade-up" data-aos-delay="200">
-            <video controls preload="metadata" poster="images/2025.6総会movie_poster.jpg">
-                <source src="videos/2025.6総会movie.mp4" type="video/mp4">
-                お使いのブラウザは動画タグをサポートしていません。
-            </video>
+            <video controls playsinline autoplay muted loop preload="metadata" poster="images/2025.6総会movie_poster.jpg">
+                <source src="videos/2025.6総会movie.mp4" type="video/mp4"> 
+                </video>
         </div>
         <p data-aos="fade-up" data-aos-delay="300">※動画はイメージです。</p>
     </section>
@@ -1879,5 +1943,3 @@
 </body>
 
 </html>
-
-

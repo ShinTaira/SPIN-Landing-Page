@@ -1595,6 +1595,47 @@ body::before {
                 font-size: 0.9rem;
             }
         }
+
+        /* 先輩エンジニアの画像とテキストの配置調整 */
+#engineer-interviews .gallery-item {
+    display: flex; /* Flexboxを使って横並びにする */
+    align-items: flex-start; /* アイテムを上端揃えにする */
+    gap: 20px; /* 写真とテキストの間の隙間 */
+    text-align: left; /* テキスト全体を左揃えにする (個別のPタグなどは引き続き左揃え) */
+    flex-wrap: wrap; /* 画面が狭くなったら折り返すようにする */
+}
+
+#engineer-interviews .engineer-photo {
+    flex-shrink: 0; /* 写真が縮まないようにする */
+    width: 100px; /* 写真の固定幅 (調整可能) */
+    height: 100px; /* 写真の固定高さ (調整可能) */
+    border-radius: 50%; /* 写真を円形にする */
+    overflow: hidden; /* 円形からはみ出る部分を隠す */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* 写真に影をつける */
+}
+
+#engineer-interviews .engineer-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* 画像をボックスに収まるようにトリミング（縦横比維持） */
+    display: block; /* ブロック要素にしてレイアウトを安定させる */
+}
+
+#engineer-interviews .engineer-text {
+    flex-grow: 1; /* 残りのスペースを埋めるようにテキスト部分を広げる */
+}
+
+/* モバイルでの調整 */
+@media (max-width: 768px) {
+    #engineer-interviews .gallery-item {
+        flex-direction: column; /* 画面が狭くなったら縦並びにする */
+        align-items: center; /* 縦並び時に中央揃えにする */
+        text-align: center; /* テキストも中央揃えにする */
+    }
+    #engineer-interviews .engineer-photo {
+        margin-bottom: 15px; /* 写真の下に余白を追加 */
+    }
+}
     </style>
 </head>
 
