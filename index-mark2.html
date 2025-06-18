@@ -24,7 +24,7 @@
         window.dataLayer = window.dataLayer || [];
         function gtag() { dataLayer.push(arguments); }
         gtag('js', new Date());
-        gtag('config', 'G-TY2ZY9YFGG');
+        gtag('config', 'G-TY2ZY9YFGG'); // ここを改行して、適切なインデントを適用
     </script>
     <style>
         /* ==================================================== */
@@ -34,9 +34,12 @@
             scroll-behavior: smooth;
         }
 
+        /* bodyのデフォルトスタイル（PC向け） */
         body {
             font-family: 'Inter', sans-serif;
             background-color: transparent;
+            color: #333333;
+
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -50,6 +53,7 @@
             z-index: 1;
         }
 
+        /* ★変更点: bodyの背景を明るく鮮やかなグラデーションに */
         body::before {
             content: '';
             position: fixed;
@@ -57,23 +61,21 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-image: url('images/PC透かし2.jpeg');
+            background: linear-gradient(135deg, #A0E7FD 0%, #C0A0FD 100%); /* スカイブルーから藤色へのグラデーション */
             background-repeat: no-repeat;
             background-size: cover;
             background-position: center center;
             background-attachment: fixed;
             z-index: -1;
-            filter: blur(5px);
-            background-color: rgba(179, 136, 255, 0.2);
-            background-blend-mode: overlay;
-            opacity: 0.8;
+            filter: none;
+            opacity: 1;
         }
 
         /* ヘッダーのスタイル */
         .p-header {
             width: 100%;
-            background-color: #ffffff;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+            background-color: #FFFFFF;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
             padding: 10px 30px;
             display: flex;
             justify-content: center;
@@ -97,6 +99,7 @@
             max-height: 70px;
             width: auto;
             vertical-align: middle;
+            filter: none;
         }
 
         .p-header__right {
@@ -105,19 +108,22 @@
             gap: 15px;
         }
 
+        /* ヘッダー内のボタンの共通スタイル */
         .p-header__btn {
             display: inline-block;
             padding: 8px 15px;
-            border-radius: 8px;
+            border-radius: 25px;
             font-weight: 700;
             text-decoration: none;
-            transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
             white-space: nowrap;
+            border: none;
+            transform: translateY(0);
         }
 
         .p-header__btn a {
-            color: #333333;
+            color: #FFFFFF;
             text-decoration: none;
             display: flex;
             align-items: center;
@@ -125,82 +131,97 @@
             gap: 5px;
         }
 
+        /* 各ボタンの背景色を鮮やかに */
         .p-btn__session {
-            background-color: #BBDEFB;
+            background-color: #00C0F0; /* スカイブルー */
         }
 
         .p-btn__recruit {
-            background-color: #A5D6A7;
+            background-color: #76DD6F; /* 明るいグリーン */
         }
 
         .p-btn__seminar {
-            background-color: #FFECB3;
+            background-color: #FF6B8B; /* ポップなピンク */
         }
 
         .p-btn__company {
-            background-color: #FFD1DC;
+            background-color: #FFD166; /* ウォームイエロー */
         }
 
         .p-btn__entry {
-            background-color: #FFEB3B;
+            background-color: #A06CD5; /* パープル */
         }
 
         .p-header__btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+            filter: brightness(1.1);
         }
 
+        /* グローバルナビゲーションのスタイル */
         .p-g-nav {
             display: none;
-            position: absolute;
-            top: 100%;
+            position: fixed; /* fixedに変更 */
+            top: 0; /* 全画面を覆う */
             left: 0;
             width: 100%;
-            background-color: #f0f4f8;
+            height: 100%; /* 全画面を覆う */
+            background-color: rgba(255, 255, 255, 0.98); /* ほぼ不透明な白 */
             padding: 20px;
-            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.08);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
             z-index: 999;
             flex-direction: column;
             gap: 15px;
+            justify-content: center; /* 縦方向中央寄せ */
+            align-items: center; /* 横方向中央寄せ */
+            opacity: 0; /* 初期は非表示で透明 */
+            visibility: hidden; /* 初期は非表示 */
+            transition: opacity 0.3s ease, visibility 0.3s ease;
         }
 
         .p-g-nav.is-active {
             display: flex;
+            opacity: 1; /* アクティブ時に表示 */
+            visibility: visible; /* アクティブ時に表示 */
         }
 
         .p-g-nav__inner {
             display: flex;
             flex-direction: column;
             gap: 15px;
-            max-width: 1200px;
+            width: 90%; /* スマホでの幅調整 */
+            max-width: 400px; /* スマホでの最大幅 */
             margin: 0 auto;
         }
 
         .p-g-nav__item a {
             display: block;
-            padding: 10px 15px;
-            background-color: #ffffff;
-            border-radius: 8px;
+            padding: 12px 20px;
+            background-color: #F0F8FF;
+            border-radius: 10px;
             text-decoration: none;
-            color: #2d3748;
-            transition: background-color 0.3s ease, transform 0.2s ease;
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            color: #333333;
+            transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08);
+            text-align: center; /* リンクテキスト中央寄せ */
         }
 
         .p-g-nav__item a:hover {
-            background-color: #e2e8f0;
-            transform: translateY(-1px);
+            background-color: #E6EFFF;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
         }
 
         .p-g-nav__sub-title {
             font-size: 0.8rem;
-            color: #718096;
+            color: #777777;
             margin-bottom: 2px;
         }
 
         .p-g-nav__title {
             font-size: 1.1rem;
             font-weight: 600;
+            color: #007BFF;
         }
 
         .p-g-nav__btn {
@@ -215,8 +236,9 @@
             vertical-align: middle;
         }
 
+        /* ハンバーガーメニューのスタイル */
         .p-hamburger {
-            display: none;
+            display: none; /* デフォルトでは非表示 */
             background: none;
             border: none;
             cursor: pointer;
@@ -239,7 +261,7 @@
             display: block;
             width: 100%;
             height: 2px;
-            background-color: #4a5568;
+            background-color: #333333;
             transition: all 0.3s ease;
         }
 
@@ -257,177 +279,139 @@
 
         .p-hamburger__menu {
             font-size: 0.8rem;
-            color: #4a5568;
+            color: #333333;
             margin-top: 5px;
         }
 
+        /* section */
         section {
             width: 100%;
             max-width: 1200px;
-            background-color: rgba(255, 255, 255, 0.8);
-            border-radius: 12px;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-            padding: 30px;
+            background-color: rgba(255, 255, 255, 0.50);
+            color: #333333;
+            border-radius: 18px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            padding: 40px;
             margin-bottom: 30px;
             text-align: left;
             transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
         }
 
         section:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
         }
 
+        /* 各セクションのh2のスタイルをポップなグラデーションに */
         section h2 {
-            font-size: 2.25rem;
-            font-weight: 700;
-            color: #ffffff;
-            margin-bottom: 20px;
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #FFFFFF;
+            margin-bottom: 25px;
             text-align: center;
             border-bottom: none;
-            padding: 15px 20px;
-            border-radius: 8px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
-            background-color: #4299e1;
+            padding: 18px 25px;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            background: linear-gradient(45deg, #00C0F0, #A06CD5);
+            transition: all 0.3s ease;
         }
 
-        #company-overview h2 {
-            background-color: #FFD1DC;
-        }
+        /* 各セクションのh2に個別のグラデーションを設定 */
+        #company-overview h2 { background: linear-gradient(45deg, #00C0F0, #76DD6F); } /* スカイブルー -> グリーン */
+        #business-overview h2 { background: linear-gradient(45deg, #76DD6F, #FFD166); } /* グリーン -> イエロー */
+        #organization-chart h2 { background: linear-gradient(45deg, #FFD166, #FF6B8B); } /* イエロー -> ピンク */
+        #ceo-intro h2 { background: linear-gradient(45deg, #FF6B8B, #A06CD5); } /* ピンク -> パープル */
+        #history h2 { background: linear-gradient(45deg, #A06CD5, #00C0F0); } /* パープル -> スカイブルー */
+        #engineer-career h2 { background: linear-gradient(45deg, #00C0F0, #FFD166); } /* スカイブルー -> イエロー */
+        #engineer-interviews h2 { background: linear-gradient(45deg, #FFD166, #76DD6F); } /* イエロー -> グリーン */
+        #company-video h2 { background: linear-gradient(45deg, #76DD6F, #FF6B8B); } /* グリーン -> ピンク */
+        #mvv h2 { background: linear-gradient(45deg, #FF6B8B, #A06CD5); } /* ピンク -> パープル */
+        #business-model h2 { background: linear-gradient(45deg, #A06CD5, #00C0F0); } /* パープル -> スカイブルー */
+        #culture h2 { background: linear-gradient(45deg, #00C0F0, #FFD166); } /* スカイブルー -> イエロー */
+        #strengths h2 { background: linear-gradient(45deg, #FFD166, #76DD6F); } /* イエロー -> グリーン */
+        #rules-systems h2 { background: linear-gradient(45deg, #76DD6F, #FF6B8B); } /* グリーン -> ピンク */
+        #future h2 { background: linear-gradient(45deg, #FF6B8B, #A06CD5); } /* ピンク -> パープル */
+        #summary h2 { background: linear-gradient(45deg, #A06CD5, #00C0F0); } /* パープル -> スカイブルー */
+        #contact h2 { background: linear-gradient(45deg, #00C0F0, #FF6B8B); } /* スカイブルー -> ピンク */
 
-        #business-overview h2 {
-            background-color: #FFECB3;
-        }
 
-        #organization-chart h2 {
-            background-color: #D1C4E9;
-        }
-
-        #ceo-intro h2 {
-            background-color: #C8E6C9;
-        }
-
-        #history h2 {
-            background-color: #FFAB91;
-        }
-
-        #engineer-career h2 {
-            background-color: #BBDEFB;
-        }
-
-        #engineer-interviews h2 {
-            background-color: #90CAF9;
-        }
-
-        #company-video h2 {
-            background-color: #F48FB1;
-        }
-
-        #mvv h2 {
-            background-color: #F8BBD0;
-        }
-
-        #business-model h2 {
-            background-color: #FFE082;
-        }
-
-        #culture h2 {
-            background-color: #B39DDB;
-        }
-
-        #strengths h2 {
-            background-color: #A5D6A7;
-        }
-
-        #rules-systems h2 {
-            background-color: #FFCCBC;
-        }
-
-        #welfare h2 {
-            background-color: #CFD8DC;
-        }
-
-        #future h2 {
-            background-color: #B2DFDB;
-        }
-
-        #summary h2 {
-            background-color: #E6EE9C;
-        }
-
-        #contact h2 {
-            background-color: #FFEFD5;
-        }
-
+        /* hero */
         #hero {
-            background: linear-gradient(to right, #4299e1, #63b3ed);
+            background: linear-gradient(45deg, #00C0F0, #A06CD5); /* スカイブルーからパープルへのグラデーション */
             color: white;
             text-align: center;
-            padding: 60px 20px;
-            margin-bottom: 30px;
-            border-radius: 12px;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+            padding: 100px 20px;
+            margin-bottom: 40px;
+            border-radius: 20px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
             transition: none;
         }
 
         #hero h2 {
-            color: #ffffff;
-            font-size: 3rem;
-            margin-bottom: 15px;
-            border-bottom: none;
-            padding-bottom: 0;
-            box-shadow: none;
+            color: #FFFFFF;
+            font-size: 4.5rem;
+            margin-bottom: 20px;
+            text-shadow: 3px 3px 15px rgba(0, 0, 0, 0.5);
             background-color: transparent;
+            box-shadow: none;
+            padding: 0;
+            border-radius: 0;
         }
 
         #hero p {
-            font-size: 1.3rem;
-            color: #FFEB3B;
-            margin-bottom: 25px;
+            font-size: 1.8rem;
+            color: #FFD166;
+            margin-bottom: 40px;
+            font-weight: 600;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.4);
         }
 
         section a.btn {
             display: inline-block;
-            background-color: #FFEB3B;
+            background-color: #FFD166;
             color: #333333;
-            padding: 12px 25px;
-            border-radius: 8px;
+            padding: 16px 35px;
+            border-radius: 30px;
             text-decoration: none;
-            font-weight: 700;
+            font-weight: 800;
             margin-top: 20px;
-            transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
         }
 
         section a.btn:hover {
-            background-color: #FFD54F;
-            transform: translateY(-3px);
-            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+            background-color: #FFEA99;
+            transform: translateY(-7px) scale(1.05);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
         }
 
+        /* footer */
         footer {
             width: 100%;
-            background-color: #2a52be;
+            background-color: #1F4068;
             color: #ffffff;
             text-align: center;
-            padding: 20px 0;
-            margin-top: 30px;
-            border-top-left-radius: 12px;
-            border-top-right-radius: 12px;
+            padding: 25px 0;
+            margin-top: 40px;
+            border-top-left-radius: 15px;
+            border-top-right-radius: 15px;
+            box-shadow: 0 -5px 15px rgba(0, 0, 0, 0.2);
         }
 
         footer p {
             margin: 0;
-            font-size: 0.9rem;
+            font-size: 0.95rem;
         }
 
+        /* content-image, image-gallery, qr-code-container */
         .content-image {
             max-width: 100%;
             height: auto;
             display: block;
-            margin: 20px auto;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin: 25px auto;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
         }
 
         .image-gallery {
@@ -435,42 +419,47 @@
             flex-direction: column;
             flex-wrap: nowrap;
             align-items: center;
-            gap: 40px;
-            margin-top: 20px;
-            margin-bottom: 20px;
+            gap: 50px;
+            margin-top: 30px;
+            margin-bottom: 30px;
         }
 
         .image-gallery .gallery-item {
             flex: none;
             width: 100%;
-            max-width: 600px;
+            max-width: 650px;
             box-sizing: border-box;
             text-align: center;
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
         }
 
         .image-gallery .gallery-item img {
             width: 100%;
             height: auto;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
         }
 
         .image-gallery .gallery-item p {
-            font-size: 0.9rem;
-            color: #666;
-            margin-top: 10px;
+            font-size: 1rem;
+            color: #555555;
+            margin-top: 15px;
         }
 
+        /* NEW: ビデオコンテナのスタイル */
         .video-container {
             position: relative;
             width: 100%;
-            max-width: 800px;
-            margin: 20px auto;
+            max-width: 850px;
+            margin: 30px auto;
             padding-bottom: 56.25%;
             height: 0;
             overflow: hidden;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 12px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
             background-color: #000;
         }
 
@@ -484,7 +473,7 @@
         }
 
         .qr-code-container {
-            margin-top: 30px;
+            margin-top: 40px;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -492,74 +481,80 @@
 
         .qr-code-container img {
             width: 100%;
-            max-width: 300px;
+            max-width: 320px;
             height: auto;
-            border: 5px solid #f0f4f8;
-            border-radius: 8px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            margin-bottom: 10px;
+            border: 6px solid #FFD166;
+            border-radius: 12px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+            margin-bottom: 15px;
         }
 
         .qr-code-container p {
             margin-top: 0;
-            font-size: 1rem;
-            color: #4a5568;
+            font-size: 1.1rem;
+            color: #555555;
         }
 
-        /* 組織図 */
+        /* ================================================= */
+        /* === 組織図のスタイル (タブ形式) === */
+        /* ================================================= */
         .tabs {
-            background-color: #ffffff;
-            border-radius: 15px;
-            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.04);
-            padding: 20px;
-            margin: 15px auto;
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 18px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            margin: 20px auto;
             text-align: center;
             width: 100%;
-            max-width: 900px;
+            max-width: 950px;
             box-sizing: border-box;
+            color: #333333;
         }
 
         .tab-buttons {
             display: flex;
             justify-content: center;
-            margin-bottom: 15px;
+            margin-bottom: 20px;
         }
 
         .tab-button {
-            background-color: #f0f4f8;
-            color: #4a5568;
-            border: 1px solid #d1d5db;
-            padding: 8px 15px;
-            border-radius: 8px;
+            background-color: #E2E8F0;
+            color: #555555;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 25px;
             cursor: pointer;
-            transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.2s ease;
-            margin: 0 5px;
-            font-size: 0.9rem;
-        }
-
-        .tab-button.active {
-            background-color: #a0aec0;
-            color: #ffffff;
-            border-color: #a0aec0;
+            transition: all 0.3s ease;
+            margin: 0 8px;
+            font-size: 1rem;
+            font-weight: 600;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
         }
 
+        .tab-button.active {
+            background: linear-gradient(45deg, #00C0F0, #A06CD5);
+            color: #FFFFFF;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            transform: translateY(-3px);
+        }
+
         .tab-button:hover {
-            background-color: #cbd5e0;
-            color: #2d3748;
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            background-color: #D1D8E0;
+            transform: translateY(-2px);
+            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
         }
 
         .tab-content-container {
             overflow-x: auto;
             overflow-y: hidden;
-            border: 1px solid #e2e8f0;
-            border-radius: 8px;
-            padding: 15px;
-            background-color: #ffffff;
+            border: 1px solid #E2E8F0;
+            border-radius: 15px;
+            padding: 20px;
+            background-color: #FFFFFF;
             height: auto;
-            min-height: 250px;
+            min-height: 280px;
             position: relative;
+            box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.05);
         }
 
         .org-chart {
@@ -581,50 +576,57 @@
 
         .org-chart li {
             text-align: center;
-            margin: 10px 0;
+            margin: 15px 0;
             position: relative;
             flex-shrink: 0;
         }
 
         .node {
-            background-color: #ffffff;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-            padding: 10px 15px;
-            min-width: 140px;
+            background-color: #F0F8FF;
+            color: #333333;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            padding: 12px 18px;
+            min-width: 150px;
             text-align: center;
-            font-size: 0.8rem;
-            line-height: 1.2;
-            border: 1px solid #e2e8f0;
+            font-size: 0.9rem;
+            line-height: 1.3;
+            border: 1px solid #D1E9FF;
             box-sizing: border-box;
+            transition: all 0.2s ease;
+        }
+
+        .node:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 12px rgba(0, 0, 0, 0.15);
         }
 
         .node .department-icon {
-            font-size: 1.2rem;
-            margin-bottom: 5px;
-            color: #4a5568;
+            font-size: 1.4rem;
+            margin-bottom: 8px;
+            color: #007BFF;
             display: block;
         }
 
         .node .title {
-            font-size: 0.7rem;
-            color: #718096;
-            margin-top: 3px;
+            font-size: 0.8rem;
+            color: #666666;
+            margin-top: 5px;
+            font-weight: 600;
         }
 
         .node .details {
-            font-size: 0.6rem;
-            color: #4a5568;
+            font-size: 0.7rem;
+            color: #777777;
             margin-top: 5px;
-            line-height: 1.3;
+            line-height: 1.4;
         }
 
         .node .role-description {
-            font-size: 0.55rem;
-            color: #555;
-            margin-top: 3px;
-            margin-bottom: 3px;
-            line-height: 1.2;
+            font-size: 0.65rem;
+            color: #888888;
+            margin-top: 5px;
+            line-height: 1.3;
             display: block;
             margin-left: auto;
             margin-right: auto;
@@ -632,24 +634,26 @@
             max-width: 90%;
         }
 
+        /* 線の共通スタイル (縦線) */
         .org-chart ul li::before {
             content: '';
             position: absolute;
             left: 50%;
-            border-left: 1px solid #cbd5e0;
-            top: -20px;
-            height: 20px;
+            border-left: 1px dashed #A0E7FD;
+            top: -25px;
+            height: 25px;
             transform: translateX(-50%);
         }
 
+        /* 親ULから子ULへの横線と縦線 */
         .org-chart ul ul {
             display: flex;
             flex-direction: row;
             justify-content: center;
             list-style: none;
             padding: 0;
-            margin: 20px 0 0 0;
-            gap: 20px;
+            margin: 25px 0 0 0;
+            gap: 25px;
             position: relative;
             width: fit-content;
             max-width: 100%;
@@ -659,167 +663,545 @@
         .org-chart ul ul::before {
             content: '';
             position: absolute;
-            top: -10px;
+            top: -15px;
             left: 0;
             right: 0;
-            border-top: 1px solid #cbd5e0;
+            border-top: 1px dashed #A0E7FD;
             height: 0;
         }
 
         .org-chart ul ul li::before {
             content: '';
             position: absolute;
-            top: -10px;
+            top: -15px;
             left: 50%;
-            border-left: 1px solid #cbd5e0;
-            height: 10px;
+            border-left: 1px dashed #A0E7FD;
+            height: 15px;
             transform: translateX(-50%);
         }
 
+        /* 組織全体図のノード色をポップに */
         #overall-org-chart-container-tab .node.ceo {
-            background-color: #FFCCCC;
-            color: #000000;
+            background-color: #FF6B8B;
+            color: #FFFFFF;
         }
 
         #overall-org-chart-container-tab .node.engineering {
-            background-color: #e0f7fa;
-            border: 1px solid #80deea;
+            background-color: #A0E7FD;
+            border: 1px solid #00C0F0;
         }
 
         #overall-org-chart-container-tab .node.sales {
-            background-color: #dcedc8;
-            border: 1px solid #aed581;
+            background-color: #76DD6F;
+            border: 1px solid #5BC557;
         }
 
         #overall-org-chart-container-tab .node.hr {
-            background-color: #ffe0b2;
-            border: 1px solid #ffb74d;
+            background-color: #FFD166;
+            border: 1px solid #FFC033;
         }
 
         #overall-org-chart-container-tab .node.accounting {
-            background-color: #f3e5f5;
-            border: 1px solid #ce93d8;
+            background-color: #A06CD5;
+            border: 1px solid #8B4AD2;
         }
 
+        /* その他の部門ノードのデフォルトスタイル */
         #overall-org-chart-container-tab .node {
-            background-color: #e2e8f0;
-            border: 1px solid #cbd5e0;
+            background-color: #F0F8FF;
+            border: 1px solid #D1E9FF;
         }
 
         #overall-org-chart-container-tab .node.ceo .department-icon {
-            font-size: 1.8rem;
-            color: #ffffff;
+            font-size: 2rem;
+            color: #FFFFFF;
         }
 
+        /* エンジニアリング事業部のノード色をポップに */
         #engineering-dept-org-chart-container-tab .node.top-level {
-            background-color: #FFFF00;
-            color: #000000;
+            background: linear-gradient(45deg, #00C0F0, #A06CD5);
+            color: #FFFFFF;
             font-weight: bold;
         }
 
         #engineering-dept-org-chart-container-tab .node.infra-dept-1 {
-            background-color: #e0f2fe;
-            border: 1px solid #90cdf4;
+            background-color: #A0E7FD;
+            border: 1px solid #00C0F0;
         }
 
         #engineering-dept-org-chart-container-tab .node.infra-dept-2 {
-            background-color: #ede9fe;
-            border: 1px solid #c4b5fd;
+            background-color: #76DD6F;
+            border: 1px solid #5BC557;
         }
 
         #engineering-dept-org-chart-container-tab .node.dev-dept {
-            background-color: #fff7ed;
-            border: 1px solid #fed7aa;
+            background-color: #FFD166;
+            border: 1px solid #FFC033;
         }
 
         #engineering-dept-org-chart-container-tab .node.consult-dept {
-            background-color: #e6fffa;
-            border: 1px solid #b2f5ea;
+            background-color: #FF6B8B;
+            border: 1px solid #FF4A6F;
         }
 
         #engineering-dept-org-chart-container-tab .node.engineer-group {
-            background-color: #e8f5e9;
-            border: 1px solid #a5d6a7;
-            color: #2e7d32;
+            background-color: #F0F8FF;
+            border: 1px solid #D1E9FF;
+            color: #333333;
         }
 
         #engineering-dept-org-chart-container-tab .node.data-science-dept {
-            background-color: #dbeafe;
-            border: 1px solid #93c5fd;
+            background-color: #A06CD5;
+            border: 1px solid #8B4AD2;
         }
 
+        /* エンジニアリング事業部内の階層構造の線 */
         #engineering-dept-org-chart-container-tab .org-chart ul ul ul {
             margin-top: 30px;
         }
 
         #engineering-dept-org-chart-container-tab .org-chart ul ul ul::before {
-            top: -10px;
+            top: -15px;
         }
 
         #engineering-dept-org-chart-container-tab .org-chart ul ul ul li::before {
-            top: -10px;
-            height: 10px;
+            top: -15px;
+            height: 15px;
         }
-        
-        #business-overview h3.sub-heading,
-        #engineer-career .gallery-item h3.career-title,
-        #culture .intro-text,
-        #strengths .strength-point {
+
+
+        /* ================================================= */
+        /* === レスポンシブ対応（追加・修正箇所） === */
+        /* ================================================= */
+
+        /* PC (769px以上) のみ表示 */
+        .u-desktop {
+            display: flex !important; /* ボタンがinline-blockなのでflexを優先 */
+        }
+
+        /* モバイル (768px以下) のみ表示 */
+        .u-mobile {
+            display: block !important;
+        }
+
+        /* PCでのヘッダーボタンとハンバーガーメニューの表示切り替え */
+        @media (min-width: 769px) {
+            .p-header__btn {
+                display: inline-block;
+            }
+            .p-hamburger {
+                display: none;
+            }
+        }
+
+        /* 768px以下の画面幅に適用 (タブレット・スマホ) */
+        @media (max-width: 768px) {
+            body {
+                padding: 15px;
+                padding-top: 100px; /* ヘッダーの高さに合わせて調整 */
+            }
+
+            .p-header {
+                padding: 5px 15px;
+            }
+
+            .p-header__logo img {
+                max-height: 55px; /* ロゴのサイズを調整 */
+            }
+
+            .p-header__right {
+                gap: 5px; /* ボタン間のスペースを調整 */
+            }
+
+            .u-desktop {
+                display: none !important; /* デスクトップ用ボタンを非表示 */
+            }
+
+            .p-hamburger {
+                display: block; /* ハンバーガーメニューを表示 */
+            }
+
+            /* グローバルナビゲーションを全画面オーバーレイに調整 */
+            .p-g-nav {
+                padding-top: 80px; /* ヘッダー分を開ける */
+                overflow-y: auto; /* コンテンツがはみ出たらスクロール可能に */
+            }
+
+            .p-g-nav__inner {
+                width: 90%;
+                max-width: none; /* スマホで最大幅を無効化 */
+                gap: 12px; /* ナビ内アイテム間のスペースを調整 */
+            }
+
+            .p-g-nav__item a,
+            .p-g-nav__btn {
+                padding: 12px 15px;
+                font-size: 1rem;
+            }
+
+            section {
+                padding: 25px; /* セクションのパディングを調整 */
+                margin-bottom: 25px;
+            }
+
+            section h2 {
+                font-size: 2rem; /* セクションタイトルの文字サイズを調整 */
+                padding: 15px 20px;
+            }
+
+            #hero {
+                padding: 60px 15px;
+            }
+
+            #hero h2 {
+                font-size: 3rem; /* ヒーローセクションタイトルの文字サイズを調整 */
+            }
+
+            #hero p {
+                font-size: 1.4rem; /* ヒーローセクション説明文の文字サイズを調整 */
+            }
+
+            section a.btn {
+                padding: 12px 25px;
+                font-size: 1rem;
+            }
+
+            .image-gallery {
+                gap: 30px; /* 画像ギャラリーのギャップを調整 */
+            }
+
+            .qr-code-container img {
+                max-width: 250px; /* QRコードの最大幅を調整 */
+            }
+
+            .qr-code-container p {
+                font-size: 1rem; /* QRコード説明文の文字サイズを調整 */
+            }
+
+            /* 動画コンテナのモバイル調整 */
+            .video-container {
+                padding-bottom: 56.25%; /* アスペクト比維持 */
+            }
+
+            /* 社長紹介セクションのモバイルでの調整 */
+            #ceo-intro .ceo-content-wrapper {
+                flex-direction: column;
+                align-items: center;
+                gap: 20px;
+            }
+
+            #ceo-intro .ceo-image-right {
+                order: -1;
+                max-width: 280px; /* 画像の最大幅を調整 */
+            }
+
+            #ceo-intro .ceo-text-left {
+                text-align: center;
+            }
+
+            /* 事業概要の小見出し */
+            #business-overview h3.sub-heading {
+                font-size: 1.3rem;
+            }
+
+            /* エンジニアのキャリアパスの項目 */
+            #engineer-career .gallery-item h3.career-title {
+                font-size: 1.3rem;
+            }
+
+            /* 組織文化の導入文 */
+            #culture .intro-text {
+                font-size: 1.5rem;
+            }
+
+            /* 会社の強みの4つの自信 */
+            #strengths .strength-point {
+                font-size: 1.3rem;
+            }
+
+            /* ビジネスモデルのリスト */
+            #business-model ul>li {
+                font-size: 1rem;
+            }
+
+            #business-model>p:nth-child(3)+ul>li {
+                font-size: 1rem;
+            }
+
+            /* 組織図のモバイル対応 */
+            .tab-buttons {
+                flex-wrap: wrap; /* ボタンが折り返すように */
+                gap: 10px; /* ボタン間のスペース */
+            }
+            .tab-button {
+                width: calc(50% - 16px); /* 2列表示 */
+                box-sizing: border-box;
+                font-size: 0.9rem;
+                padding: 10px 15px;
+            }
+            .org-chart ul ul {
+                flex-direction: column; /* 縦並びに強制 */
+                align-items: center;
+                gap: 15px;
+            }
+            .org-chart ul ul::before {
+                left: 50%;
+                right: auto;
+                width: 1px;
+                border-top: none;
+                border-left: 1px dashed #A0E7FD;
+                height: 20px; /* 縦線の長さを調整 */
+            }
+            .org-chart ul ul li::before {
+                display: none; /* 個別の縦線を非表示に */
+            }
+            .node {
+                min-width: 120px; /* ノードの最小幅を調整 */
+                font-size: 0.8rem;
+                padding: 10px 15px;
+            }
+            .node .department-icon {
+                font-size: 1.2rem;
+            }
+            .node .title {
+                font-size: 0.7rem;
+            }
+            .node .details, .node .role-description {
+                font-size: 0.6rem;
+            }
+        }
+
+        /* 480px以下の画面幅に適用 (さらに小さいスマートフォン向け) */
+        @media (max-width: 480px) {
+            body {
+                padding: 10px;
+                padding-top: 90px;
+            }
+
+            .p-header__logo img {
+                max-height: 45px;
+            }
+
+            .p-hamburger__menu {
+                font-size: 0.65rem;
+            }
+
+            section {
+                padding: 20px;
+                margin-bottom: 20px;
+            }
+
+            section h2 {
+                font-size: 1.7rem;
+                padding: 12px 18px;
+            }
+
+            #hero {
+                padding: 50px 10px;
+            }
+
+            #hero h2 {
+                font-size: 2.5rem;
+            }
+
+            #hero p {
+                font-size: 1.2rem;
+            }
+
+            section a.btn {
+                padding: 10px 20px;
+                font-size: 0.9rem;
+            }
+
+            .tab-button {
+                width: 100%; /* 1列表示 */
+                margin: 5px 0;
+                font-size: 0.9rem;
+            }
+
+            .tab-content-container {
+                min-height: 150px;
+            }
+
+            /* 社長紹介セクションのモバイルでの調整 */
+            #ceo-intro .ceo-content-wrapper {
+                max-width: 250px;
+            }
+
+            /* 事業概要の小見出し */
+            #business-overview h3.sub-heading {
+                font-size: 1.2rem;
+            }
+
+            /* エンジニアのキャリアパスの項目 */
+            #engineer-career .gallery-item h3.career-title {
+                font-size: 1.2rem;
+            }
+
+            /* 組織文化の導入文 */
+            #culture .intro-text {
+                font-size: 1.3rem;
+            }
+
+            /* 会社の強みの4つの自信 */
+            #strengths .strength-point {
+                font-size: 1.2rem;
+            }
+
+            /* ビジネスモデルのリスト */
+            #business-model ul>li {
+                font-size: 0.9rem;
+            }
+
+            #business-model>p:nth-child(3)+ul>li {
+                font-size: 0.9rem;
+            }
+            .node {
+                min-width: 100px; /* ノードの最小幅をさらに調整 */
+                font-size: 0.7rem;
+                padding: 8px 12px;
+            }
+        }
+    </style>
+
+    <style>
+        /* 新しく追加・変更するスタイル */
+
+        /* 1. 事業概要の小見出し */
+        #business-overview h3.sub-heading {
             font-size: 1.5rem;
             font-weight: 600;
-            color: #4a5568;
+            color: #00C0F0; /* スカイブルー */
             margin-top: 20px;
             margin-bottom: 10px;
         }
 
-        #mvv .mvv-title {
-            color: #e53e3e;
-            font-weight: 700;
+        /* 2. エンジニアのキャリアパスの項目 */
+        #engineer-career .gallery-item h3.career-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #76DD6F; /* 明るいグリーン */
+            margin-top: 15px;
+            margin-bottom: 10px;
         }
-        
-        .red-note {
-            color: #e53e3e;
+
+        /* 3. MVVの項目 */
+        #mvv .mvv-title {
+            color: #FF6B8B; /* ポップなピンク */
             font-weight: 700;
         }
 
+        /* 4. 組織文化の導入文 */
+        #culture .intro-text {
+            font-size: 1.75rem;
+            font-weight: 600;
+            color: #FFD166; /* ウォームイエロー */
+            margin-bottom: 20px;
+        }
+
+        /* 5. 会社の強みの4つの自信 */
+        #strengths .strength-point {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #A06CD5; /* パープル */
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+
+        /* 6. 規則と制度、福利厚生の※一部抜粋 */
+        .red-note {
+            color: #FF6B8B; /* ポップなピンク */
+            font-weight: 700;
+        }
+
+        /* まとめセクションの呼びかけテキストのスタイル */
         .future-call-to-action {
             font-size: 1.8rem;
             font-weight: 800;
-            color: #3182ce;
+            color: #00C0F0; /* スカイブルー */
             text-align: center;
             margin-top: 30px;
             margin-bottom: 30px;
             line-height: 1.5;
+            text-shadow: 2px 2px 8px rgba(0, 192, 240, 0.5); /* スカイブルーのシャドウ */
         }
 
+        /* レスポンシブ調整: 小さい画面での文字サイズ調整 */
+        @media (max-width: 768px) {
+            .future-call-to-action {
+                font-size: 1.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .future-call-to-action {
+                font-size: 1.3rem;
+            }
+        }
+
+        /* 「私たちの目指す未来」セクションのサブタイトルスタイル */
         .future-subtitle {
             font-size: 1.4rem;
             font-weight: 700;
-            color: #4299e1;
+            color: #A06CD5; /* パープル */
             margin-top: 25px;
             margin-bottom: 10px;
             text-align: left;
             padding-bottom: 5px;
-            border-bottom: 2px solid #ebf8ff;
+            border-bottom: 2px solid #FFD166; /* ウォームイエローの下線 */
         }
-        
+
+        /* レスポンシブ調整: 小さい画面での文字サイズ調整 */
+        @media (max-width: 768px) {
+            .future-subtitle {
+                font-size: 1.2rem;
+                margin-top: 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .future-subtitle {
+                font-size: 1.1rem;
+                margin-top: 15px;
+            }
+        }
+
+        /* お問い合わせセクションの呼びかけテキストのスタイル */
         .contact-call-to-action {
             font-size: 1.5rem;
             font-weight: 700;
-            color: #2d3748;
+            color: #FF6B8B; /* ポップなピンク */
             text-align: center;
             margin-top: 35px;
             margin-bottom: 25px;
             line-height: 1.5;
             padding-bottom: 5px;
-            border-bottom: 2px dashed #cbd5e0;
+            border-bottom: 2px dashed #00C0F0; /* スカイブルーの点線の下線 */
             display: block;
             width: fit-content;
             max-width: 80%;
             margin-left: auto;
             margin-right: auto;
         }
-        
+
+        /* レスポンシブ調整: 小さい画面での文字サイズ調整 */
+        @media (max-width: 768px) {
+            .contact-call-to-action {
+                font-size: 1.3rem;
+                margin-top: 30px;
+                margin-bottom: 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .contact-call-to-action {
+                font-size: 1.1rem;
+                margin-top: 25px;
+                margin-bottom: 15px;
+            }
+        }
+
+        /* 社長紹介セクションの画像とテキストのレイアウト */
         #ceo-intro .ceo-content-wrapper {
             display: flex;
             flex-direction: row;
@@ -846,6 +1228,31 @@
             height: auto;
         }
 
+        /* レスポンシブ調整: 画面幅が狭い場合 */
+        @media (max-width: 768px) {
+            #ceo-intro .ceo-content-wrapper {
+                flex-direction: column;
+                align-items: center;
+                gap: 20px;
+            }
+
+            #ceo-intro .ceo-image-right {
+                order: -1;
+                max-width: 250px;
+            }
+
+            #ceo-intro .ceo-text-left {
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            #ceo-intro .ceo-image-right {
+                max-width: 200px;
+            }
+        }
+
+        /* ここにビジネスモデルセクションの特定テキストのスタイルを追加 */
         #business-model ul>li {
             font-size: 1.1rem;
             font-family: "游ゴシック体", "Yu Gothic", YuGothic, "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "メイリオ", Meiryo, Osaka, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
@@ -856,297 +1263,6 @@
             font-size: 1.1rem;
             font-family: "游ゴシック体", "Yu Gothic", YuGothic, "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "メイリオ", Meiryo, Osaka, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
             margin-bottom: 0.6rem;
-        }
-
-        #engineer-interviews .gallery-item {
-            display: flex;
-            align-items: flex-start;
-            gap: 20px;
-            text-align: left;
-            flex-wrap: wrap;
-        }
-
-        #engineer-interviews .engineer-photo {
-            flex-shrink: 0;
-            width: 100px;
-            height: 100px;
-            border-radius: 50%;
-            overflow: hidden;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-        }
-
-        #engineer-interviews .engineer-photo img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-        }
-
-        #engineer-interviews .engineer-text {
-            flex-grow: 1;
-        }
-        
-        /* レスポンシブ対応 */
-        @media (max-width: 768px) {
-            body {
-                padding: 15px;
-                padding-top: 110px;
-            }
-            .p-header {
-                padding: 5px 15px;
-            }
-            .p-header__logo img {
-                max-height: 60px;
-            }
-            .p-header__right {
-                gap: 10px;
-            }
-            .u-desktop {
-                display: none;
-            }
-            .p-hamburger {
-                display: block;
-            }
-            .p-g-nav {
-                padding: 15px;
-                gap: 10px;
-            }
-            .p-g-nav__inner {
-                flex-direction: column;
-                gap: 10px;
-            }
-            .p-g-nav__left,
-            .p-g-nav__center,
-            .p-g-nav__right {
-                display: flex;
-                flex-direction: column;
-                gap: 10px;
-                width: 100%;
-            }
-            .p-g-nav__item a,
-            .p-g-nav__btn {
-                padding: 10px;
-                font-size: 0.9rem;
-            }
-            section {
-                padding: 20px;
-                margin-bottom: 20px;
-            }
-            section h2 {
-                font-size: 1.8rem;
-                padding: 8px 15px;
-            }
-            #hero {
-                padding: 40px 15px;
-            }
-            #hero h2 {
-                font-size: 2.2rem;
-            }
-            #hero p {
-                font-size: 1.1rem;
-            }
-            section a.btn {
-                padding: 10px 20px;
-                font-size: 0.95rem;
-            }
-            .image-gallery {
-                gap: 20px;
-            }
-            .qr-code-container img {
-                max-width: 200px;
-            }
-            .qr-code-container p {
-                font-size: 0.9rem;
-            }
-            .video-container {
-                padding-bottom: 56.25%;
-            }
-            #ceo-intro .ceo-content-wrapper {
-                flex-direction: column;
-                align-items: center;
-                gap: 20px;
-            }
-            #ceo-intro .ceo-image-right {
-                order: -1;
-                max-width: 250px;
-            }
-            #ceo-intro .ceo-text-left {
-                text-align: center;
-            }
-            #business-overview h3.sub-heading,
-            #engineer-career .gallery-item h3.career-title,
-            #strengths .strength-point {
-                font-size: 1.3rem;
-            }
-            #culture .intro-text {
-                font-size: 1.5rem;
-            }
-            #business-model ul>li,
-            #business-model>p:nth-child(3)+ul>li {
-                font-size: 1rem;
-            }
-            #engineer-interviews .gallery-item {
-                flex-direction: column;
-                align-items: center;
-                text-align: center;
-            }
-            #engineer-interviews .engineer-photo {
-                margin-bottom: 15px;
-            }
-            .future-call-to-action,
-            .future-subtitle,
-            .contact-call-to-action {
-                font-size: 1.5rem;
-            }
-            .tabs {
-                padding: 15px;
-                max-width: 100%;
-            }
-            .tab-buttons {
-                flex-direction: column;
-                align-items: stretch;
-            }
-            .tab-button {
-                margin: 5px 0;
-            }
-            .tab-content-container {
-                padding: 10px;
-                min-height: 200px;
-            }
-            .org-chart ul ul {
-                flex-direction: column;
-                align-items: center;
-                gap: 10px;
-                margin-top: 20px;
-                width: 100%;
-            }
-            .org-chart ul ul::before {
-                left: 50%;
-                right: auto;
-                transform: translateX(-50%);
-                width: 1px;
-                border-top: none;
-                border-left: 1px solid #cbd5e0;
-                top: -15px;
-                height: 15px;
-            }
-            .org-chart ul ul li {
-                margin: 0;
-                width: 100%;
-                flex-basis: auto;
-            }
-            .org-chart ul ul li::before {
-                display: none;
-            }
-            #overall-org-chart-container-tab .node {
-                min-width: 100px;
-                padding: 6px 8px;
-                font-size: 0.65rem;
-            }
-            #overall-org-chart-container-tab .node.ceo {
-                font-size: 0.9rem;
-                padding: 8px 12px;
-            }
-            #overall-org-chart-container-tab .node .details,
-            #overall-org-chart-container-tab .node .role-description {
-                font-size: 0.5rem;
-            }
-            #overall-org-chart-container-tab .node .department-icon {
-                font-size: 0.9rem;
-            }
-            #engineering-dept-org-chart-container-tab .node {
-                min-width: 90px;
-                padding: 5px 6px;
-                font-size: 0.6rem;
-            }
-            #engineering-dept-org-chart-container-tab .node.top-level {
-                font-size: 0.75rem;
-                padding: 6px 10px;
-            }
-            #engineering-dept-org-chart-container-tab .node .details {
-                font-size: 0.5rem;
-            }
-            #engineering-dept-org-chart-container-tab .org-chart ul ul ul {
-                flex-direction: column;
-                align-items: center;
-                gap: 6px;
-                margin-top: 10px;
-                width: 100%;
-            }
-            #engineering-dept-org-chart-container-tab .org-chart ul ul ul::before {
-                left: 50%;
-                right: auto;
-                width: 1px;
-                border-top: none;
-                border-left: 1px solid #cbd5e0;
-                top: -8px;
-                height: 8px;
-                transform: translateX(-50%);
-            }
-            #engineering-dept-org-chart-container-tab .org-chart ul ul ul li::before {
-                display: none;
-            }
-        }
-
-        @media (max-width: 480px) {
-            body {
-                padding: 10px;
-                padding-top: 100px;
-            }
-            .p-header__logo img {
-                max-height: 50px;
-            }
-            .p-hamburger__menu {
-                font-size: 0.7rem;
-            }
-            section {
-                padding: 15px;
-                margin-bottom: 15px;
-            }
-            section h2 {
-                font-size: 1.5rem;
-                padding: 6px 10px;
-            }
-            #hero {
-                padding: 30px 10px;
-            }
-            #hero h2 {
-                font-size: 1.8rem;
-            }
-            #hero p {
-                font-size: 1rem;
-            }
-            section a.btn {
-                padding: 8px 18px;
-                font-size: 0.9rem;
-            }
-            .tab-button {
-                font-size: 0.8rem;
-                padding: 6px 10px;
-            }
-            .tab-content-container {
-                min-height: 180px;
-            }
-            #ceo-intro .ceo-image-right {
-                max-width: 200px;
-            }
-            #business-overview h3.sub-heading,
-            #engineer-career .gallery-item h3.career-title,
-            #strengths .strength-point {
-                font-size: 1.1rem;
-            }
-            #culture .intro-text {
-                font-size: 1.3rem;
-            }
-            #business-model ul>li,
-            #business-model>p:nth-child(3)+ul>li {
-                font-size: 0.9rem;
-            }
-            .future-call-to-action,
-            .future-subtitle,
-            .contact-call-to-action {
-                font-size: 1.3rem;
-            }
         }
     </style>
 </head>
@@ -1159,16 +1275,16 @@
                 <a href="#"> <img src="images/logo.jpeg" alt="SPINTECHNOLOGY"> </a>
             </h1>
             <div class="p-header__right">
-                <div class="p-header__btn p-btn p-btn__session u-desktop">
-                    <a href="#contact"><span>お問い合わせはコチラ</span></a>
-                </div>
                 <div class="p-header__btn p-btn p-btn__recruit u-desktop">
                     <a href="#culture"><span>お役立ち情報</span></a>
+                </div>
+                <div class="p-header__btn p-btn p-btn__session u-desktop">
+                    <a href="#contact"><span>お問い合わせはコチラ</span></a>
                 </div>
                 <div class="p-header__btn p-btn p-btn__seminar u-desktop">
                     <a href="https://job.mynavi.jp/26/pc/corpinfo/displaySeminar/index?optNo=S1YStC&corpId=271969"
                         target="_blank">
-                        <span>26卒の説明会はコチラ</span>
+                        <span>26卒の方はこちら</span>
                     </a>
                 </div>
                 <button class="p-hamburger p-header__hamburger">
@@ -1191,12 +1307,6 @@
                         </div>
                     </div>
                     <div class="p-g-nav__item">
-                        <a href="https://job.mynavi.jp/26/pc/corpinfo/displaySeminar/index?optNo=S1YStC&corpId=271969" target="_blank">
-                            <p class="p-g-nav__sub-title">Information seminar</p>
-                            <h2 class="p-g-nav__title">26卒生の説明会</h2>
-                        </a>
-                    </div>
-                    <div class="p-g-nav__item">
                         <a href="#company-overview">
                             <p class="p-g-nav__sub-title">About</p>
                             <h2 class="p-g-nav__title">会社概要</h2>
@@ -1210,6 +1320,17 @@
                             </a>
                         </div>
                     </div>
+                    <div class="p-g-nav__item">
+                        <a href="https://job.mynavi.jp/26/pc/corpinfo/displaySeminar/index?optNo=S1YStC&corpId=271969" target="_blank">
+                            <p class="p-g-nav__sub-title">Information seminar</p>
+                            <h2 class="p-g-nav__title">26卒の説明会はこちら</h2>
+                        </a>
+                    </div>
+                    <div class="p-g-nav__item p-g-nav__btn">
+                        <a href="#contact" class="p-btn p-btn__session"><span>お問い合わせはこちら</span></a>
+                    </div>
+                    <div class="p-g-nav__item p-g-nav__btn">
+                        <a href="#culture" class="p-btn p-btn__recruit"><span>お役立ち情報</span></a>
                     </div>
                 </div>
             </nav>
@@ -1300,7 +1421,7 @@
                                         <div class="node engineering" data-aos="slide-up" data-aos-delay="100">
                                             <i class="fas fa-cogs department-icon"></i><br>
                                             エンジニアリング事業部
-                                            <div class="details">部長5名<br>エンジニア: 265名</div>
+                                            <div class="details">部長5名<br>マネージャー18名<br>エンジニア</div>
                                         </div>
                                     </li>
                                     <li>
@@ -1344,7 +1465,7 @@
                                         <div class="node infra-dept-1" data-aos="slide-up" data-aos-delay="100">
                                             <i class="fas fa-server department-icon"></i><br>
                                             第一事業部
-                                            <div class="details">部長<br>マネジメントメンバー: 4名</div>
+                                            <div class="details">部長<br>マネージャー: 4名</div>
                                         </div>
                                         <ul>
                                             <li>
@@ -1357,7 +1478,7 @@
                                         <div class="node infra-dept-2" data-aos="slide-up" data-aos-delay="150">
                                             <i class="fas fa-network-wired department-icon"></i><br>
                                             第二事業部
-                                            <div class="details">部長<br>マネジメントメンバー: 4名</div>
+                                            <div class="details">部長<br>マネージャー: 4名</div>
                                         </div>
                                         <ul>
                                             <li>
@@ -1370,7 +1491,7 @@
                                         <div class="node dev-dept" data-aos="slide-up" data-aos-delay="200">
                                             <i class="fas fa-code department-icon"></i><br>
                                             第三事業部
-                                            <div class="details">部長<br>マネジメントメンバー: 4名</div>
+                                            <div class="details">部長<br>マネージャー: 4名</div>
                                         </div>
                                         <ul>
                                             <li>
@@ -1383,7 +1504,7 @@
                                         <div class="node consult-dept" data-aos="slide-up" data-aos-delay="250">
                                             <i class="fas fa-lightbulb department-icon"></i><br>
                                             第四事業部
-                                            <div class="details">部長<br>マネジメントメンバー: 4名</div>
+                                            <div class="details">部長<br>マネージャー: 4名</div>
                                         </div>
                                         <ul>
                                             <li>
@@ -1396,7 +1517,7 @@
                                         <div class="node data-science-dept" data-aos="slide-up" data-aos-delay="300">
                                             <i class="fas fa-chart-line department-icon"></i><br>
                                             第五事業部
-                                            <div class="details">部長<br>マネジメントメンバー: 2名</div>
+                                            <div class="details">部長<br>マネージャー: 2名</div>
                                         </div>
                                         <ul>
                                             <li>
@@ -1416,6 +1537,8 @@
     <section id="ceo-intro" data-aos="fade-up">
         <h2>4. 社長紹介</h2>
         <div class="ceo-content-wrapper">
+            <p class="quote" style="font-size: 1.8rem; font-weight: 700;">“IT業界の常識を覆し、志ある挑戦者が報われる会社を創りたい”</p>
+            <p>私自身、営業の世界でトップを目指し走り続けてきました。その中で痛感したのは、「本気の挑戦は、人を大きく成長させる」という事実です。しかし、IT業界には「経験がなければ挑戦の機会すらない」という壁が存在します。SPINTECHNOLOGYは、その壁を壊すために設立しました。学歴や経歴は関係ありません。必要なのは「プロになりたい」という熱い志だけです。私たちの充実した教育・サポート体制のもと、日々進化を続ける「人」こそが、最大の強みです。</p>
             <div class="ceo-text-left" data-aos="fade-right" data-aos-delay="200">
                 <p><strong>岡田佳祐</strong></p>
                 <ul>
@@ -1476,39 +1599,20 @@
         <h2>7. 先輩エンジニアへインタビュー</h2>
         <div class="image-gallery">
             <div class="gallery-item" data-aos="fade-up" data-aos-delay="100">
-                <div class="engineer-photo">
-                    <img src="images/engineer_ji.jpg" alt="インフラエンジニア J・I さんの写真" loading="lazy">
-                </div>
-                <div class="engineer-text">
-                    <h3 class="career-title">インフラエンジニア：J・I</h3>
-                    <p>「未経験からこの会社に入社し、充実した研修と先輩方のサポートのおかげで、今ではAWSの設計・構築を担当しています。毎日が新しい学びの連続で、自分の成長を実感できる環境です。」</p>
-                </div>
+                <h3 class="career-title">インフラエンジニア：J.I</h3>
+                <p>「未経験からこの会社に入社し、充実した研修と先輩方のサポートのおかげで、今ではAWSの設計・構築を担当しています。毎日が新しい学びの連続で、自分の成長を実感できる環境です。」</p>
             </div>
-            <div class="gallery-item" data-aos="fade-up" data-aos-delay="100"> <div class="engineer-photo">
-                    <img src="images/engineer_kn.jpg" alt="インフラエンジニア K・N さんの写真" loading="lazy">
-                </div>
-                <div class="engineer-text">
-                    <h3 class="career-title">インフラエンジニア：K・N</h3>
-                    <p>「未経験からこの会社に入社し、充実した研修と先輩方のサポートのおかげで、今ではAWSの設計・構築を担当しています。毎日が新しい学びの連続で、自分の成長を実感できる環境です。」</p>
-                </div>
+            <div class="gallery-item" data-aos="fade-up" data-aos-delay="100">
+                <h3 class="career-title">インフラエンジニア：K.N</h3>
+                <p>「未経験からこの会社に入社し、充実した研修と先輩方のサポートのおかげで、今ではAWSの設計・構築を担当しています。毎日が新しい学びの連続で、自分の成長を実感できる環境です。」</p>
             </div>
             <div class="gallery-item" data-aos="fade-up" data-aos-delay="200">
-                <div class="engineer-photo">
-                    <img src="images/engineer_rk.jpg" alt="開発エンジニア R・K さんの写真" loading="lazy">
-                </div>
-                <div class="engineer-text">
-                    <h3 class="career-title">開発エンジニア：R・K</h3>
-                    <p>「私はWebアプリケーション開発を担当しています。ここでは新しい技術に積極的に挑戦できる文化があり、最先端の技術を実務で活かす機会が豊富です。チームで協力し、大きなプロジェクトを成功させる喜びを感じています。」</p>
-                </div>
+                <h3 class="career-title">開発エンジニア：R.K</h3>
+                <p>「私はWebアプリケーション開発を担当しています。ここでは新しい技術に積極的に挑戦できる文化があり、最先端の技術を実務で活かす機会が豊富です。チームで協力し、大きなプロジェクトを成功させる喜びを感じています。」</p>
             </div>
             <div class="gallery-item" data-aos="fade-up" data-aos-delay="300">
-                <div class="engineer-photo">
-                    <img src="images/engineer_tu.jpg" alt="コンサルエンジニア T・U さんの写真" loading="lazy">
-                </div>
-                <div class="engineer-text">
-                    <h3 class="career-title">コンサルエンジニア：T・U</h3>
-                    <p>「お客様のビジネス課題をITで解決するコンサルティング業務に魅力を感じています。技術力だけでなく、コミュニケーション能力や提案力も磨けるため、多角的に成長したい方には最適な環境だと思います。」</p>
-                </div>
+                <h3 class="career-title">コンサルエンジニア：T.U</h3>
+                <p>「お客様のビジネス課題をITで解決するコンサルティング業務に魅力を感じています。技術力だけでなく、コミュニケーション能力や提案力も磨けるため、多角的に成長したい方には最適な環境だと思います。」</p>
             </div>
         </div>
     </section>
@@ -1549,78 +1653,73 @@
         </ul>
     </section>
 
-    <section id="culture" class="section">
-        <div class="container">
-            <h2 class="section-title" data-aos="fade-up">
-                <span>10. CULUTURE</span>
-                組織文化
-            </h2>
-            <div class="culture-intro" data-aos="fade-up">
-                <h3 class="intro-text">スピンの組織文化とは？</h3>
-                <ul>
-                    <li>未経験からプロフェッショナルを目指せる、人を育てる文化があり、充実した研修制度や一人一人が多様な仕事に挑戦し成長できる環境が整っている。</li>
-                    <li>役職や立場に関わらず、フラットに意見交換ができる風通しの良い組織。社員同士の距離が近く活発なコミュニケーションを通じて互いを高め合える文化がある。</li>
-                </ul>
+    <section id="culture" data-aos="fade-up">
+        <h2>10. 組織文化</h2>
+        <h3 class="intro-text" data-aos="fade-up" data-aos-delay="100">スピンの組織文化とは？</h3>
+        <ul>
+            <li data-aos="fade-up" data-aos-delay="150">
+                未経験からプロフェッショナルを目指せる、人を育てる文化があり、充実した研修制度や一人一人が多様な仕事に挑戦し成長できる環境が整っている。</li>
+            <li data-aos="fade-up" data-aos-delay="200">
+                役職や立場に関わらず、フラットに意見交換ができる風通しの良い組織。社員同士の距離が近く活発なコミュニケーションを通じて互いを高め合える文化がある。</li>
+        </ul>
+
+        <h3 id="culture-training" data-aos="fade-up" data-aos-delay="250">組織文化（研修）</h3>
+        <ol>
+            <li data-aos="fade-up" data-aos-delay="350">ビジネス研修（思考編～、行動編～）</li>
+            <li data-aos="fade-up" data-aos-delay="400">キャリア研修（インフラ・開発・コンサル）</li>
+            <li data-aos="fade-up" data-aos-delay="450">マネジメント研修</li>
+            <li data-aos="fade-up" data-aos-delay="500">知識研修（インフラ・開発・コンサル）</li>
+            <li data-aos="fade-up" data-aos-delay="550">技術研修（インフラ・開発・コンサル）</li>
+        </ol>
+        <p class="future-call-to-action" data-aos="zoom-in" data-aos-delay="200">ビジネス研修</p>
+        <div class="gallery-item" data-aos="fade-up" data-aos-delay="550">
+            <img src="images/キャリア研修4.jpeg" alt="ビジネス研修風景のイメージ" class="content-image" loading="lazy" width="600" height="400">
+        </div>
+
+        <h3 id="culture-club" data-aos="fade-up" data-aos-delay="500">組織文化（部活）</h3>
+        <ol>
+            <li data-aos="fade-up" data-aos-delay="350">健康や日々のリフレッシュする</li>
+            <li data-aos="fade-up" data-aos-delay="400">社員同士の交流を通して悩み事やキャリア相談をしやすい雰囲気作りをする</li>
+            <li data-aos="fade-up" data-aos-delay="450">社員が定着し、共に成長できる場所</li>
+        </ol>
+        <div class="image-gallery">
+            <p class="future-call-to-action" data-aos="zoom-in" data-aos-delay="200">野球部</p>
+            <div class="gallery-item" data-aos="fade-up" data-aos-delay="550">
+                <img src="images/野球部.jpeg" alt="部活動１の風景" class="content-image" loading="lazy" width="600" height="400">
             </div>
-    
-            <div class="culture-group" data-aos="fade-up" data-aos-delay="100">
-                <h3 class="culture-subtitle">組織文化（研修）</h3>
-                <ol class="culture-list">
-                    <li>ビジネス研修（思考編～、行動編～）</li>
-                    <li>キャリア研修（インフラ・開発・コンサル）</li>
-                    <li>マネジメント研修</li>
-                    <li>知識研修（インフラ・開発・コンサル）</li>
-                    <li>技術研修（インフラ・開発・コンサル）</li>
-                </ol>
-                <p class="culture-call-to-action">ビジネス研修</p>
-                <img src="images/culture-training.jpeg" alt="ビジネス研修風景のイメージ" class="culture-image" loading="lazy" data-aos="zoom-in">
+            <p class="future-call-to-action" data-aos="zoom-in" data-aos-delay="200">ダーツ部</p>
+            <div class="gallery-item" data-aos="fade-up" data-aos-delay="600">
+                <img src="images/darts.jpeg" alt="活動動２の風景" class="content-image" loading="lazy" width="600" height="400">
             </div>
-    
-            <div class="culture-group" data-aos="fade-up" data-aos-delay="100">
-                <h3 class="culture-subtitle">組織文化（部活）</h3>
-                <ul class="culture-list">
-                    <li>健康や日々のリフレッシュを促進</li>
-                    <li>社員同士の交流を通して悩み事やキャリア相談をしやすい雰囲気作り</li>
-                    <li>社員が定着し、共に成長できる場所の提供</li>
-                </ul>
-                <div class="culture-gallery">
-                    <div class="culture-gallery-item" data-aos="fade-up" data-aos-delay="150">
-                        <p class="culture-call-to-action">野球部</p>
-                        <img src="images/culture-baseball.jpeg" alt="野球部の活動風景" class="culture-image" loading="lazy">
-                    </div>
-                    <div class="culture-gallery-item" data-aos="fade-up" data-aos-delay="200">
-                        <p class="culture-call-to-action">ダーツ部</p>
-                        <img src="images/culture-darts.jpeg" alt="ダーツ部の活動風景" class="culture-image" loading="lazy">
-                    </div>
-                </div>
+        </div>
+
+        <h3 id="culture-recreation" data-aos="fade-up" data-aos-delay="650">組織文化（レクリエーション）</h3>
+        <ul>
+            <li data-aos="fade-up" data-aos-delay="150">
+                様々なレクを毎月1〜2回開催</li>
+        </ul>
+        <div class="image-gallery">
+            <p class="future-call-to-action" data-aos="zoom-in" data-aos-delay="200">BBQレク（年2回：夏開催）</p>
+            <div class="gallery-item" data-aos="fade-up" data-aos-delay="700">
+                <img src="images/BBQレク2.jpeg" alt="バーベキューレクリエーション風景" class="content-image" loading="lazy" width="600" height="400">
             </div>
-    
-            <div class="culture-group" data-aos="fade-up" data-aos-delay="100">
-                <h3 class="culture-subtitle">組織文化（レクリエーション）</h3>
-                <p class="culture-description">様々なレクを毎月1〜2回開催しています。</p>
-                <div class="culture-gallery">
-                    <div class="culture-gallery-item" data-aos="fade-up" data-aos-delay="150">
-                        <p class="culture-call-to-action">BBQレク（年2回：夏開催）</p>
-                        <img src="images/culture-bbq.jpeg" alt="バーベキューレクリエーション風景" class="culture-image" loading="lazy">
-                    </div>
-                    <div class="culture-gallery-item" data-aos="fade-up" data-aos-delay="200">
-                        <p class="culture-call-to-action">社員旅行</p>
-                        <img src="images/culture-trip.jpeg" alt="社員旅行の風景" class="culture-image" loading="lazy">
-                    </div>
-                </div>
+            <p class="future-call-to-action" data-aos="zoom-in" data-aos-delay="200">社員旅行</p>
+            <div class="gallery-item" data-aos="fade-up" data-aos-delay="750">
+                <img src="images/社員旅行3.jpeg" alt="社員旅行の風景" class="content-image" loading="lazy" width="600" height="400">
             </div>
         </div>
     </section>
-    
+
     <section id="company-video" data-aos="fade-up">
         <h2>11. 会社の雰囲気（動画）</h2>
         <p data-aos="fade-up" data-aos-delay="100">SPINTECHNOLOGYの活気ある職場環境や社員の様子をご紹介します。</p>
         <div class="video-container" data-aos="fade-up" data-aos-delay="200">
-            <video controls playsinline autoplay muted loop preload="metadata" poster="images/2025.6総会movie_poster.jpg">
+            <video controls preload="metadata" poster="images/2025.6総会movie_poster.jpg">
                 <source src="videos/2025.6総会movie.mp4" type="video/mp4">
-                お使いのブラウザは動画の再生に対応していません。
+                お使いのブラウザは動画タグをサポートしていません。
             </video>
         </div>
+        <p data-aos="fade-up" data-aos-delay="300">※動画はイメージです。</p>
     </section>
 
     <section id="strengths" data-aos="fade-up">
@@ -1692,13 +1791,13 @@
         <h2>16. 採用情報とお問い合わせ</h2>
         <ul>
             <li data-aos="fade-up" data-aos-delay="100">公式ホームページ<br><a href="https://spintechnology.jp"
-                    target="_blank">https://spintechnology.jp?hl=ja</a></li>
+                        target="_blank">https://spintechnology.jp?hl=ja</a></li>
             <li data-aos="fade-up" data-aos-delay="100">公式Instagram<br><a
-                    href="https://www.instagram.com/spintec.official/?hl=ja"
-                    target="_blank">https://www.instagram.com/spintec.official//</a></li>
+                        href="https://www.instagram.com/spintec.official/?hl=ja"
+                        target="_blank">https://www.instagram.com/spintec.official//</a></li>
             <li data-aos="fade-up" data-aos-delay="100">26卒生の説明会はこちら<br><a
-                    href="https://job.mynavi.jp/26/pc/corpinfo/displaySeminar/index?optNo=S1YStC&corpId=271969"
-                    target="_blank">https://job.mynavi.jp/26/pc/corpinfo/displaySeminar/index?optNo=S1YStC&corpId=271969</a>
+                        href="https://job.mynavi.jp/26/pc/corpinfo/displaySeminar/index?optNo=S1YStC&corpId=271969"
+                        target="_blank">https://job.mynavi.jp/26/pc/corpinfo/displaySeminar/index?optNo=S1YStC&corpId=271969</a>
             </li>
         </ul>
         <h4 class="contact-call-to-action" data-aos="fade-up" data-aos-delay="150">ご質問があれば、お気軽にお問い合わせ・ご連絡ください。</h4>
@@ -1715,13 +1814,14 @@
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
         AOS.init({
-            duration: 500,
-            easing: 'ease-in-out-back',
-            delay: 100,
-            once: true,
-            mirror: false,
+            duration: 300, // アニメーションのduration（ミリ秒）
+            easing: 'ease-in-out-back', // イージングの設定
+            delay: 50, // アニメーション開始までの遅延（ミリ秒）
+            once: true, // アニメーションを一度だけ実行
+            mirror: false, // スクロールバックしても再度アニメーションしない
         });
-    
+    </script>
+    <script>
         function openTab(tabName) {
             var i;
             var x = document.getElementsByClassName("tab-content");
@@ -1733,38 +1833,57 @@
                 buttons[i].classList.remove("active");
             }
             document.getElementById(tabName).style.display = "block";
-    
-            for (i = 0; i < buttons.length; i++) {
-                if (buttons[i].getAttribute('onclick').includes("'" + tabName + "'")) {
-                    buttons[i].classList.add("active");
-                    break;
-                }
+            // event.currentTargetがnullになる場合があるためチェック
+            if (event.currentTarget) {
+                event.currentTarget.classList.add("active");
             }
         }
-    
-        const hamburger = document.querySelector('.p-hamburger');
-        const gNav = document.querySelector('.p-g-nav');
-        if (hamburger && gNav) {
-            hamburger.addEventListener('click', () => {
-                hamburger.classList.toggle('is-active');
-                gNav.classList.toggle('is-active');
-            });
-        }
-    
-        const navLinks = document.querySelectorAll('.p-g-nav a');
-        navLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                if (gNav.classList.contains('is-active')) {
-                    hamburger.classList.remove('is-active');
-                    gNav.classList.remove('is-active');
-                }
-            });
-        });
-    
+
+        // 初期表示で「組織全体図」タブをアクティブにする
         document.addEventListener('DOMContentLoaded', function () {
             openTab('overall');
         });
-    </script>
 
+        // ハンバーガーメニューの開閉機能 (JavaScript)
+        // p-hamburgerとp-g-navの要素を取得
+        const hamburger = document.querySelector('.p-hamburger');
+        const gNav = document.querySelector('.p-g-nav');
+
+        if (hamburger && gNav) { // 要素が存在するか確認
+            hamburger.addEventListener('click', () => {
+                hamburger.classList.toggle('is-active'); // ハンバーガーアイコンの形を変化
+                gNav.classList.toggle('is-active');      // グローバルナビゲーションの表示/非表示を切り替え
+            });
+        }
+
+        // --- ここから追加 ---
+        // ハンバーガーメニュー内のリンクがクリックされたときにメニューを閉じる
+        const gNavItems = document.querySelectorAll('.p-g-nav__item a'); // グローバルナビゲーション内のすべてのリンクを取得
+
+        gNavItems.forEach(item => {
+            item.addEventListener('click', () => {
+                // ページ内リンクでタブが閉じない場合は、以下を追加することで対応できます
+                // const isPageLink = item.getAttribute('href').startsWith('#');
+                // if (isPageLink) {
+                hamburger.classList.remove('is-active'); // ハンバーガーアイコンを非アクティブに
+                gNav.classList.remove('is-active');      // グローバルナビゲーションを非表示に
+                // }
+            });
+        });
+
+        // グローバルナビゲーション内のボタンも考慮する場合 (例: 26卒の説明会はコチラ)
+        const gNavBtns = document.querySelectorAll('.p-g-nav__btn a');
+
+        gNavBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                hamburger.classList.remove('is-active'); // ハンバーガーアイコンを非アクティブに
+                gNav.classList.remove('is-active');      // グローバルナビゲーションを非表示に
+            });
+        });
+        // --- ここまで追加 ---
+    </script>
 </body>
+
 </html>
+
+
