@@ -230,8 +230,12 @@
     margin-bottom: 30px;
 }
 #ceo-message .ceo-photo img {
-    width: 100%;
+    max-width: 350px; /* ここを調整してください（例: 350px, 400px など） */
+    width: 100%; /* 親要素の幅に合わせて縮小 */
+    height: auto; /* 高さを自動調整し、アスペクト比を維持 */
     border-radius: 8px;
+    display: block; /* 中央寄せするためにブロック要素にする */
+    margin: 0 auto; /* 中央寄せ */
 }
 #ceo-message .ceo-profile-content h3 {
     color: var(--text-light);
@@ -465,8 +469,8 @@
             <a href="#" class="header-logo"><img src="images/logo.jpeg" alt="SPINTECHNOLOGY Logo"></a>
             <nav class="header-nav">
                 <a href="#services">事業内容</a>
-                <a href="#culture">組織文化</a>
                 <a href="#ceo-message">代表挨拶</a>
+                <a href="#culture">組織文化</a>
                 <a href="#mvv">スピンの目標</a>
                 <a href="#contact">お問い合わせ</a>
             </nav>
@@ -562,7 +566,7 @@
                     <div class="node engineering">
                         <i class="fa fa-cogs department-icon"></i>
                         <div class="name">エンジニアリング事業部</div>
-                        <div class="details">部長5名<br>マネージャー18名<br>エンジニア</div>
+                        <div class="details">部長5名<br>マネージャー:18名<br>エンジニア</div>
                     </div>
                 </div>
                 <div class="node-wrapper">
@@ -604,42 +608,47 @@
             <div class="node engineer-group">
                 <i class="fa fa-server department-icon"></i>
                 <div class="name">第一事業部</div>
-                <div class="details">部長<br>マネージャー: 4名</div>
+                <div class="node engineer-group" data-aos="fade-up"data-aos-delay="350">部長</div>
+                <div class="node engineer-group" data-aos="fade-up"data-aos-delay="350">マネージャー: 4名</div>
+                <div class="node engineer-group" data-aos="fade-up"data-aos-delay="350">エンジニア</div>
             </div>
         </div>
         <div class="node-wrapper">
             <div class="node engineer-group">
                 <i class="fa fa-code department-icon"></i>
                 <div class="name">第二事業部</div>
-                <div class="details">部長<br>マネージャー: 4名</div>
+                <div class="node engineer-group" data-aos="fade-up"data-aos-delay="350">部長</div>
+                <div class="node engineer-group" data-aos="fade-up"data-aos-delay="350">マネージャー: 4名</div>
+                <div class="node engineer-group" data-aos="fade-up"data-aos-delay="350">エンジニア</div>
             </div>
         </div>
         <div class="node-wrapper">
             <div class="node engineer-group">
                 <i class="fa fa-laptop-code department-icon"></i>
                 <div class="name">第三事業部</div>
-                <div class="details">部長<br>マネージャー: 4名</div>
+                <div class="node engineer-group" data-aos="fade-up"data-aos-delay="350">部長</div>
+                <div class="node engineer-group" data-aos="fade-up"data-aos-delay="350">マネージャー: 4名</div>
+                <div class="node engineer-group" data-aos="fade-up"data-aos-delay="350">エンジニア</div>
             </div>
         </div>
         <div class="node-wrapper">
             <div class="node engineer-group">
                 <i class="fa fa-lightbulb department-icon"></i>
                 <div class="name">第四事業部</div>
-                <div class="details">部長<br>マネージャー: 4名</div>
+                <div class="node engineer-group" data-aos="fade-up"data-aos-delay="350">部長</div>
+                <div class="node engineer-group" data-aos="fade-up"data-aos-delay="350">マネージャー: 4名</div>
+                <div class="node engineer-group" data-aos="fade-up"data-aos-delay="350">エンジニア</div>
             </div>
         </div>
         <div class="node-wrapper">
             <div class="node engineer-group">
                 <i class="fa fa-chart-bar department-icon"></i>
                 <div class="name">第五事業部</div>
-                <div class="details">部長<br>マネージャー: 2名</div>
+                <div class="node engineer-group" data-aos="fade-up"data-aos-delay="350">部長</div>
+                <div class="node engineer-group" data-aos="fade-up"data-aos-delay="350">マネージャー: 2</div>
+                <div class="node engineer-group" data-aos="fade-up"data-aos-delay="350">エンジニア</div>
             </div>
         </div>
-    </div>
-</div>
-        <p data-aos="fade-up" data-aos-delay="200" style="text-align: center; max-width: 700px; margin: 60px auto 0;">
-            代表を筆頭に、各部署がフラットに連携。私たちは、部署の垣根を越えて協力し合い、スピーディーにお客様の課題解決に取り組んでいます。
-        </p>
     </div>
 </section>
 
@@ -686,26 +695,26 @@
                 <div class="career-card" data-aos="fade-up" data-aos-delay="200"><h3>開発エンジニア</h3><img src="images/開発エンジニア.jpeg" alt="開発エンジニアのキャリアパス図"></div>
                 <div class="career-card" data-aos="fade-up" data-aos-delay="300"><h3>コンサルエンジニア</h3><img src="images/コンサルエンジニア.jpeg" alt="コンサルエンジニアのキャリアパス図"></div>
                 <div class="career-card" data-aos="fade-up" data-aos-delay="400"><h3>営業</h3><img src="images/営業キャリア図.jpeg" alt="営業職のキャリアパス図"></div>
-            </div>
+            <div>
         </section>
 
         <section id="interviews" class="container">
             <h2 class="section-title" data-aos="fade-up"><span>7. INTERVIEWS</span>先輩社員の声</h2>
             <div class="interview-card" data-aos="fade-right">
                 <div class="interview-photo"><img src="images/" alt="今井部長"><span class="interview-name">J.I</span><span class="interview-profile">インフラエンジニア / 2022年5月入社</span></div>
-                <div class="interview-body"><h4>Q. スピンに入社して何が変わった？</h4><p>未経験からでも挑戦できるという言葉が嘘ではなかった点です。面接で自分の将来像を熱心に聞いてくれ、「ここなら自分を変えられる」と直感しました。</p><h4>Q. 未経験からどのようなことができるようになった？</h4><p>自分が構築したサーバーが、多くの人の生活を支えていると実感できた時です。責任は大きいですが、その分、無事に稼働した時の達成感は格別です。</p></div>
+                <div class="interview-body"><h4>Q. ～依頼中～</h4><p>～依頼中～</div>
             </div>
             <div class="interview-card" data-aos="fade-right">
                 <div class="interview-photo"><img src="images/" alt="西小野部長"><span class="interview-name">K.N</span><span class="interview-profile">インフラエンジニア / 2022年6月入社</span></div>
-                <div class="interview-body"><h4>Q. スピンに入社して何が変わった？</h4><p>未経験からでも挑戦できるという言葉が嘘ではなかった点です。面接で自分の将来像を熱心に聞いてくれ、「ここなら自分を変えられる」と直感しました。</p><h4>Q. 未経験からどのようなことができるようになった？</h4><p>自分が構築したサーバーが、多くの人の生活を支えていると実感できた時です。責任は大きいですが、その分、無事に稼働した時の達成感は格別です。</p></div>
+                <div class="interview-body"><h4>Q. ～依頼中～</h4><p>～依頼中～</div>
             </div>
              <div class="interview-card" data-aos="fade-left">
                 <div class="interview-photo"><img src="images/" alt="木田部長"><span class="interview-name">R.K</span><span class="interview-profile">開発エンジニア / 2022年1月入社</span></div>
-                <div class="interview-body"><h4>Q. スピンに入社して何が変わった？</h4><p>新しい技術に積極的に挑戦できる文化です。最先端の技術を実務で活かす機会が豊富で、チームで協力しながら大きなプロジェクトを成功させる喜びに満ちています。</p><h4>Q. 未経験からどのようなことができるようになった？</h4><p>不安な気持ちはよく分かります。でも、一歩踏み出せば、全力でサポートしてくれる先輩たちがいます。一緒に成長できる日を楽しみにしています！</p></div>
+                <div class="interview-body"><h4>Q. ～依頼中～</h4><p>～依頼中～</div>
             </div>
             <div class="interview-card" data-aos="fade-right">
                 <div class="interview-photo"><img src="images/" alt="梅野部長"><span class="interview-name">T.U</span><span class="interview-profile">コンサルエンジニア / 2022年3月入社</span></div>
-                <div class="interview-body"><h4>Q. スピンに入社して何が変わった？</h4><p>未経験からでも挑戦できるという言葉が嘘ではなかった点です。面接で自分の将来像を熱心に聞いてくれ、「ここなら自分を変えられる」と直感しました。</p><h4>Q. 未経験からどのようなことができるようになった？</h4><p>自分が構築したサーバーが、多くの人の生活を支えていると実感できた時です。責任は大きいですが、その分、無事に稼働した時の達成感は格別です。</p></div>
+                <div class="interview-body"><h4>Q. ～依頼中～</h4><p>～依頼中～</div>
             </div>
         </section>
 
@@ -725,7 +734,11 @@
                 <div class="card" data-aos="fade-up" data-aos-delay="300">
                     <div class="icon"><i class="fa-solid fa-gem"></i></div>
                     <h3>Values</h3>
-                    <p class="value">誠実・素直・挑戦</p>
+                     <ul>
+                     <li data-aos="fade-up" data-aos-delay="350">誠実：行動と言動に責任を持って真面目に向き合うこと</li>
+                     <li data-aos="fade-up" data-aos-delay="400">素直：他人からの意見を受け入れ、己を見直したり改善すること</li>
+                     <li data-aos="fade-up" data-aos-delay="450">挑戦：失敗や困難を恐れず新しいことに果敢に行動する姿勢</li>
+                     </ul>
                 </div>
             </div>
         </section>
@@ -853,12 +866,12 @@
             <div class="contact-links" data-aos="fade-up" data-aos-delay="100">
                 <a href="https://spintechnology.jp" target="_blank"><i class="fa-solid fa-globe"></i> 公式ホームページ</a>
                 <a href="https://www.instagram.com/spintec.official/" target="_blank"><i class="fa-brands fa-instagram"></i> 公式Instagram</a>
-                <a href="https://job.mynavi.jp/26/pc/corpinfo/displaySeminar/index?optNo=S1YStC&corpId=271969" target="_blank"><i class="fa-solid fa-briefcase"></i> 26卒生の説明会はこちら</a>
+                <a href="https://job.mynavi.jp/26/pc/corpinfo/displaySeminar/index?optNo=S1YStC&corpId=271969" target="_blank"><i class="fa-solid fa-briefcase"></i> 26卒の説明会はこちら</a>
             </div>
             <div data-aos="fade-up" data-aos-delay="200">
                 <h4 class="contact-call-to-action" data-aos="fade-up" data-aos-delay="150">ご質問があれば、お気軽にお問い合わせ・ご連絡ください。</h4>
                 <img src="images/問い合わせQR2.jpeg" alt="お問い合わせQRコード" style="max-width: 180px;">
-                <p style="margin-top:10px;">スマートフォンでQRコードを読み取り、お問い合わせフォームへ進んでください</p>
+                <p style="margin-top:10px;">スマートフォンでQRコードを読み込んでください</p>
             </div>
         </section>
     </main>
