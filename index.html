@@ -1328,6 +1328,92 @@
         .back-to-top-btn:hover {
             background-color: #0056b3;
         }
+
+        /* ================================================= */
+/* === 先輩社員の声（インタビュー）セクションのスタイル (改) === */
+/* ================================================= */
+
+/* カード全体のレイアウト */
+#interviews .interview-card {
+    background-color: rgba(255, 255, 255, 0.7);
+    border-radius: 15px;
+    padding: 30px;
+    display: flex;
+    align-items: flex-start; /* 写真とテキストを上揃えに変更 */
+    gap: 30px; /* 写真とテキストの間隔 */
+    margin-bottom: 25px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+}
+
+/* 写真を囲むコンテナ (四角形に変更) */
+#interviews .interview-photo {
+    width: 200px;
+    height: 250px;
+    border-radius: 10px; /* ★円形から、角丸の四角形に変更 */
+    overflow: hidden;
+    flex-shrink: 0;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+/* 写真自体のスタイル調整 */
+#interviews .interview-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* 画像の比率を保ったままコンテナを埋める */
+    margin: 0;
+    box-shadow: none;
+}
+
+/* インタビューのテキスト部分 */
+#interviews .interview-body {
+    flex-grow: 1;
+    text-align: left;
+}
+
+/* 名前の部分のスタイル (interview-body内に移動後) */
+#interviews .interview-name {
+    font-weight: bold;
+    font-size: 1.2rem;
+    display: block;
+}
+
+#interviews .interview-profile {
+    font-size: 0.8rem;
+    color: #666;
+    display: block;
+    margin-bottom: 20px; /* プロフィールとQ&Aの間に余白 */
+}
+
+#interviews .interview-body h4 {
+    font-size: 1.2rem;
+    color: #007BFF;
+    margin-top: 15px;
+    margin-bottom: 5px;
+}
+
+#interviews .interview-body h4:first-of-type {
+    margin-top: 0;
+}
+
+
+/* ===== レスポンシブ対応（スマホ表示）===== */
+@media (max-width: 768px) {
+    #interviews .interview-card {
+        flex-direction: column; /* 縦並びにする */
+        align-items: center; /* 中央揃えに */
+        gap: 20px;
+        padding: 20px;
+    }
+
+    #interviews .interview-photo {
+        width: 80%;
+        height: 250px;
+    }
+
+    #interviews .interview-body {
+        text-align: center; /* テキストも中央揃えに */
+    }
+}
     </style>
 </head>
 
@@ -1661,25 +1747,64 @@
     </section>
 
     <section id="interviews" class="container">
-            <h2 class="section-title" data-aos="fade-up">7. 先輩社員の声</h2>
-            <div class="interview-card" data-aos="fade-right">
-                <div class="interview-photo"><img src="images/今井部長.jpeg" alt="今井部長"><span class="interview-name">J.I</span><span class="interview-profile">インフラエンジニア / 2022年5月入社</span></div>
-                <div class="interview-body"><h4>Q.  IT未経験でも、現場で活躍できるようになりますか？</h4><p>IT未経験からのスタートでしたが、今ではコールセンターシステムのクラウド移行プロジェクトに携わり、業務改善に貢献しています。</p><h4>Q. スピンの魅力とは？</h4><p>スピンには“人が人を育てる”文化があります。悩みに寄り添い、一緒に考えてくれる仲間の存在が、自分を成長させてくれました。答えを教えるのではなく、共に考える。そんな時間を通じて、技術だけでなく「人としての力」も身につきました。スピンの掲げる「技術力 × 人間力 = プロフェッショナル」は、まさに現場で実感する姿勢そのもの。信頼される技術者として、自信を持って仕事に取り組めています。誰かの役に立ちたい。未経験でも挑戦したい。――そんな想いを持つ人にとって、スピンはきっと、人生を変えるスタート地点になるはずです。</p></div>
+        <h2 class="section-title" data-aos="fade-up">7. 先輩社員の声</h2>
+    
+        <div class="interview-card" data-aos="fade-right">
+            <div class="interview-photo">
+                <img src="images/今井部長.jpeg" alt="今井部長">
             </div>
-            <div class="interview-card" data-aos="fade-right">
-                <div class="interview-photo"><img src="images/西小野部長.jpeg" alt="西小野部長"><span class="interview-name">K.N</span><span class="interview-profile">インフラエンジニア / 2022年6月入社</span></div>
-                <div class="interview-body"><h4>Q. ～調整中～</h4><p>～調整中～</p><h4>Q. ～調整中～</h4><p>～調整中～</p></div>
+            <div class="interview-body">
+                <span class="interview-name">J.I</span>
+                <span class="interview-profile">インフラエンジニア / 2022年5月入社</span>
+                <h4>Q.  IT未経験でも、現場で活躍できるようになりますか？</h4>
+                <p>IT未経験からのスタートでしたが、今ではコールセンターシステムのクラウド移行プロジェクトに携わり、業務改善に貢献しています。</p>
+                <h4>Q. スピンの魅力とは？</h4>
+                <p>スピンには“人が人を育てる”文化があります。悩みに寄り添い、一緒に考えてくれる仲間の存在が、自分を成長させてくれました。答えを教えるのではなく、共に考える。そんな時間を通じて、技術だけでなく「人としての力」も身につきました。スピンの掲げる「技術力 × 人間力 = プロフェッショナル」は、まさに現場で実感する姿勢そのもの。信頼される技術者として、自信を持って仕事に取り組めています。誰かの役に立ちたい。未経験でも挑戦したい。――そんな想いを持つ人にとって、スピンはきっと、人生を変えるスタート地点になるはずです。</p>
             </div>
-             <div class="interview-card" data-aos="fade-left">
-                <div class="interview-photo"><img src="images/木田部長.jpeg" alt="木田部長"><span class="interview-name">R.K</span><span class="interview-profile">開発エンジニア / 2022年1月入社</span></div>
-                <div class="interview-body"><h4>Q. ～調整中～</h4><p>～調整中～</p><h4>Q. ～調整中～</h4><p>～調整中～</p></div>
+        </div>
+    
+        <div class="interview-card" data-aos="fade-left">
+             <div class="interview-photo">
+                <img src="images/西小野部長.jpeg" alt="西小野部長">
             </div>
-            <div class="interview-card" data-aos="fade-right">
-                <div class="interview-photo"><img src="images/梅野部長.jpeg" alt="梅野部長"><span class="interview-name">T.U</span><span class="interview-profile">コンサルエンジニア / 2022年3月入社</span></div>
-                <div class="interview-body"><h4>Q. 異業種からIT業界への転職に不安はありましたか？</h4><p>建築現場での施工管理から、まったくの未経験でITコンサルタントへ転身しました。最初は専門用語もわからず不安ばかりでしたが、先輩や仲間が寄り添ってくれたおかげで、ひとつひとつ壁を乗り越えてこられました。</p><h4>Q. 仕事をするうえで心がけていることは？</h4><p>わからないことは素直に聞き、学んだことを行動で返す。その積み重ねが信頼へとつながり、気づけば“現場で頼られる存在”に少しずつ近づいていると実感しています。
-                 必要なのは、特別なスキルよりも行動力と人との関わりを大切にする姿勢。そんな自分を育ててくれた環境に、今は感謝しかありません。</p></div>
+            <div class="interview-body">
+                <span class="interview-name">K.N</span>
+                <span class="interview-profile">インフラエンジニア / 2022年6月入社</span>
+                <h4>Q. ～調整中～</h4>
+                <p>～調整中～</p>
+                <h4>Q. ～調整中～</h4>
+                <p>～調整中～</p>
             </div>
-        </section>
+        </div>
+    
+        <div class="interview-card" data-aos="fade-right">
+             <div class="interview-photo">
+                <img src="images/木田部長.jpeg" alt="木田部長">
+            </div>
+            <div class="interview-body">
+                <span class="interview-name">R.K</span>
+                <span class="interview-profile">開発エンジニア / 2022年1月入社</span>
+                <h4>Q. ～調整中～</h4>
+                <p>～調整中～</p>
+                <h4>Q. ～調整中～</h4>
+                <p>～調整中～</p>
+            </div>
+        </div>
+        
+        <div class="interview-card" data-aos="fade-left">
+             <div class="interview-photo">
+                <img src="images/梅野部長.jpeg" alt="梅野部長">
+            </div>
+            <div class="interview-body">
+                <span class="interview-name">T.U</span>
+                <span class="interview-profile">コンサルエンジニア / 2022年3月入社</span>
+                <h4>Q. 異業種からIT業界への転職に不安はありましたか？</h4>
+                <p>建築現場での施工管理から、まったくの未経験でITコンサルタントへ転身しました。最初は専門用語もわからず不安ばかりでしたが、先輩や仲間が寄り添ってくれたおかげで、ひとつひとつ壁を乗り越えてこられました。</p>
+                <h4>Q. 仕事をするうえで心がけていることは？</h4>
+                <p>わからないことは素直に聞き、学んだことを行動で返す。その積み重ねが信頼へとつながり、気づけば“現場で頼られる存在”に少しずつ近づいていると実感しています。必要なのは、特別なスキルよりも行動力と人との関わりを大切にする姿勢。そんな自分を育ててくれた環境に、今は感謝しかありません。</p>
+            </div>
+        </div>
+    </section>
 
     <section id="mvv" data-aos="fade-up">
         <h2>8. SPINTECHNOLOGYのMVV</h2>
