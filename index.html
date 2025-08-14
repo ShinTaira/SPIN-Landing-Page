@@ -1395,6 +1395,21 @@
     margin-top: 0;
 }
 
+/* インタビューの見出しを太字・色付きで追加 */
+#interviews .interview-body .interview-catchphrase {
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: #FF6B8B; /* ポップなピンク */
+  margin-bottom: 10px;
+}
+
+@media (max-width: 768px) {
+  #interviews .interview-body .interview-catchphrase {
+    font-size: 1rem;
+    margin-bottom: 8px;
+  }
+}
+
 
 /* ===== レスポンシブ対応（スマホ表示）===== */
 @media (max-width: 768px) {
@@ -1464,7 +1479,7 @@
                     </div>
                     <div class="p-g-nav__center">
                         <div class="p-g-nav__item">
-                            <a href="#engineer-career">
+                            <a href="#culture">
                                 <p class="p-g-nav__sub-title">Tips</p>
                                 <h2 class="p-g-nav__title">お役立ち情報</h2>
                             </a>
@@ -1489,14 +1504,229 @@
 
     <section id="hero" data-aos="fade-up">
         <div>
-            <h2 data-aos="zoom-in-down" data-aos-delay="200">志しむことから全てがはじまる</h2>
-            <p data-aos="zoom-in-up" data-aos-delay="400">未経験からITプロフェッショナルへ<br>充実した研修制度と多岐にわたる事業であなたのキャリアを全力サポート</p>
-            <a href="#contact" class="btn" data-aos="fade-up" data-aos-delay="600">エンジニア採用情報を見る</a>
+            <h2 data-aos="zoom-in-down" data-aos-delay="200">志しむことから<br>全てがはじまる</h2>
+            <p data-aos="zoom-in-up" data-aos-delay="400">未経験からITプロフェッショナルへ<br>充実した研修制度と多岐にわたる事業で<br>あなたのキャリアを全力サポート</p>
+            <a href="#engineer-career" class="btn" data-aos="fade-up" data-aos-delay="600">キャリアパス・研修の詳細はこちら</a>
+        </div>
+    </section>
+
+    <section id="interviews" class="container">
+        <h2 class="section-title" data-aos="fade-up">1. 先輩社員の声</h2>
+    
+        <div class="interview-card" data-aos="fade-right">
+            <div class="interview-photo">
+                <img src="images/今井部長.jpeg" alt="今井部長">
+            </div>
+            <div class="interview-body">
+                <span class="interview-name">J.I</span>
+                <p class="interview-catchphrase" data-aos="fade-up">製造業からのキャリアチェンジ！</p>
+                <span class="interview-profile">インフラエンジニア / 2022年5月入社</span>
+                <h4>Q.  経験されたプロジェクト先は？</h4>
+                <p>初めてのプロジェクトはヘルプデスクです。次に要件定義の業務をこなし、<br>今ではクラウド移行プロジェクトに携わり業務改善に貢献しています。</p>
+                <h4>Q. スピンの魅力とは？</h4>
+                <p>スピンには「人が人を育てる」文化があります。悩みに寄り添い、一緒に考えてくれる仲間の存在が、自分を成長させてくれました。答えを教えるのではなく、共に考える。そんな時間を通じて、技術だけでなく「人としての力」も身につきました。</p>
+                <p>スピンが掲げる「技術力 × 人間力 = プロフェッショナル」は、まさに現場で実感する姿勢そのものです。今では信頼される技術者として、自信を持って仕事に取り組めています。</p>
+                <p>誰かの役に立ちたい、未経験でも挑戦したい。そんな想いを持つ人にとって、スピンはきっと、人生を変えるスタート地点になるはずです。</p>
+            </div>
+        </div>
+
+        <div class="interview-card" data-aos="fade-left">
+            <div class="interview-photo">
+               <img src="images/中川芽衣子.jpeg" alt="中川芽衣子">
+           </div>
+           <div class="interview-body">
+               <span class="interview-name">M.N</span>
+               <p class="interview-catchphrase" data-aos="fade-up">テレマーケティング業からのキャリアチェンジ！</p>
+               <span class="interview-profile">インフラエンジニア / 2021年11月入社</span>
+               <h4>Q. スピンで働く中で、特に成長を感じた瞬間や経験があれば教えてください。</h4>
+               <p>この会社で働く中で、「一歩踏み出す勇気が、大きな成長に繋がる」と強く感じました。</p>
+               <p>以前の私は、コミュニケーションが苦手で、人間関係で悩んだときは一人で抱え込むタイプでした。<br>しかし、大きな転機が訪れた際に上司に相談したところ、「あなたを必要だと思ってなければ、相手は手を差し伸べない」という言葉をもらい、自分の価値を初めて認識することができたんです。</p>
+               <p>この経験から考え方が変わり、人との関わり方も変化したことで、大きな成長に繋がりました。</p>
+               <h4>Q. エンジニアを目指す女性や、キャリアに悩む女性に向けて、メッセージをお願いします。</h4>
+               <p>スピンは実績より自己成長したいという気持ちを重視しており、現在活躍している社員のほとんどがIT未経験です。<br>また、他のIT企業よりも女性が多く在籍しております。</p>
+               <p>エンジニア自ら運営しているレクリエーションや部活動など、関係値を築ける交流の場が多く、<br>他の人のキャリアを知るチャンスがあります。</p>
+               <p>今はやりたいことが決まってなくても大丈夫！相談したらすぐに乗ってくれる先輩が沢山いますので、<br>是非相談に来てください！一緒にキャリアを築いていきましょう！</p>
+           </div>
+       </div>
+
+        <div class="interview-card" data-aos="fade-left">
+             <div class="interview-photo">
+                <img src="images/西小野部長.jpeg" alt="西小野部長">
+            </div>
+            <div class="interview-body">
+                <span class="interview-name">K.N</span>
+                <p class="interview-catchphrase" data-aos="fade-up">医療業からのキャリアチェンジ！</p>
+                <span class="interview-profile">インフラエンジニア / 2022年6月入社</span>
+                <h4>Q. この会社で働く一番の「やりがい」は何ですか？</h4>
+                <p>本人の「やってみたい」という意欲を尊重し、積極的に挑戦させてくれる環境そのものです。私自身、未経験からのスタートでしたが、今ではサービスの根幹を支えるサーバー構築という責任ある仕事を任されています。</p>
+                <p>もちろん最初は知識も経験も足りませんでしたが、「どうすればもっと安定したサービスを提供できるか」を考え、自分の手でインフラという土台を創り上げていく過程に、大きな手応えと面白さを感じています。<br>会社が個人の成長を信じ、挑戦の機会を与えてくれる。だからこそ、常に高い目標を持って仕事に取り組めています。</p>
+                <h4>Q. 活躍していく上で必要なスキルは？</h4>
+                <ul>
+                  <li>1つ目は「技術力」です。<br>インフラやネットワークの設計・構築においては、Linuxの操作や製品知識、スケジュール管理能力は不可欠です。</li>
+                  <li>2つ目は「課題解決力」です。<br>サーバー構築や運用では、必ずといっていいほど予期せぬトラブルが発生します。そうしたときに、エラーの切り分けやログ解析をもとに自ら原因を特定し、解決策を見つけ出す力が求められます。</li>
+                  <li>3つ目は「学び続ける姿勢」です。<br>IT業界は変化が激しいため、常に新しい技術をキャッチアップし続けることが求められます。</li>
+                </ul>
+            </div>
+        </div>
+    
+        <div class="interview-card" data-aos="fade-right">
+             <div class="interview-photo">
+                <img src="images/木田部長.jpeg" alt="木田部長">
+            </div>
+            <div class="interview-body">
+                <span class="interview-name">R.K</span>
+                <p class="interview-catchphrase" data-aos="fade-up">インテリア業からのキャリアチェンジ！</p>
+                <span class="interview-profile">開発エンジニア / 2022年1月入社</span>
+                <h4>Q. キャリア転身したきっかけは？</h4>
+                <p>前職はインテリアアドバイザーとしてお客様に家具をご提案していました。お客様と向き合い、一緒に住まいを創り上げる仕事に大きなやりがいを感じていました。</p>
+                <p>そんな中、社内システムで発注をする機会があったのですが、その使い勝手が正直あまりにも悪くて（笑）。「このシステム作った人、どこにいるの！？」と本気で思ったんです。</p>
+                <p>その瞬間、「自分ならもっと良いものが作れるかもしれない」と、“ものづくり”への想いが再燃しました。今では、あの時の自分のように「誰だこれ作ったの！」とならないシステムを目指して、日々開発に取り組んでいます。</p>
+                <h4>Q. 最後に、これからIT業界を目指す人へメッセージをお願いします。</h4>
+                <p>異業種からの挑戦でも、人に恵まれた環境があればきっと成長できると思います。今、不安を感じている人がいたら、「技術はあとからついてくる」と伝えたいです。<br>大切なのは、自分の想いや目標を持って、周りの人と一緒に成長していく姿勢だと思います。</p>
+            </div>
+        </div>
+
+        <div class="interview-card" data-aos="fade-right">
+            <div class="interview-photo">
+               <img src="images/友常七海.jpeg" alt="友常七海">
+           </div>
+           <div class="interview-body">
+               <span class="interview-name">N.T</span>
+               <p class="interview-catchphrase" data-aos="fade-up">医療系介護業からのキャリアチェンジ！</p>
+               <span class="interview-profile">開発エンジニア / 2022年8月入社</span>
+               <h4>Q. スピンの職場の雰囲気や、チームで働く中で感じる魅力は何ですか？</h4>
+               <p>スピンの魅力は、何といっても社員どうしのつながりです！普段はバラバラの現場で働いていますが、帰社すると「久しぶり！」「元気？」と温かく声をかけてくれる仲間がいます。<br>交流の場も多く、安心して話ができる環境が魅力ですね。</p>
+               <p>最近は社員が増えて名前を覚えるのが大変になりましたが、みんなが人とのつながりを大事にしてくれるおかげで、いつ帰社しても楽しく過ごせています。</p>
+               <h4>Q. 今後挑戦してみたいことや目標は何ですか？</h4>
+               <p>現在は事業部のマネージャーとして活動していますが、中長期の挑戦として、メンバー一人ひとりが「なりたいキャリア」を自ら描き、実現できる環境づくりに携わりたいと考えています。</p>
+               <p>多様な背景を持つメンバーが、誰一人取り残されないために必要なリソースを提供し、全員が自分らしくキャリアを掴める場を創るマネージャーを目指しています。</p>
+           </div>
+       </div>
+        
+        <div class="interview-card" data-aos="fade-left">
+             <div class="interview-photo">
+                <img src="images/梅野部長.jpeg" alt="梅野部長">
+            </div>
+            <div class="interview-body">
+                <span class="interview-name">T.U</span>
+                <p class="interview-catchphrase" data-aos="fade-up">建設業からのキャリアチェンジ！</p>
+                <span class="interview-profile">コンサルエンジニア / 2022年3月入社</span>
+                <h4>Q. 仕事をするうえで心がけていることは？</h4>
+                <p>わからないことは素直に聞き、学んだことを行動で返す。その積み重ねが信頼へとつながり、気づけば“現場で頼られる存在”に少しずつ近づいていると実感しています。</p>
+                <p>必要なのは、特別なスキルよりも行動力と人との関わりを大切にする姿勢です。そんな自分を育ててくれた環境に、今は感謝しかありません。</p>
+                <h4>Q. 将来はどんなエンジニアになりたいですか？</h4>
+                <p>将来は、ITとHR（人事）の両方を活かせる**「ハイブリッドエンジニア／コンサルタント」**を目指しています。</p>
+                <p>人事システムの設計・導入支援を通じて、制度設計や人材データの分析で課題解決をはかり、経営層と連携しながら、制度・運用・技術を融合させた組織改革を実現できる存在になりたいと考えています。</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="engineer-career" data-aos="fade-up">
+        <h2>2. キャリアフロー</h2>
+        <p data-aos="fade-up">当社では、多様なキャリアパスを用意し、あなたの成長を全力でサポートします。</p>
+
+        <div class="image-gallery">
+            <div class="gallery-item" data-aos="fade-up" data-aos-delay="50">
+                <h3 class="career-title infra-title">インフラエンジニアのキャリアフロー</h3>
+                <img src="images/インフラエンジニア.jpeg" alt="インフラエンジニアのキャリアパス図" class="content-image" loading="lazy" data-aos="zoom-in">
+            </div>
+            <div class="gallery-item" data-aos="fade-up" data-aos-delay="100">
+                <h3 class="career-title dev-title">開発エンジニアのキャリアフロー</h3>
+                <img src="images/開発エンジニア.jpeg" alt="開発エンジニアのキャリアパス図" class="content-image" loading="lazy" data-aos="zoom-in">
+            </div>
+            <div class="gallery-item" data-aos="fade-up" data-aos-delay="150">
+                <h3 class="career-title consult-title">コンサルエンジニアのキャリアフロー</h3>
+                <img src="images/コンサルエンジニア.jpeg" alt="コンサルエンジニアのキャリアパス図" class="content-image" loading="lazy" data-aos="zoom-in">
+            </div>
+            <div class="gallery-item" data-aos="fade-up" data-aos-delay="200">
+                <h3 class="career-title sales-title">営業のキャリアフロー</h3>
+                <img src="images/営業キャリア図.jpeg" alt="営業職のキャリアパス図" class="content-image" loading="lazy" data-aos="zoom-in">
+            </div>
+        </div>
+    </section>
+
+    <section id="culture" data-aos="fade-up">
+        <h2>3. 組織文化</h2>
+        <h3 class="intro-text" data-aos="fade-up" data-aos-delay="100">スピンの組織文化とは？</h3>
+        <ul>
+            <li data-aos="fade-up" data-aos-delay="150">
+                未経験からプロフェッショナルを目指せる、人を育てる文化があり、充実した研修制度や一人一人が多様な仕事に挑戦し成長できる環境が整っている。</li>
+            <li data-aos="fade-up" data-aos-delay="200">
+                役職や立場に関わらず、フラットに意見交換ができる風通しの良い組織。社員同士の距離が近く活発なコミュニケーションを通じて互いを高め合える文化がある。</li>
+        </ul>
+
+        <h3 id="culture-training" data-aos="fade-up" data-aos-delay="250">組織文化（研修）</h3>
+        <ol>
+            <li data-aos="fade-up" data-aos-delay="350">ビジネス研修（思考編～、行動編～）</li>
+            <li data-aos="fade-up" data-aos-delay="400">キャリア研修（インフラ・開発・コンサル）</li>
+            <li data-aos="fade-up" data-aos-delay="450">マネジメント研修</li>
+            <li data-aos="fade-up" data-aos-delay="500">知識研修（インフラ・開発・コンサル）</li>
+            <li data-aos="fade-up" data-aos-delay="550">技術研修（インフラ・開発・コンサル）</li>
+        </ol>
+        <p class="future-call-to-action" data-aos="zoom-in" data-aos-delay="200">ビジネス研修</p>
+        <div class="gallery-item" data-aos="fade-up" data-aos-delay="550">
+            <img src="images/キャリア研修4.jpeg" alt="ビジネス研修風景のイメージ" class="content-image" loading="lazy" width="600" height="400" data-aos="zoom-in">
+        </div>
+
+        <h3 id="culture-club" data-aos="fade-up" data-aos-delay="500">組織文化（部活）</h3>
+        <ol>
+            <li data-aos="fade-up" data-aos-delay="350">健康や日々のリフレッシュする</li>
+            <li data-aos="fade-up" data-aos-delay="400">社員同士の交流を通して悩み事やキャリア相談をしやすい雰囲気作りをする</li>
+            <li data-aos="fade-up" data-aos-delay="450">社員が定着し、共に成長できる場所</li>
+        </ol>
+        <div class="image-gallery">
+            <p class="future-call-to-action" data-aos="zoom-in" data-aos-delay="200">野球部</p>
+            <div class="gallery-item" data-aos="fade-up" data-aos-delay="550">
+                <img src="images/野球部.jpeg" alt="部活動１の風景" class="content-image" loading="lazy" width="600" height="400" data-aos="zoom-in">
+            </div>
+            <p class="future-call-to-action" data-aos="zoom-in" data-aos-delay="200">ダーツ部</p>
+            <div class="gallery-item" data-aos="fade-up" data-aos-delay="600">
+                <img src="images/darts.jpeg" alt="活動動２の風景" class="content-image" loading="lazy" width="600" height="400" data-aos="zoom-in">
+            </div>
+        </div>
+
+        <h3 id="culture-recreation" data-aos="fade-up" data-aos-delay="650">組織文化（レクリエーション）</h3>
+        <ul>
+            <li data-aos="fade-up" data-aos-delay="150">
+                様々なレクを毎月1〜2回開催</li>
+        </ul>
+        <div class="image-gallery">
+            <p class="future-call-to-action" data-aos="zoom-in" data-aos-delay="200">BBQレク（年2回：夏開催）</p>
+            <div class="gallery-item" data-aos="fade-up" data-aos-delay="700">
+                <img src="images/BBQレク2.jpeg" alt="BBQの風景" class="content-image" loading="lazy" width="600" height="400" data-aos="zoom-in">
+            </div>
+            <p class="future-call-to-action" data-aos="zoom-in" data-aos-delay="200">社員旅行 in 熱海</p>
+            <div class="gallery-item" data-aos="fade-up" data-aos-delay="750">
+                <img src="images/社員旅行3.jpeg" alt="社員旅行の風景" class="content-image" loading="lazy" width="600" height="400" data-aos="zoom-in">
+            </div>
+        </div>
+    </section>
+
+    <section id="company-video" data-aos="fade-up">
+        <h2>4. 会社の雰囲気（動画）</h2>
+        <p data-aos="fade-up" data-aos-delay="100">SPINTECHNOLOGYの活気ある職場環境や社員の様子をご紹介します。</p>
+        <div class="video-container" data-aos="zoom-in" data-aos-delay="200">
+            <video controls preload="metadata" poster="images/intro_movie_poster.jpg">
+                <source src="videos/intro_movie.mp4" type="video/mp4">
+                お使いのブラウザは動画タグをサポートしていません。
+            </video>
+        </div>
+        <div class="video-container" data-aos="zoom-in" data-aos-delay="200">
+            <video controls preload="metadata" poster="images/Company-wide_general_ meeting_movie_poster.jpg">
+                <source src="videos/Company-wide_general_meeting_202506.movie.mp4" type="video/mp4">
+                お使いのブラウザは動画タグをサポートしていません。
+            </video>
+        </div>
+        <div class="video-container" data-aos="zoom-in" data-aos-delay="200">
+            <video controls preload="metadata" poster="images/Company-wide_general meeting2_movie_poster.jpg">
+                <source src="videos/Company-wide_general_meeting202412.movie.mp4" type="video/mp4">
+                お使いのブラウザは動画タグをサポートしていません。
+            </video>
         </div>
     </section>
 
     <section id="company-overview" data-aos="fade-right">
-        <h2>1. 会社概要</h2>
+        <h2>5. 会社概要</h2>
         <dl>
             <dt data-aos="fade-up" data-aos-delay="100">会社名</dt>
             <dd data-aos="fade-up" data-aos-delay="100">株式会社 SPIN TECHNOLOGY</dd>
@@ -1518,15 +1748,21 @@
     </section>
 
     <section id="business-overview" data-aos="fade-left">
-        <h2>2. 事業概要</h2>
+        <h2>6. 事業概要</h2>
         <h3 class="sub-heading" data-aos="zoom-in-up">システムインテグレーション</h3>
         <ul>
             <li data-aos="fade-up" data-aos-delay="100">
                 お客様のITシステムに関する様々な課題に対し、分析から設計、開発、導入、運用まで一貫したソリューションを提供し、最適なシステム構築を支援します。</li>
             <li data-aos="fade-up" data-aos-delay="200">
-                分析：お客様の「困りごと」と「欲しいもの」を明確にする。設計：システムの「設計図」を作る。開発：設計図通りにプログラミング言語（JavaやPython、C言語等）を使用「システムを作る」。
+                分析：お客様の「困りごと」と「欲しいもの」を明確にする。
+            <li data-aos="fade-up" data-aos-delay="300">    
+                設計：システムの「設計図」を作る。
+            <li data-aos="fade-up" data-aos-delay="400">
+                開発：設計図通りにプログラミング言語（JavaやPython、C言語等）を使用「システムを作る」。
+            <li data-aos="fade-up" data-aos-delay="500">
                 導入：完成したシステムをお客様に届ける。運用：システムを安定して使い続けられるよう支える。</li>
         </ul>
+        <p style="margin-top: 10px;" data-aos="fade-up" data-aos-delay="300">
         <h3 class="sub-heading" data-aos="zoom-in-up">受託事業</h3>
         <ul>
             <li data-aos="fade-up" data-aos-delay="100">生成AI活用支援・開発</li>
@@ -1534,6 +1770,7 @@
             <li data-aos="fade-up" data-aos-delay="200">スマートフォンアプリケーション</li>
             <li data-aos="fade-up" data-aos-delay="250">Webサイト・LP・ECサイト</li>
         </ul>
+        <p style="margin-top: 10px;" data-aos="fade-up" data-aos-delay="300">
         <h3 class="sub-heading" data-aos="zoom-in-up">SI事業</h3>
         <ul>
             <li data-aos="fade-up" data-aos-delay="100">システムソリューション</li>
@@ -1542,19 +1779,83 @@
             <li data-aos="fade-up" data-aos-delay="250">通信ソリューション</li>
             <li data-aos="fade-up" data-aos-delay="300">キッティングソリューション</li>
         </ul>
+        <p style="margin-top: 10px;" data-aos="fade-up" data-aos-delay="300">
         <h3 class="sub-heading" data-aos="zoom-in-up">ITスクール事業</h3>
         <ul>
             <li data-aos="fade-up" data-aos-delay="100">IT基礎研修、社会人基礎研修、ネットワーク研修</li>
-            <li data-aos="fade-up" data-aos-delay="100">Linux研修、Java研修、AWS研修 etc...</li>
+            <li data-aos="fade-up" data-aos-delay="100">Linux研修、Java研修、AWS研修 CCNA研修etc...</li>
         </ul>
+        <p style="margin-top: 10px;" data-aos="fade-up" data-aos-delay="300">
+    </section>
+
+    <section id="business-model" data-aos="fade-up">
+        <h2>7. ビジネスモデル</h2>
+        <ul>
+            <li data-aos="fade-up" data-aos-delay="150">システムインテグレーション<br>設計から運用までの一貫したサービスソリューションの提供</li>
+            <li data-aos="fade-up" data-aos-delay="200">
+                受託開発サービス<br>生成AI活用支援、Webサイト、LP、ECサイト制作から、各種Webシステム、業務システム、スマートフォンアプリ開発まで、お客様の多様なニーズにお応えする受託開発を幅広く手がけています。
+            </li>
+            <li data-aos="fade-up" data-aos-delay="250">
+                IT教育サービス<br>ITスクール事業や企業向けIT研修を通じて、実践的なITスキルや知識習得の機会を提供し、社会全体のIT人材育成に貢献しています。</li>
+            <li data-aos="fade-up" data-aos-delay="300">
+                運用・保守サービス<br>開発したシステムや既存のIT資産が安定的に稼働し続けるよう、確かな技術力に基づいた運用・保守サービスを提供し、お客様のビジネス継続を力強く支えます。</li>
+        </ul>
+        <p data-aos="fade-up" data-aos-delay="350"><strong>現在は上場企業「ボードルア」グループの一員として、安定した経営基盤と信頼性の高いネットワークを活かしながら、自社独自の技術力と柔軟性を発揮できる環境を整えています。</strong></p>
+    <h4 class="contact-call-to-action" data-aos="fade-up" data-aos-delay="250">今後さらなる成長に向け、新たな仲間を募集しています！</h4>
+    </section>
+
+    <section id="strengths" data-aos="fade-up">
+        <h2>8. 会社の強み</h2>
+        <ol>
+            <li data-aos="fade-up" data-aos-delay="100">
+                <h3 class="strength-point">会社に対する自信</h3>
+                <br>当社は、明確なビジョンに基づいた事業戦略と、変化を恐れず挑戦し続ける企業文化により、持続的な成長を実現しています。信頼できるITパートナーとして、お客様と共に未来を創造します。
+            </li>
+            <li data-aos="fade-up" data-aos-delay="200">
+                <h3 class="strength-point">事業に対する自信</h3>
+                <br>お客様の真の課題解決を目指し、より上流工程からビジネスに貢献する一次請けとしての事業を強化しています。社会のニーズに応える革新的なITソリューションを提供できることに自信を持っています。
+            </li>
+            <li data-aos="fade-up" data-aos-delay="300">
+                <h3 class="strength-point">商品・サービスに対する自信</h3>
+                <br>高い技術力と豊富な経験を持つプロフェッショナル集団が、お客様のビジネスを加速させる高品質かつ信頼性の高いITサービスを提供いたします。私たちが提供する価値に、絶対の自信を持っています。
+            </li>
+            <li data-aos="fade-up" data-aos-delay="400">
+                <h3 class="strength-point">社員（自分たち）に対する自信</h3>
+                <br>当社の社員は、自身の成長に情熱を燃やし常に最高のパフォーマンスを目指すプロフェッショナルです。充実した教育・サポート体制のもと、日々進化を続ける私たちの「人」こそが、最大の強みであり、お客様の成功への鍵となります。
+            </li>
+        </ol>
+    </section>
+
+    <section id="mvv" data-aos="fade-up">
+        <h2>9. SPINTECHNOLOGYのMVV</h2>
+        <h3 class="mvv-title" data-aos="fade-up" data-aos-delay="100"><i class="fa-solid fa-lightbulb"></i>MVVとは</h3>
+        <p data-aos="fade-up" data-aos-delay="50">Mission（ミッション）、Vision（ビジョン）、Value（バリュー）の略であり、<br>当社の会社理念である『志しむことから全てがはじまる』を、より具体的な行動や目指す姿に落とし込んだものです。</p>
+        <h3 class="mvv-title" data-aos="fade-up" data-aos-delay="200"><i class="fa-solid fa-flag"></i>Mission </h3>
+        <p data-aos="fade-up" data-aos-delay="150">ITで人を育て、お客様と志を共にする未来を創る</p>
+        <h3 class="mvv-title" data-aos="fade-up" data-aos-delay="300"><i class="fa-solid fa-binoculars"></i>Vision </h3>
+        <p data-aos="fade-up" data-aos-delay="250">「技術力 × 人間力」 = プロフェッショナル<br>社会に貢献できる真のプロフェッショナルを育てられる会社</p>
+        <h3 class="mvv-title" data-aos="fade-up" data-aos-delay="400"><i class="fa-solid fa-gem"></i>Value </h3>
+        <ul>
+            <li data-aos="fade-up" data-aos-delay="350">誠実：行動と言動に責任を持って真面目に向き合うこと</li>
+            <li data-aos="fade-up" data-aos-delay="400">素直：他人からの意見を受け入れ、己を見直したり改善すること</li>
+            <li data-aos="fade-up" data-aos-delay="450">挑戦：失敗や困難を恐れず新しいことに果敢に行動する姿勢</li>
+        </ul>
+        <p data-aos="fade-up" data-aos-delay="200" style="text-align: center; margin-top: 15px;">
+            <span style="color: #FF6B8B;">【あなたに期待する役割】</span>
+            <br>
+            <strong style="font-weight: bold;">
+                私たちは、お客様の課題を技術で解決し、共に成長していく仲間を求めています。<br>未経験からでも、素直さ・誠実さ・挑戦する心があれば、必ずプロフェッショナルとして活躍できる場所があります。
+            </strong>
+        </p>
     </section>
 
     <section id="ceo-intro" data-aos="fade-up">
-        <h2>3. 社長紹介</h2>
+        <h2>10. 社長紹介</h2>
         <div class="ceo-content-wrapper">
             <div class="ceo-text-left" data-aos="fade-right" data-aos-delay="100">
-                <p class="quote" style="font-size: 1.8rem; font-weight: 700;" data-aos="fade-up">「成長意欲のある若者に挑戦の機会を提供し、自己実現を果たしてほしい」という強い想いからSPIN TECHNOLOGYを創業</p>
-                <p data-aos="fade-up" data-aos-delay="150">前職では20代で執行役員を務め、順調にキャリアを積んできましたが、30代を前に「誰かの人生に貢献したい」と考えるようになりました。若い頃、失敗や壁にぶつかりながらも、周囲の支えによって成長できた経験から、今度は自分が若者にその機会を提供する番だと感じたのです。特に人材不足が叫ばれるIT業界において、未経験でも努力次第で社会に貢献できるチャンスが広がっていると信じています。私は、「熱量さえあれば人は必ず成長できる」と考えており、今度は私が、かつての自分のように「変わりたい」と願うメンバー達に、成長のチャンスを提供したいと考え、安心して挑戦し成長できる環境づくりに尽力しています。</p>
+                <p class="quote" style="font-size: 1.8rem; font-weight: 700;" data-aos="fade-up">「成長意欲のある若者に挑戦の機会を提供し、<br>自己実現を果たしてほしい」という強い想いから<br>SPIN TECHNOLOGYを創業</p>
+                <p data-aos="fade-up" data-aos-delay="150">前職では20代で執行役員を務め、順調にキャリアを積んできましたが、<br>30代を前に「誰かの人生に貢献したい」と考えるようになりました。若い頃、失敗や壁にぶつかりながらも、<br>周囲の支えによって成長できた経験から、今度は自分が若者にその機会を提供する番だと感じたのです。
+                  <br>特に人材不足が叫ばれるIT業界において、未経験でも努力次第で社会に貢献できるチャンスが広がっていると信じています。私は、「熱量さえあれば人は必ず成長できる」と考えており、今度は私が、かつての自分のように<br>「変わりたい」と願うメンバー達に、成長のチャンスを提供したいと考え、安心して挑戦し成長できる環境づくりに尽力しています。</p>
                 <p data-aos="fade-up" data-aos-delay="200"><strong>岡田佳祐</strong></p>
                 <ul>
                     <li data-aos="fade-up" data-aos-delay="250">趣味：フットサル、野球、ゴルフ、スマブラ</li>
@@ -1573,7 +1874,7 @@
     </section>
 
     <section id="history" data-aos="fade-up">
-        <h2>4. 沿革</h2>
+        <h2>11. 沿革</h2>
         <ul>
             <li data-aos="fade-up" data-aos-delay="100">2021年9月　株式会社SPIN TECHNOLOGY設立</li>
             <li data-aos="fade-up" data-aos-delay="150">設立1年半で正社員160名の達成</li>
@@ -1587,7 +1888,7 @@
     </section>
 
     <section id="organization-chart" data-aos="fade-down">
-        <h2>5. 組織図</h2>
+        <h2>12. 組織図</h2>
         <div class="tabs">
             <div class="tab-buttons" data-aos="fade-up" data-aos-delay="100">
                 <button class="tab-button active" onclick="openTab('overall')">組織全体図</button>
@@ -1722,261 +2023,6 @@
             </div>
     </section>
 
-    <section id="engineer-career" data-aos="fade-up">
-        <h2>6. キャリアフロー</h2>
-        <p data-aos="fade-up">当社では、多様なキャリアパスを用意し、あなたの成長を全力でサポートします。</p>
-
-        <div class="image-gallery">
-            <div class="gallery-item" data-aos="fade-up" data-aos-delay="50">
-                <h3 class="career-title infra-title">インフラエンジニアのキャリアフロー</h3>
-                <img src="images/インフラエンジニア.jpeg" alt="インフラエンジニアのキャリアパス図" class="content-image" loading="lazy" data-aos="zoom-in">
-            </div>
-            <div class="gallery-item" data-aos="fade-up" data-aos-delay="100">
-                <h3 class="career-title dev-title">開発エンジニアのキャリアフロー</h3>
-                <img src="images/開発エンジニア.jpeg" alt="開発エンジニアのキャリアパス図" class="content-image" loading="lazy" data-aos="zoom-in">
-            </div>
-            <div class="gallery-item" data-aos="fade-up" data-aos-delay="150">
-                <h3 class="career-title consult-title">コンサルエンジニアのキャリアフロー</h3>
-                <img src="images/コンサルエンジニア.jpeg" alt="コンサルエンジニアのキャリアパス図" class="content-image" loading="lazy" data-aos="zoom-in">
-            </div>
-            <div class="gallery-item" data-aos="fade-up" data-aos-delay="200">
-                <h3 class="career-title sales-title">営業のキャリアフロー</h3>
-                <img src="images/営業キャリア図.jpeg" alt="営業職のキャリアパス図" class="content-image" loading="lazy" data-aos="zoom-in">
-            </div>
-        </div>
-    </section>
-
-    <section id="interviews" class="container">
-        <h2 class="section-title" data-aos="fade-up">7. 先輩社員の声</h2>
-    
-        <div class="interview-card" data-aos="fade-right">
-            <div class="interview-photo">
-                <img src="images/今井部長.jpeg" alt="今井部長">
-            </div>
-            <div class="interview-body">
-                <span class="interview-name">J.I</span>
-                <span class="interview-profile">インフラエンジニア / 2022年5月入社</span>
-                <h4>Q.  経験されたプロジェクト先は？</h4>
-                <p>初めてのプロジェクトはヘルプデスクです。次に要件定義の業務をこなし、今ではクラウド移行プロジェクトに携わり業務改善に貢献しています。</p>
-                <h4>Q. スピンの魅力とは？</h4>
-                <p>スピンには“人が人を育てる”文化があります。悩みに寄り添い、一緒に考えてくれる仲間の存在が、自分を成長させてくれました。答えを教えるのではなく、共に考える。そんな時間を通じて、技術だけでなく「人としての力」も身につきました。スピンの掲げる「技術力 × 人間力 = プロフェッショナル」は、まさに現場で実感する姿勢そのもの。信頼される技術者として、自信を持って仕事に取り組めています。誰かの役に立ちたい。未経験でも挑戦したい。――そんな想いを持つ人にとって、スピンはきっと、人生を変えるスタート地点になるはずです。</p>
-            </div>
-        </div>
-
-        <div class="interview-card" data-aos="fade-left">
-            <div class="interview-photo">
-               <img src="images/中川芽衣子.jpeg" alt="中川芽衣子">
-           </div>
-           <div class="interview-body">
-               <span class="interview-name">M.N</span>
-               <span class="interview-profile">インフラエンジニア / 2021年11月入社</span>
-               <h4>Q. スピンで働く中で、特に成長を感じた瞬間や経験があれば教えてください</h4>
-               <p>「一歩踏み出す勇気が、大きな成長に繋がるということです！」
-                以前の私は、コミュニケーションが得意な方ではなく、人間関係で悩んだときがありました。当時は”相談＝弱み”と考えがちで、自分ひとりでなんとか乗り越えようとしていました。しかしスピンに入社してから大きな転機が訪れた時に、上司にはじめて相談したところ「貴方を必要だと思ってなければ相手は手を差し伸べない」という言葉をもらったとき、自分の価値を初めて認識することができました！
-                新たな視点からアドバイスもらえたことで考え方が変わり、人との関わり方に変化が出たことはとても成長に繋がったと思います。</p>
-               <h4>Q. エンジニアを目指す女性や、キャリアに悩む女性に向けて、メッセージをお願いします</h4>
-               <p>スピンは実績より自己成長したいという気持ちを重視しており、現在活躍している社員のほとんどがIT未経験です。また、他のIT企業よりも女性が多く在籍しております。エンジニア自ら運営しているレクリエーションや部活動など、関係値を築ける交流の場が多く、他の人のキャリアを知るチャンスがあります。
-                今はやりたいことが決まってなくても大丈夫！相談したらすぐに乗ってくれる先輩が沢山いますので、是非相談に来てください！一緒にキャリアを築いていきましょう！</p>
-           </div>
-       </div>
-
-        <div class="interview-card" data-aos="fade-left">
-             <div class="interview-photo">
-                <img src="images/西小野部長.jpeg" alt="西小野部長">
-            </div>
-            <div class="interview-body">
-                <span class="interview-name">K.N</span>
-                <span class="interview-profile">インフラエンジニア / 2022年6月入社</span>
-                <h4>Q. この会社で働く一番の「やりがい」は何ですか？</h4>
-                <p>本人の「やってみたい」という意欲を尊重し、積極的に挑戦させてくれる環境そのものです。私自身、未経験からのスタートでしたが、今ではサービスの根幹を支えるサーバー構築という責任ある仕事を任されています。もちろん最初は知識も経験も足りませんでしたが、「どうすればもっと安定したサービスを提供できるか」を考え、自分の手でインフラという土台を創り上げていく過程に、大きな手応えと面白さを感じています。会社が個人の成長を信じ、挑戦の機会を与えてくれる。だからこそ、常に高い目標を持って仕事に取り組めています。</p>
-                <h4>Q. 活躍していく上で必要なスキルは？</h4>
-                <p>1つ目は「技術力」です。インフラやネットワークの設計・構築においては、Linuxの操作や製品知識、スケジュール管理能力は不可欠です。
-                    2つ目は「課題解決力」です。サーバー構築や運用では、必ずといっていいほど予期せぬトラブルが発生します。そうしたときに、エラーの切り分けやログ解析をもとに自ら原因を特定し、解決策を見つけ出す力が求められます。私はトラブルを「学びのチャンス」と捉え、手を動かして調べながら解決していくスタイルを大切にしています。
-                    3つ目は「学び続ける姿勢」です。IT業界は変化が激しいため、常に新しい技術をキャッチアップし続けることが求められます。</p>
-            </div>
-        </div>
-    
-        <div class="interview-card" data-aos="fade-right">
-             <div class="interview-photo">
-                <img src="images/木田部長.jpeg" alt="木田部長">
-            </div>
-            <div class="interview-body">
-                <span class="interview-name">R.K</span>
-                <span class="interview-profile">開発エンジニア / 2022年1月入社</span>
-                <h4>Q. キャリア転身したきっかけは？</h4>
-                <p>前職ではインテリアアドバイザーとして、お客様に家具をご提案していました。一見営業のような仕事ですが、ありがたいことに指名をいただくこともあり、お客様とじっくり向き合いながら、住まいに合った家具を一緒に選ぶのはとてもやりがいがありました。
-                   そんな中で、お客様が購入された家具を社内システムで発注する機会があるのですが……正直、そのシステムの使い勝手があまりにも悪くて（笑）。「このシステム作った人、どこにいるの！？設計書持ってきて！」と本気で思ったんです。
-                   その瞬間、「自分ならもっと良いものを作れるかもしれない」と、心の奥にあった“ものづくり”への想いが再燃し、思い切ってキャリアを転身。今はエンジニアとして、あの時の自分のように「誰だこれ作ったの！」とならないシステムを目指して、日々開発に取り組んでいます。</p>
-                <h4>Q. 最後に、これからIT業界を目指す人へメッセージをお願いします</h4>
-                <p>異業種からの挑戦でも、人に恵まれた環境があればきっと成長できると思います。今、不安を感じている人がいたら、「技術はあとからついてくる」と伝えたいです。大切なのは、自分の想いや目標を持って、周りの人と一緒に成長していく姿勢だと思います。</p>
-            </div>
-        </div>
-
-        <div class="interview-card" data-aos="fade-right">
-            <div class="interview-photo">
-               <img src="images/友常七海.jpeg" alt="友常七海">
-           </div>
-           <div class="interview-body">
-               <span class="interview-name">N.T</span>
-               <span class="interview-profile">開発エンジニア / 2022年8月入社</span>
-               <h4>Q. スピンの職場の雰囲気や、チームで働く中で感じる魅力は何ですか？</h4>
-               <p>社員どうしのつながりが魅力です！スピンは現在SESなので、普段はみんなバラバラの現場で業務をこなしてますが、弊社は業後や土日に帰社すると、必ず「久しぶり！」「元気？現場忙しい？」「一緒にご飯でも行こうよ」とみんなが温かく声をかけてくれるので安心して交流ができます。
-                  また、最近は社員がどんどん増えて名前が覚えきれなくなってきましたが、みんながつながりを大事にしてくれているおかげで、いつ帰社しても楽しく過ごせています。</p>
-               <h4>Q.  今後挑戦してみたいことや目標は何ですか？</h4>
-               <p>現在は事業部のマネージャーとして活動していますが、中長期の挑戦として、メンバー一人ひとりが「なりたいキャリア」を自ら描き、実現できる環境づくりに携わりたいと考えています。
-                多様な背景や価値観を持つメンバーが、誰一人取り残されないために、日々信頼関係を深め、必要なリソース（研修、社会人としての考え方や、OJTなど）を提供しメンバー全員が自分らしく、なりたいキャリアを掴める場を創るマネージャーを目指しています！</p>
-           </div>
-       </div>
-        
-        <div class="interview-card" data-aos="fade-left">
-             <div class="interview-photo">
-                <img src="images/梅野部長.jpeg" alt="梅野部長">
-            </div>
-            <div class="interview-body">
-                <span class="interview-name">T.U</span>
-                <span class="interview-profile">コンサルエンジニア / 2022年3月入社</span>
-                <h4>Q. 仕事をするうえで心がけていることは？</h4>
-                <p>わからないことは素直に聞き、学んだことを行動で返す。その積み重ねが信頼へとつながり、気づけば“現場で頼られる存在”に少しずつ近づいていると実感しています。必要なのは、特別なスキルよりも行動力と人との関わりを大切にする姿勢。そんな自分を育ててくれた環境に、今は感謝しかありません。</p>
-                <h4>Q. 将来はどんなエンジニアになりたいですか？</h4>
-                <p>将来は、ITとHR（人事）の両輪を活かせるハイブリッドエンジニア／コンサルタントを目指しており、人事システムの設計・導入支援を通じ、制度設計や人材データの分析で課題解決をはかり、人事担当者や経営層と連携し、制度・運用・技術を融合させた組織改革を実現できる存在でありたいと考えています。</p>
-            </div>
-        </div>
-    </section>
-
-    <section id="mvv" data-aos="fade-up">
-        <h2>8. SPINTECHNOLOGYのMVV</h2>
-        <h3 class="mvv-title" data-aos="fade-up" data-aos-delay="100"><i class="fa-solid fa-lightbulb"></i>MVVとは</h3>
-        <p data-aos="fade-up" data-aos-delay="50">Mission（ミッション）、Vision（ビジョン）、Value（バリュー）の略であり、<br>当社の会社理念である『志しむことから全てがはじまる』を、より具体的な行動や目指す姿に落とし込んだものです。</p>
-        <h3 class="mvv-title" data-aos="fade-up" data-aos-delay="200"><i class="fa-solid fa-flag"></i>Mission </h3>
-        <p data-aos="fade-up" data-aos-delay="150">ITで人を育て、お客様と志を共にする未来を創る</p>
-        <h3 class="mvv-title" data-aos="fade-up" data-aos-delay="300"><i class="fa-solid fa-binoculars"></i>Vision </h3>
-        <p data-aos="fade-up" data-aos-delay="250">「技術力 × 人間力」 = プロフェッショナル<br>社会に貢献できる真のプロフェッショナルを育てられる会社</p>
-        <h3 class="mvv-title" data-aos="fade-up" data-aos-delay="400"><i class="fa-solid fa-gem"></i>Value </h3>
-        <ul>
-            <li data-aos="fade-up" data-aos-delay="350">誠実：行動と言動に責任を持って真面目に向き合うこと</li>
-            <li data-aos="fade-up" data-aos-delay="400">素直：他人からの意見を受け入れ、己を見直したり改善すること</li>
-            <li data-aos="fade-up" data-aos-delay="450">挑戦：失敗や困難を恐れず新しいことに果敢に行動する姿勢</li>
-        </ul>
-    </section>
-
-    <section id="business-model" data-aos="fade-up">
-        <h2>9. ビジネスモデル</h2>
-        <ul>
-            <li data-aos="fade-up" data-aos-delay="150">システムインテグレーション<br>設計から運用までの一貫したサービスソリューションの提供</li>
-            <li data-aos="fade-up" data-aos-delay="200">
-                受託開発サービス<br>生成AI活用支援、Webサイト、LP、ECサイト制作から、各種Webシステム、業務システム、スマートフォンアプリ開発まで、お客様の多様なニーズにお応えする受託開発を幅広く手がけています。
-            </li>
-            <li data-aos="fade-up" data-aos-delay="250">
-                IT教育サービス<br>ITスクール事業や企業向けIT研修を通じて、実践的なITスキルや知識習得の機会を提供し、社会全体のIT人材育成に貢献しています。</li>
-            <li data-aos="fade-up" data-aos-delay="300">
-                運用・保守サービス<br>開発したシステムや既存のIT資産が安定的に稼働し続けるよう、確かな技術力に基づいた運用・保守サービスを提供し、お客様のビジネス継続を力強く支えます。</li>
-        </ul>
-        <p data-aos="fade-up" data-aos-delay="350"><strong>現在は上場企業「ボードルア」グループの一員として、安定した経営基盤と信頼性の高いネットワークを活かしながら、自社独自の技術力と柔軟性を発揮できる環境を整えています。</strong></p>
-    <h4 class="contact-call-to-action" data-aos="fade-up" data-aos-delay="250">今後さらなる成長に向け、新たな仲間を募集しています！</h4>
-    </section>
-
-    <section id="culture" data-aos="fade-up">
-        <h2>10. 組織文化</h2>
-        <h3 class="intro-text" data-aos="fade-up" data-aos-delay="100">スピンの組織文化とは？</h3>
-        <ul>
-            <li data-aos="fade-up" data-aos-delay="150">
-                未経験からプロフェッショナルを目指せる、人を育てる文化があり、充実した研修制度や一人一人が多様な仕事に挑戦し成長できる環境が整っている。</li>
-            <li data-aos="fade-up" data-aos-delay="200">
-                役職や立場に関わらず、フラットに意見交換ができる風通しの良い組織。社員同士の距離が近く活発なコミュニケーションを通じて互いを高め合える文化がある。</li>
-        </ul>
-
-        <h3 id="culture-training" data-aos="fade-up" data-aos-delay="250">組織文化（研修）</h3>
-        <ol>
-            <li data-aos="fade-up" data-aos-delay="350">ビジネス研修（思考編～、行動編～）</li>
-            <li data-aos="fade-up" data-aos-delay="400">キャリア研修（インフラ・開発・コンサル）</li>
-            <li data-aos="fade-up" data-aos-delay="450">マネジメント研修</li>
-            <li data-aos="fade-up" data-aos-delay="500">知識研修（インフラ・開発・コンサル）</li>
-            <li data-aos="fade-up" data-aos-delay="550">技術研修（インフラ・開発・コンサル）</li>
-        </ol>
-        <p class="future-call-to-action" data-aos="zoom-in" data-aos-delay="200">ビジネス研修</p>
-        <div class="gallery-item" data-aos="fade-up" data-aos-delay="550">
-            <img src="images/キャリア研修4.jpeg" alt="ビジネス研修風景のイメージ" class="content-image" loading="lazy" width="600" height="400" data-aos="zoom-in">
-        </div>
-
-        <h3 id="culture-club" data-aos="fade-up" data-aos-delay="500">組織文化（部活）</h3>
-        <ol>
-            <li data-aos="fade-up" data-aos-delay="350">健康や日々のリフレッシュする</li>
-            <li data-aos="fade-up" data-aos-delay="400">社員同士の交流を通して悩み事やキャリア相談をしやすい雰囲気作りをする</li>
-            <li data-aos="fade-up" data-aos-delay="450">社員が定着し、共に成長できる場所</li>
-        </ol>
-        <div class="image-gallery">
-            <p class="future-call-to-action" data-aos="zoom-in" data-aos-delay="200">野球部</p>
-            <div class="gallery-item" data-aos="fade-up" data-aos-delay="550">
-                <img src="images/野球部.jpeg" alt="部活動１の風景" class="content-image" loading="lazy" width="600" height="400" data-aos="zoom-in">
-            </div>
-            <p class="future-call-to-action" data-aos="zoom-in" data-aos-delay="200">ダーツ部</p>
-            <div class="gallery-item" data-aos="fade-up" data-aos-delay="600">
-                <img src="images/darts.jpeg" alt="活動動２の風景" class="content-image" loading="lazy" width="600" height="400" data-aos="zoom-in">
-            </div>
-        </div>
-
-        <h3 id="culture-recreation" data-aos="fade-up" data-aos-delay="650">組織文化（レクリエーション）</h3>
-        <ul>
-            <li data-aos="fade-up" data-aos-delay="150">
-                様々なレクを毎月1〜2回開催</li>
-        </ul>
-        <div class="image-gallery">
-            <p class="future-call-to-action" data-aos="zoom-in" data-aos-delay="200">BBQレク（年2回：夏開催）</p>
-            <div class="gallery-item" data-aos="fade-up" data-aos-delay="700">
-                <img src="images/BBQレク2.jpeg" alt="BBQの風景" class="content-image" loading="lazy" width="600" height="400" data-aos="zoom-in">
-            </div>
-            <p class="future-call-to-action" data-aos="zoom-in" data-aos-delay="200">社員旅行</p>
-            <div class="gallery-item" data-aos="fade-up" data-aos-delay="750">
-                <img src="images/社員旅行3.jpeg" alt="社員旅行の風景" class="content-image" loading="lazy" width="600" height="400" data-aos="zoom-in">
-            </div>
-        </div>
-    </section>
-
-    <section id="company-video" data-aos="fade-up">
-        <h2>11. 会社の雰囲気（動画）</h2>
-        <p data-aos="fade-up" data-aos-delay="100">SPINTECHNOLOGYの活気ある職場環境や社員の様子をご紹介します。</p>
-        <div class="video-container" data-aos="zoom-in" data-aos-delay="200">
-            <video controls preload="metadata" poster="images/intro_movie_poster.jpg">
-                <source src="videos/intro_movie.mp4" type="video/mp4">
-                お使いのブラウザは動画タグをサポートしていません。
-            </video>
-        </div>
-        <div class="video-container" data-aos="zoom-in" data-aos-delay="200">
-            <video controls preload="metadata" poster="images/Company-wide_general_ meeting_movie_poster.jpg">
-                <source src="videos/Company-wide_general_meeting_202506.movie.mp4" type="video/mp4">
-                お使いのブラウザは動画タグをサポートしていません。
-            </video>
-        </div>
-        <div class="video-container" data-aos="zoom-in" data-aos-delay="200">
-            <video controls preload="metadata" poster="images/Company-wide_general meeting2_movie_poster.jpg">
-                <source src="videos/Company-wide_general_meeting202412.movie.mp4" type="video/mp4">
-                お使いのブラウザは動画タグをサポートしていません。
-            </video>
-        </div>
-    </section>
-
-    <section id="strengths" data-aos="fade-up">
-        <h2>12. 会社の強み</h2>
-        <ol>
-            <li data-aos="fade-up" data-aos-delay="100">
-                <h3 class="strength-point">会社に対する自信</h3>
-                <br>当社は、明確なビジョンに基づいた事業戦略と、変化を恐れず挑戦し続ける企業文化により、持続的な成長を実現しています。信頼できるITパートナーとして、お客様と共に未来を創造します。
-            </li>
-            <li data-aos="fade-up" data-aos-delay="200">
-                <h3 class="strength-point">事業に対する自信</h3>
-                <br>お客様の真の課題解決を目指し、より上流工程からビジネスに貢献する一次請けとしての事業を強化しています。社会のニーズに応える革新的なITソリューションを提供できることに自信を持っています。
-            </li>
-            <li data-aos="fade-up" data-aos-delay="300">
-                <h3 class="strength-point">商品・サービスに対する自信</h3>
-                <br>高い技術力と豊富な経験を持つプロフェッショナル集団が、お客様のビジネスを加速させる高品質かつ信頼性の高いITサービスを提供いたします。私たちが提供する価値に、絶対の自信を持っています。
-            </li>
-            <li data-aos="fade-up" data-aos-delay="400">
-                <h3 class="strength-point">社員（自分たち）に対する自信</h3>
-                <br>当社の社員は、自身の成長に情熱を燃やし常に最高のパフォーマンスを目指すプロフェッショナルです。充実した教育・サポート体制のもと、日々進化を続ける私たちの「人」こそが、最大の強みであり、お客様の成功への鍵となります。
-            </li>
-        </ol>
-    </section>
-
     <section id="rules-systems" data-aos="fade-up">
         <h2>13. 福利厚生と制度</h2>
         <p data-aos="fade-up" data-aos-delay="100"><span class="red-note">※一部抜粋</span></p>
@@ -2018,7 +2064,7 @@
             <li data-aos="fade-up" data-aos-delay="100">SPIN TECHNOLOGYは、成長意欲と挑戦する心を大切にする会社です。</li>
             <li data-aos="fade-up" data-aos-delay="150">未経験からでもプロフェッショナルを目指せる教育・サポート体制があります。</li>
         </ul>
-        <p class="future-call-to-action" data-aos="zoom-in" data-aos-delay="200">SPIN TECHNOLOGYは、あなたの成長意欲と挑戦する心を何よりも大切にします。私たちのビジョンに共感し、共に未来を創っていきたいと感じた方は、ぜひご連絡ください。社会の未来を、私たちと共に創りましょう！</p>
+        <p class="future-call-to-action" data-aos="zoom-in" data-aos-delay="200">SPIN TECHNOLOGYは、あなたの成長意欲と挑戦する心を何よりも大切にします。<br>私たちのビジョンに共感し、共に未来を創っていきたいと感じた方は、<br>ぜひご連絡ください。<br>社会の未来を、私たちと共に創りましょう！</p>
     </section>
 
     <section id="contact" data-aos="fade-up">
