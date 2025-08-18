@@ -28,7 +28,7 @@
         window.dataLayer = window.dataLayer || [];
         function gtag() { dataLayer.push(arguments); }
         gtag('js', new Date());
-        gtag('config', 'G-TY2ZY9YFGG'); // ここを改行して、適切なインデントを適用
+        gtag('config', 'G-TY2ZY9YFGG');
     </script>
     <style>
         /* ==================================================== */
@@ -287,6 +287,73 @@
             margin-top: 5px;
         }
 
+        /* アジェンダタブのスタイル */
+        .agenda-tab {
+            position: fixed; /* 画面に固定する */
+            top: 100px; /* 上からの位置を調整（ヘッダーの下にくるように） */
+            left: 20px; /* 左からの位置を調整 */
+            background-color: rgba(255, 255, 255, 0.9); /* 半透明の白背景 */
+            border: 1px solid #ddd;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            z-index: 100; /* 他の要素より手前に表示 */
+            max-width: 250px;
+            transition: all 0.3s ease;
+        }
+
+        /* アジェンダのタイトル */
+        .agenda-tab h2 {
+            font-size: 1.2em;
+            margin-bottom: 10px;
+            text-align: left;
+            background: none;
+            box-shadow: none;
+            padding: 0;
+            font-weight: bold;
+            color: #333;
+        }
+
+        /* アジェンダのリスト */
+        .agenda-tab ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .agenda-tab li {
+            margin-bottom: 5px;
+        }
+
+        /* アジェンダのリンク */
+        .agenda-tab a {
+            text-decoration: none;
+            color: #007bff;
+            transition: color 0.3s ease;
+            display: block;
+            padding: 5px 0;
+            font-size: 0.9em;
+        }
+
+        /* ホバー時のスタイル */
+        .agenda-tab a:hover {
+            color: #0056b3;
+            text-decoration: underline;
+        }
+
+        /* スマホ表示時の非表示設定 */
+        @media (max-width: 768px) {
+            .agenda-tab {
+                display: none;
+            }
+        }
+        
+        /* mainのスタイル */
+        .l-main {
+            width: 100%;
+            max-width: 1200px;
+        }
+
         /* section */
         section {
             width: 100%;
@@ -322,22 +389,22 @@
         }
 
         /* 各セクションのh2に個別のグラデーションを設定 */
-        #company-overview h2 { background: linear-gradient(45deg, #00C0F0, #76DD6F); } /* スカイブルー -> グリーン */
-        #business-overview h2 { background: linear-gradient(45deg, #76DD6F, #FFD166); } /* グリーン -> イエロー */
-        #organization-chart h2 { background: linear-gradient(45deg, #FFD166, #FF6B8B); } /* イエロー -> ピンク */
-        #ceo-intro h2 { background: linear-gradient(45deg, #FF6B8B, #A06CD5); } /* ピンク -> パープル */
-        #history h2 { background: linear-gradient(45deg, #A06CD5, #00C0F0); } /* パープル -> スカイブルー */
-        #engineer-career h2 { background: linear-gradient(45deg, #00C0F0, #FFD166); } /* スカイブルー -> イエロー */
-        #engineer-interviews h2 { background: linear-gradient(45deg, #FFD166, #76DD6F); } /* イエロー -> グリーン */
-        #company-video h2 { background: linear-gradient(45deg, #76DD6F, #FF6B8B); } /* グリーン -> ピンク */
-        #mvv h2 { background: linear-gradient(45deg, #FF6B8B, #A06CD5); } /* ピンク -> パープル */
-        #business-model h2 { background: linear-gradient(45deg, #A06CD5, #00C0F0); } /* パープル -> スカイブルー */
-        #culture h2 { background: linear-gradient(45deg, #00C0F0, #FFD166); } /* スカイブルー -> イエロー */
-        #strengths h2 { background: linear-gradient(45deg, #FFD166, #76DD6F); } /* イエロー -> グリーン */
-        #rules-systems h2 { background: linear-gradient(45deg, #76DD6F, #FF6B8B); } /* グリーン -> ピンク */
-        #future h2 { background: linear-gradient(45deg, #FF6B8B, #A06CD5); } /* ピンク -> パープル */
-        #summary h2 { background: linear-gradient(45deg, #A06CD5, #00C0F0); } /* パープル -> スカイブルー */
-        #contact h2 { background: linear-gradient(45deg, #00C0F0, #FF6B8B); } /* スカイブルー -> ピンク */
+        #interviews-section h2 { background: linear-gradient(45deg, #00C0F0, #FFD166); }
+        #engineer-career-section h2 { background: linear-gradient(45deg, #FFD166, #76DD6F); }
+        #culture-section h2 { background: linear-gradient(45deg, #76DD6F, #FF6B8B); }
+        #company-video-section h2 { background: linear-gradient(45deg, #FF6B8B, #A06CD5); }
+        #company-overview-section h2 { background: linear-gradient(45deg, #A06CD5, #00C0F0); }
+        #business-overview-section h2 { background: linear-gradient(45deg, #00C0F0, #76DD6F); }
+        #business-model-section h2 { background: linear-gradient(45deg, #76DD6F, #FFD166); }
+        #strengths-section h2 { background: linear-gradient(45deg, #FFD166, #FF6B8B); }
+        #mvv-section h2 { background: linear-gradient(45deg, #FF6B8B, #A06CD5); }
+        #ceo-intro-section h2 { background: linear-gradient(45deg, #A06CD5, #00C0F0); }
+        #history-section h2 { background: linear-gradient(45deg, #00C0F0, #FFD166); }
+        #organization-chart-section h2 { background: linear-gradient(45deg, #FFD166, #76DD6F); }
+        #rules-systems-section h2 { background: linear-gradient(45deg, #76DD6F, #FF6B8B); }
+        #future-section h2 { background: linear-gradient(45deg, #FF6B8B, #A06CD5); }
+        #summary-section h2 { background: linear-gradient(45deg, #A06CD5, #00C0F0); }
+        #contact-section h2 { background: linear-gradient(45deg, #00C0F0, #FF6B8B); }
 
 
         /* hero */
@@ -350,6 +417,9 @@
             border-radius: 20px;
             box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
             transition: none;
+            max-width: 1200px; /* heroセクションも最大幅を適用 */
+            margin-left: auto;
+            margin-right: auto;
         }
 
         #hero h2 {
@@ -804,6 +874,14 @@
             .p-hamburger {
                 display: none;
             }
+
+            /* PC画面でのメインコンテンツの調整 */
+            .l-main {
+                max-width: 920px;
+                margin-left: auto;
+                margin-right: auto;
+                padding: 0 20px; /* 左右の余白を少し調整 */
+            }
         }
 
         /* 768px以下の画面幅に適用 (タブレット・スマホ) */
@@ -811,6 +889,7 @@
             body {
                 padding: 15px;
                 padding-top: 100px; /* ヘッダーの高さに合わせて調整 */
+                padding-left: 15px; /* スマホでは余白をリセット */
             }
 
             .p-header {
@@ -896,77 +975,48 @@
             }
 
             /* 社長紹介セクションのモバイルでの調整 */
-            #ceo-intro .ceo-content-wrapper {
+            #ceo-intro-section .ceo-content-wrapper {
                 flex-direction: column;
                 align-items: center;
                 gap: 20px;
             }
 
-            #ceo-intro .ceo-image-right {
+            #ceo-intro-section .ceo-image-right {
                 order: -1;
-                max-width: 280px; /* 画像の最大幅を調整 */
+                max-width: 250px; /* 画像の最大幅を調整 */
             }
 
-            #ceo-intro .ceo-text-left {
+            #ceo-intro-section .ceo-text-left {
                 text-align: center;
             }
 
             /* 事業概要の小見出し */
-            #business-overview h3.sub-heading {
+            #business-overview-section h3.sub-heading {
                 font-size: 1.3rem;
             }
 
             /* エンジニアのキャリアパスの項目 */
-            #engineer-career .gallery-item h3.career-title {
+            #engineer-career-section .gallery-item h3.career-title {
                 font-size: 1.3rem;
             }
 
             /* 組織文化の導入文 */
-            #culture .intro-text {
+            #culture-section .intro-text {
                 font-size: 1.5rem;
             }
 
             /* 会社の強みの4つの自信 */
-            #strengths .strength-point {
+            #strengths-section .strength-point {
                 font-size: 1.3rem;
             }
 
             /* ビジネスモデルのリスト */
-            #business-model ul>li {
+            #business-model-section ul>li {
                 font-size: 1rem;
             }
 
-            #business-model>p:nth-child(3)+ul>li {
-                font-size: 1rem;
-            }
-
-            /* 組織図のモバイル対応 */
-            .tab-buttons {
-                flex-wrap: wrap; /* ボタンが折り返すように */
-                gap: 10px; /* ボタン間のスペース */
-            }
-            .tab-button {
-                width: calc(50% - 16px); /* 2列表示 */
-                box-sizing: border-box;
+            #business-model-section>p:nth-child(3)+ul>li {
                 font-size: 0.9rem;
-                padding: 10px 15px;
-            }
-            .org-chart ul ul {
-                flex-wrap: wrap; /* ★この1行を追加して、折り返しを有効にします */
-                justify-content: center; /* ★中央揃えにするとバランスが良くなります */
-                align-items: center;
-                gap: 15px;
-            }
-            .org-chart ul ul::before {
-                left: 50%;
-                right: auto;
-                width: 1px;
-                border-top: none;
-                border-left: 1px dashed #A0E7FD;
-                height: 20px; /* 縦線の長さを調整 */
-            }
-            .org-chart ul ul li::before {
-                display: none; /* 個別の縦線を非表示に */
             }
             .node {
                 min-width: 120px; /* ノードの最小幅を調整 */
@@ -1037,36 +1087,36 @@
             }
 
             /* 社長紹介セクションのモバイルでの調整 */
-            #ceo-intro .ceo-content-wrapper {
+            #ceo-intro-section .ceo-content-wrapper {
                 max-width: 250px;
             }
 
             /* 事業概要の小見出し */
-            #business-overview h3.sub-heading {
+            #business-overview-section h3.sub-heading {
                 font-size: 1.2rem;
             }
 
             /* エンジニアのキャリアパスの項目 */
-            #engineer-career .gallery-item h3.career-title {
+            #engineer-career-section .gallery-item h3.career-title {
                 font-size: 1.2rem;
             }
 
             /* 組織文化の導入文 */
-            #culture .intro-text {
+            #culture-section .intro-text {
                 font-size: 1.3rem;
             }
 
             /* 会社の強みの4つの自信 */
-            #strengths .strength-point {
+            #strengths-section .strength-point {
                 font-size: 1.2rem;
             }
 
             /* ビジネスモデルのリスト */
-            #business-model ul>li {
+            #business-model-section ul>li {
                 font-size: 0.9rem;
             }
 
-            #business-model>p:nth-child(3)+ul>li {
+            #business-model-section>p:nth-child(3)+ul>li {
                 font-size: 0.9rem;
             }
             .node {
@@ -1075,13 +1125,12 @@
                 padding: 8px 12px;
             }
         }
-    </style>
 
-    <style>
+
         /* 新しく追加・変更するスタイル */
 
         /* 1. 事業概要の小見出し */
-        #business-overview h3.sub-heading {
+        #business-overview-section h3.sub-heading {
             font-size: 1.5rem;
             font-weight: 600;
             color: #00C0F0; /* スカイブルー */
@@ -1092,33 +1141,33 @@
         /* キャリアフローの各タイトルに個別の色を設定 */
 
         /* インフラエンジニアのタイトル色 */
-        #engineer-career .gallery-item h3.infra-title {
+        #engineer-career-section .gallery-item h3.infra-title {
             color: #00C0F0; /* スカイブルー */
         }
 
         /* 開発エンジニアのタイトル色 */
-        #engineer-career .gallery-item h3.dev-title {
+        #engineer-career-section .gallery-item h3.dev-title {
             color: #FFD166; /* ウォームイエロー */
         }
 
         /* コンサルエンジニアのタイトル色 */
-        #engineer-career .gallery-item h3.consult-title {
+        #engineer-career-section .gallery-item h3.consult-title {
             color: #FF6B8B; /* ポップなピンク */
         }
-        
+
         /* 営業タイトルの色指定 */
-        #engineer-career .gallery-item h3.sales-title {
+        #engineer-career-section .gallery-item h3.sales-title {
             color: #76DD6F; /* ★営業タイトルを明るいグリーンに変更 */
         }
 
         /* 3. MVVの項目 */
-        #mvv .mvv-title {
+        #mvv-section .mvv-title {
             color: #FF6B8B; /* ポップなピンク */
             font-weight: 700;
         }
 
         /* 4. 組織文化の導入文 */
-        #culture .intro-text {
+        #culture-section .intro-text {
             font-size: 1.75rem;
             font-weight: 600;
             color: #FFD166; /* ウォームイエロー */
@@ -1126,7 +1175,7 @@
         }
 
         /* 5. 会社の強みの4つの自信 */
-        #strengths .strength-point {
+        #strengths-section .strength-point {
             font-size: 1.5rem;
             font-weight: 600;
             color: #A06CD5; /* パープル */
@@ -1175,6 +1224,11 @@
             text-align: left;
             padding-bottom: 5px;
             border-bottom: 2px solid #FFD166; /* ウォームイエローの下線 */
+            display: block;
+            width: fit-content;
+            max-width: 80%;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         /* レスポンシブ調整: 小さい画面での文字サイズ調整 */
@@ -1228,7 +1282,7 @@
         }
 
         /* 社長紹介セクションの画像とテキストのレイアウト */
-        #ceo-intro .ceo-content-wrapper {
+        #ceo-intro-section .ceo-content-wrapper {
             display: flex;
             flex-direction: row;
             align-items: flex-start;
@@ -1237,65 +1291,65 @@
             flex-wrap: wrap;
         }
 
-        #ceo-intro .ceo-text-left {
+        #ceo-intro-section .ceo-text-left {
             flex: 1;
             min-width: 280px;
         }
 
-        #ceo-intro .ceo-image-right {
+        #ceo-intro-section .ceo-image-right {
             flex-shrink: 0;
             max-width: 350px;
             width: 100%;
             margin-left: auto;
         }
 
-        #ceo-intro .ceo-image-right img {
+        #ceo-intro-section .ceo-image-right img {
             width: 100%;
             height: auto;
         }
 
         /* レスポンシブ調整: 画面幅が狭い場合 */
         @media (max-width: 768px) {
-            #ceo-intro .ceo-content-wrapper {
+            #ceo-intro-section .ceo-content-wrapper {
                 flex-direction: column;
                 align-items: center;
                 gap: 20px;
             }
 
-            #ceo-intro .ceo-image-right {
+            #ceo-intro-section .ceo-image-right {
                 order: -1;
                 max-width: 250px;
             }
 
-            #ceo-intro .ceo-text-left {
+            #ceo-intro-section .ceo-text-left {
                 text-align: center;
             }
         }
 
         @media (max-width: 480px) {
-            #ceo-intro .ceo-image-right {
+            #ceo-intro-section .ceo-image-right {
                 max-width: 200px;
             }
         }
 
         /* 会社概要のdl, dt, dd にスタイルを追加 */
-        #company-overview dl {
+        #company-overview-section dl {
             display: grid;
             grid-template-columns: auto 1fr;
             gap: 15px 20px;
         }
-        #company-overview dt {
+        #company-overview-section dt {
             font-weight: 700;
             color: #007BFF;
             padding-right: 20px;
             position: relative;
         }
-        #company-overview dt::after {
+        #company-overview-section dt::after {
             content: ":";
             position: absolute;
             right: 5px;
         }
-        #company-overview dd {
+        #company-overview-section dd {
             margin: 0;
         }
 
@@ -1322,7 +1376,7 @@
 
         .back-to-top-btn.visible {
             opacity: 1; /* スクロールしたら表示 */
-            visibility: visible; 
+            visibility: visible;
         }
 
         .back-to-top-btn:hover {
@@ -1330,105 +1384,105 @@
         }
 
         /* ================================================= */
-/* === 先輩社員の声（インタビュー）セクションのスタイル (改) === */
-/* ================================================= */
+        /* === 先輩社員の声（インタビュー）セクションのスタイル (改) === */
+        /* ================================================= */
 
-/* カード全体のレイアウト */
-#interviews .interview-card {
-    background-color: rgba(255, 255, 255, 0.7);
-    border-radius: 15px;
-    padding: 30px;
-    display: flex;
-    align-items: flex-start; /* 写真とテキストを上揃えに変更 */
-    gap: 30px; /* 写真とテキストの間隔 */
-    margin-bottom: 25px;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
-}
+        /* カード全体のレイアウト */
+        #interviews-section .interview-card {
+            background-color: rgba(255, 255, 255, 0.7);
+            border-radius: 15px;
+            padding: 30px;
+            display: flex;
+            align-items: flex-start; /* 写真とテキストを上揃えに変更 */
+            gap: 30px; /* 写真とテキストの間隔 */
+            margin-bottom: 25px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+        }
 
-/* 写真を囲むコンテナ (四角形に変更) */
-#interviews .interview-photo {
-    width: 200px;
-    height: 250px;
-    border-radius: 10px; /* ★円形から、角丸の四角形に変更 */
-    overflow: hidden;
-    flex-shrink: 0;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-}
+        /* 写真を囲むコンテナ (四角形に変更) */
+        #interviews-section .interview-photo {
+            width: 200px;
+            height: 250px;
+            border-radius: 10px; /* ★円形から、角丸の四角形に変更 */
+            overflow: hidden;
+            flex-shrink: 0;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
 
-/* 写真自体のスタイル調整 */
-#interviews .interview-photo img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* 画像の比率を保ったままコンテナを埋める */
-    margin: 0;
-    box-shadow: none;
-}
+        /* 写真自体のスタイル調整 */
+        #interviews-section .interview-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* 画像の比率を保ったままコンテナを埋める */
+            margin: 0;
+            box-shadow: none;
+        }
 
-/* インタビューのテキスト部分 */
-#interviews .interview-body {
-    flex-grow: 1;
-    text-align: left;
-}
+        /* インタビューのテキスト部分 */
+        #interviews-section .interview-body {
+            flex-grow: 1;
+            text-align: left;
+        }
 
-/* 名前の部分のスタイル (interview-body内に移動後) */
-#interviews .interview-name {
-    font-weight: bold;
-    font-size: 1.2rem;
-    display: block;
-}
+        /* 名前の部分のスタイル (interview-body内に移動後) */
+        #interviews-section .interview-name {
+            font-weight: bold;
+            font-size: 1.2rem;
+            display: block;
+        }
 
-#interviews .interview-profile {
-    font-size: 0.8rem;
-    color: #666;
-    display: block;
-    margin-bottom: 20px; /* プロフィールとQ&Aの間に余白 */
-}
+        #interviews-section .interview-profile {
+            font-size: 0.8rem;
+            color: #666;
+            display: block;
+            margin-bottom: 20px; /* プロフィールとQ&Aの間に余白 */
+        }
 
-#interviews .interview-body h4 {
-    font-size: 1.2rem;
-    color: #007BFF;
-    margin-top: 15px;
-    margin-bottom: 5px;
-}
+        #interviews-section .interview-body h4 {
+            font-size: 1.2rem;
+            color: #007BFF;
+            margin-top: 15px;
+            margin-bottom: 5px;
+        }
 
-#interviews .interview-body h4:first-of-type {
-    margin-top: 0;
-}
+        #interviews-section .interview-body h4:first-of-type {
+            margin-top: 0;
+        }
 
-/* インタビューの見出しを太字・色付きで追加 */
-#interviews .interview-body .interview-catchphrase {
-  font-size: 1.1rem;
-  font-weight: bold;
-  color: #FF6B8B; /* ポップなピンク */
-  margin-bottom: 10px;
-}
+        /* インタビューの見出しを太字・色付きで追加 */
+        #interviews-section .interview-body .interview-catchphrase {
+            font-size: 1.1rem;
+            font-weight: bold;
+            color: #FF6B8B; /* ポップなピンク */
+            margin-bottom: 10px;
+        }
 
-@media (max-width: 768px) {
-  #interviews .interview-body .interview-catchphrase {
-    font-size: 1rem;
-    margin-bottom: 8px;
-  }
-}
+        @media (max-width: 768px) {
+            #interviews-section .interview-body .interview-catchphrase {
+                font-size: 1rem;
+                margin-bottom: 8px;
+            }
+        }
 
 
-/* ===== レスポンシブ対応（スマホ表示）===== */
-@media (max-width: 768px) {
-    #interviews .interview-card {
-        flex-direction: column; /* 縦並びにする */
-        align-items: center; /* 中央揃えに */
-        gap: 20px;
-        padding: 20px;
-    }
+        /* ===== レスポンシブ対応（スマホ表示）===== */
+        @media (max-width: 768px) {
+            #interviews-section .interview-card {
+                flex-direction: column; /* 縦並びにする */
+                align-items: center; /* 中央揃えに */
+                gap: 20px;
+                padding: 20px;
+            }
 
-    #interviews .interview-photo {
-        width: 80%;
-        height: 250px;
-    }
+            #interviews-section .interview-photo {
+                width: 80%;
+                height: 250px;
+            }
 
-    #interviews .interview-body {
-        text-align: center; /* テキストも中央揃えに */
-    }
-}
+            #interviews-section .interview-body {
+                text-align: center; /* テキストも中央揃えに */
+            }
+        }
     </style>
 </head>
 
@@ -1441,10 +1495,10 @@
             </h1>
             <div class="p-header__right">
                 <div class="p-header__btn p-btn p-btn__recruit u-desktop">
-                    <a href="#culture"><span>お役立ち情報</span></a>
+                    <a href="#culture-section"><span>お役立ち情報</span></a>
                 </div>
                 <div class="p-header__btn p-btn p-btn__session u-desktop">
-                    <a href="#contact"><span>お問い合わせはコチラ</span></a>
+                    <a href="#contact-section"><span>お問い合わせはコチラ</span></a>
                 </div>
                 <div class="p-header__btn p-btn p-btn__seminar u-desktop">
                     <a href="https://job.mynavi.jp/26/pc/corpinfo/displaySeminar/index?optNo=S1YStC&corpId=271969"
@@ -1472,14 +1526,14 @@
                         </div>
                     </div>
                     <div class="p-g-nav__item">
-                        <a href="#company-overview">
+                        <a href="#company-overview-section">
                             <p class="p-g-nav__sub-title">About</p>
                             <h2 class="p-g-nav__title">会社概要</h2>
                         </a>
                     </div>
                     <div class="p-g-nav__center">
                         <div class="p-g-nav__item">
-                            <a href="#culture">
+                            <a href="#culture-section">
                                 <p class="p-g-nav__sub-title">Tips</p>
                                 <h2 class="p-g-nav__title">お役立ち情報</h2>
                             </a>
@@ -1492,600 +1546,612 @@
                         </a>
                     </div>
                     <div class="p-g-nav__item p-g-nav__btn">
-                        <a href="#contact" class="p-btn p-btn__session"><span>お問い合わせはこちら</span></a>
+                        <a href="#contact-section" class="p-btn p-btn__session"><span>お問い合わせはこちら</span></a>
                     </div>
                     <div class="p-g-nav__item p-g-nav__btn">
-                        <a href="#culture" class="p-btn p-btn__recruit"><span>お役立ち情報</span></a>
+                        <a href="#culture-section" class="p-btn p-btn__recruit"><span>お役立ち情報</span></a>
                     </div>
                 </div>
             </nav>
         </div>
     </header>
 
-    <section id="hero" data-aos="fade-up">
-        <div>
-            <h2 data-aos="zoom-in-down" data-aos-delay="200">志しむことから<br>全てがはじまる</h2>
-            <p data-aos="zoom-in-up" data-aos-delay="400">未経験からITプロフェッショナルへ<br>充実した研修制度と多岐にわたる事業で<br>あなたのキャリアを全力サポート</p>
-            <a href="#engineer-career" class="btn" data-aos="fade-up" data-aos-delay="600">キャリアパス・研修の詳細はこちら</a>
-        </div>
-    </section>
+    <main class="l-main">
+        <section id="hero" data-aos="fade-up">
+            <div>
+                <h2 data-aos="zoom-in-down" data-aos-delay="200">志しむことから<br>全てがはじまる</h2>
+                <p data-aos="zoom-in-up" data-aos-delay="400">未経験からITプロフェッショナルへ<br>充実した研修制度と多岐にわたる事業で<br>あなたのキャリアを全力サポート</p>
+                <a href="#engineer-career-section" class="btn" data-aos="fade-up" data-aos-delay="600">キャリアパス・研修の詳細はこちら</a>
+            </div>
+        </section>
 
-    <section id="interviews" class="container">
-        <h2 class="section-title" data-aos="fade-up">1. 先輩社員の声</h2>
-    
-        <div class="interview-card" data-aos="fade-right">
-            <div class="interview-photo">
-                <img src="images/今井部長.jpeg" alt="今井部長">
-            </div>
-            <div class="interview-body">
-                <span class="interview-name">J.I</span>
-                <p class="interview-catchphrase" data-aos="fade-up">製造業からのキャリアチェンジ！</p>
-                <span class="interview-profile">インフラエンジニア / 2022年5月入社</span>
-                <h4>Q.  経験されたプロジェクト先は？</h4>
-                <p>初めてのプロジェクトはヘルプデスクです。次に要件定義の業務をこなし、<br>今ではクラウド移行プロジェクトに携わり業務改善に貢献しています。</p>
-                <h4>Q. スピンの魅力とは？</h4>
-                <p>スピンには「人が人を育てる」文化があります。悩みに寄り添い、一緒に考えてくれる仲間の存在が、自分を成長させてくれました。答えを教えるのではなく、共に考える。そんな時間を通じて、技術だけでなく「人としての力」も身につきました。</p>
-                <p>スピンが掲げる「技術力 × 人間力 = プロフェッショナル」は、まさに現場で実感する姿勢そのものです。今では信頼される技術者として、自信を持って仕事に取り組めています。</p>
-                <p>誰かの役に立ちたい、未経験でも挑戦したい。そんな想いを持つ人にとって、スピンはきっと、人生を変えるスタート地点になるはずです。</p>
-            </div>
+        <div class="agenda-tab">
+            <h2>アジェンダ</h2>
+            <ul>
+                <li><a href="#interviews-section">1. 先輩社員の声</a></li>
+                <li><a href="#engineer-career-section">2. キャリアフロー</a></li>
+                <li><a href="#culture-section">3. 組織文化</a></li>
+                <li><a href="#company-video-section">4. 会社の雰囲気（動画）</a></li>
+                <li><a href="#company-overview-section">5. 会社概要</a></li>
+                <li><a href="#business-overview-section">6. 事業概要</a></li>
+                <li><a href="#business-model-section">7. ビジネスモデル</a></li>
+                <li><a href="#strengths-section">8. 会社の強み</a></li>
+                <li><a href="#mvv-section">9. MVV</a></li>
+                <li><a href="#ceo-intro-section">10. 社長紹介</a></li>
+                <li><a href="#history-section">11. 沿革</a></li>
+                <li><a href="#organization-chart-section">12. 組織図</a></li>
+                <li><a href="#rules-systems-section">13. 福利厚生と制度</a></li>
+                <li><a href="#future-section">14. 私たちの目指す未来</a></li>
+                <li><a href="#summary-section">15. まとめ</a></li>
+                <li><a href="#contact-section">16. 採用情報とお問い合わせ</a></li>
+            </ul>
         </div>
-
-        <div class="interview-card" data-aos="fade-left">
-            <div class="interview-photo">
-               <img src="images/中川芽衣子.jpeg" alt="中川芽衣子">
-           </div>
-           <div class="interview-body">
-               <span class="interview-name">M.N</span>
-               <p class="interview-catchphrase" data-aos="fade-up">テレマーケティング業からのキャリアチェンジ！</p>
-               <span class="interview-profile">インフラエンジニア / 2021年11月入社</span>
-               <h4>Q. スピンで働く中で、特に成長を感じた瞬間や経験があれば教えてください。</h4>
-               <p>この会社で働く中で、「一歩踏み出す勇気が、大きな成長に繋がる」と強く感じました。</p>
-               <p>以前の私は、コミュニケーションが苦手で、人間関係で悩んだときは一人で抱え込むタイプでした。<br>しかし、大きな転機が訪れた際に上司に相談したところ、「あなたを必要だと思ってなければ、相手は手を差し伸べない」という言葉をもらい、自分の価値を初めて認識することができたんです。</p>
-               <p>この経験から考え方が変わり、人との関わり方も変化したことで、大きな成長に繋がりました。</p>
-               <h4>Q. エンジニアを目指す女性や、キャリアに悩む女性に向けて、メッセージをお願いします。</h4>
-               <p>スピンは実績より自己成長したいという気持ちを重視しており、現在活躍している社員のほとんどがIT未経験です。<br>また、他のIT企業よりも女性が多く在籍しております。</p>
-               <p>エンジニア自ら運営しているレクリエーションや部活動など、関係値を築ける交流の場が多く、<br>他の人のキャリアを知るチャンスがあります。</p>
-               <p>今はやりたいことが決まってなくても大丈夫！相談したらすぐに乗ってくれる先輩が沢山いますので、<br>是非相談に来てください！一緒にキャリアを築いていきましょう！</p>
-           </div>
-       </div>
-
-        <div class="interview-card" data-aos="fade-left">
-             <div class="interview-photo">
-                <img src="images/西小野部長.jpeg" alt="西小野部長">
-            </div>
-            <div class="interview-body">
-                <span class="interview-name">K.N</span>
-                <p class="interview-catchphrase" data-aos="fade-up">医療業からのキャリアチェンジ！</p>
-                <span class="interview-profile">インフラエンジニア / 2022年6月入社</span>
-                <h4>Q. この会社で働く一番の「やりがい」は何ですか？</h4>
-                <p>本人の「やってみたい」という意欲を尊重し、積極的に挑戦させてくれる環境そのものです。私自身、未経験からのスタートでしたが、今ではサービスの根幹を支えるサーバー構築という責任ある仕事を任されています。</p>
-                <p>もちろん最初は知識も経験も足りませんでしたが、「どうすればもっと安定したサービスを提供できるか」を考え、自分の手でインフラという土台を創り上げていく過程に、大きな手応えと面白さを感じています。<br>会社が個人の成長を信じ、挑戦の機会を与えてくれる。だからこそ、常に高い目標を持って仕事に取り組めています。</p>
-                <h4>Q. 活躍していく上で必要なスキルは？</h4>
-                <ul>
-                  <li>1つ目は「技術力」です。<br>インフラやネットワークの設計・構築においては、Linuxの操作や製品知識、スケジュール管理能力は不可欠です。</li>
-                  <li>2つ目は「課題解決力」です。<br>サーバー構築や運用では、必ずといっていいほど予期せぬトラブルが発生します。そうしたときに、エラーの切り分けやログ解析をもとに自ら原因を特定し、解決策を見つけ出す力が求められます。</li>
-                  <li>3つ目は「学び続ける姿勢」です。<br>IT業界は変化が激しいため、常に新しい技術をキャッチアップし続けることが求められます。</li>
-                </ul>
-            </div>
-        </div>
-    
-        <div class="interview-card" data-aos="fade-right">
-             <div class="interview-photo">
-                <img src="images/木田部長.jpeg" alt="木田部長">
-            </div>
-            <div class="interview-body">
-                <span class="interview-name">R.K</span>
-                <p class="interview-catchphrase" data-aos="fade-up">インテリア業からのキャリアチェンジ！</p>
-                <span class="interview-profile">開発エンジニア / 2022年1月入社</span>
-                <h4>Q. キャリア転身したきっかけは？</h4>
-                <p>前職はインテリアアドバイザーとしてお客様に家具をご提案していました。お客様と向き合い、一緒に住まいを創り上げる仕事に大きなやりがいを感じていました。</p>
-                <p>そんな中、社内システムで発注をする機会があったのですが、その使い勝手が正直あまりにも悪くて（笑）。「このシステム作った人、どこにいるの！？」と本気で思ったんです。</p>
-                <p>その瞬間、「自分ならもっと良いものが作れるかもしれない」と、“ものづくり”への想いが再燃しました。今では、あの時の自分のように「誰だこれ作ったの！」とならないシステムを目指して、日々開発に取り組んでいます。</p>
-                <h4>Q. 最後に、これからIT業界を目指す人へメッセージをお願いします。</h4>
-                <p>異業種からの挑戦でも、人に恵まれた環境があればきっと成長できると思います。今、不安を感じている人がいたら、「技術はあとからついてくる」と伝えたいです。<br>大切なのは、自分の想いや目標を持って、周りの人と一緒に成長していく姿勢だと思います。</p>
-            </div>
-        </div>
-
-        <div class="interview-card" data-aos="fade-right">
-            <div class="interview-photo">
-               <img src="images/友常七海.jpeg" alt="友常七海">
-           </div>
-           <div class="interview-body">
-               <span class="interview-name">N.T</span>
-               <p class="interview-catchphrase" data-aos="fade-up">医療系介護業からのキャリアチェンジ！</p>
-               <span class="interview-profile">開発エンジニア / 2022年8月入社</span>
-               <h4>Q. スピンの職場の雰囲気や、チームで働く中で感じる魅力は何ですか？</h4>
-               <p>スピンの魅力は、何といっても社員どうしのつながりです！普段はバラバラの現場で働いていますが、帰社すると「久しぶり！」「元気？」と温かく声をかけてくれる仲間がいます。<br>交流の場も多く、安心して話ができる環境が魅力ですね。</p>
-               <p>最近は社員が増えて名前を覚えるのが大変になりましたが、みんなが人とのつながりを大事にしてくれるおかげで、いつ帰社しても楽しく過ごせています。</p>
-               <h4>Q. 今後挑戦してみたいことや目標は何ですか？</h4>
-               <p>現在は事業部のマネージャーとして活動していますが、中長期の挑戦として、メンバー一人ひとりが「なりたいキャリア」を自ら描き、実現できる環境づくりに携わりたいと考えています。</p>
-               <p>多様な背景を持つメンバーが、誰一人取り残されないために必要なリソースを提供し、全員が自分らしくキャリアを掴める場を創るマネージャーを目指しています。</p>
-           </div>
-       </div>
         
-        <div class="interview-card" data-aos="fade-left">
-             <div class="interview-photo">
-                <img src="images/梅野部長.jpeg" alt="梅野部長">
+        <section id="interviews-section" class="container">
+            <h2 class="section-title" data-aos="fade-up">1. 先輩社員の声</h2>
+            <div class="interview-card" data-aos="fade-right">
+                <div class="interview-photo">
+                    <img src="images/今井部長.jpeg" alt="今井部長">
+                </div>
+                <div class="interview-body">
+                    <span class="interview-name">J.I</span>
+                    <p class="interview-catchphrase" data-aos="fade-up">立ち上げ期から会社を支えてきたエンジニア</p>
+                    <span class="interview-profile">インフラエンジニア / 2022年5月入社</span>
+                    <h4>Q. 経験されたプロジェクト先は？</h4>
+                    <p>初めてのプロジェクトはヘルプデスクです。次に要件定義の業務をこなし、<br>今ではクラウド移行プロジェクトに携わり業務改善に貢献しています。</p>
+                    <h4>Q. スピンの魅力とは？</h4>
+                    <p>スピンには「人が人を育てる」文化があります。悩みに寄り添い、一緒に考えてくれる仲間の存在が、自分を成長させてくれました。答えを教えるのではなく、共に考える。そんな時間を通じて、技術だけでなく「人としての力」も身につきました。</p>
+                    <p>スピンが掲げる「技術力 × 人間力 = プロフェッショナル」は、まさに現場で実感する姿勢そのものです。今では信頼される技術者として、自信を持って仕事に取り組めています。</p>
+                    <p>誰かの役に立ちたい、未経験でも挑戦したい。そんな想いを持つ人にとって、スピンはきっと、人生を変えるスタート地点になるはずです。</p>
+                </div>
             </div>
-            <div class="interview-body">
-                <span class="interview-name">T.U</span>
-                <p class="interview-catchphrase" data-aos="fade-up">建設業からのキャリアチェンジ！</p>
-                <span class="interview-profile">コンサルエンジニア / 2022年3月入社</span>
-                <h4>Q. 仕事をするうえで心がけていることは？</h4>
-                <p>わからないことは素直に聞き、学んだことを行動で返す。その積み重ねが信頼へとつながり、気づけば“現場で頼られる存在”に少しずつ近づいていると実感しています。</p>
-                <p>必要なのは、特別なスキルよりも行動力と人との関わりを大切にする姿勢です。そんな自分を育ててくれた環境に、今は感謝しかありません。</p>
-                <h4>Q. 将来はどんなエンジニアになりたいですか？</h4>
-                <p>将来は、ITとHR（人事）の両方を活かせる**「ハイブリッドエンジニア／コンサルタント」**を目指しています。</p>
-                <p>人事システムの設計・導入支援を通じて、制度設計や人材データの分析で課題解決をはかり、経営層と連携しながら、制度・運用・技術を融合させた組織改革を実現できる存在になりたいと考えています。</p>
+            <div class="interview-card" data-aos="fade-left">
+                <div class="interview-photo">
+                    <img src="images/中川芽衣子.jpeg" alt="中川芽衣子">
+                </div>
+                <div class="interview-body">
+                    <span class="interview-name">M.N</span>
+                    <p class="interview-catchphrase" data-aos="fade-up">テレマーケティング業からのキャリアチェンジ！</p>
+                    <span class="interview-profile">インフラエンジニア / 2021年11月入社</span>
+                    <h4>Q. スピンで働く中で、特に成長を感じた瞬間や経験があれば教えてください。</h4>
+                    <p>この会社で働く中で、**「一歩踏み出す勇気が、大きな成長に繋がる」**と強く感じました。</p>
+                    <p>以前の私は、コミュニケーションが苦手で、人間関係で悩んだときは一人で抱え込むタイプでした。<br>しかし、大きな転機が訪れた際に上司に相談したところ、「あなたを必要だと思ってなければ、相手は手を差し伸べない」という言葉をもらい、自分の価値を初めて認識することができたんです。</p>
+                    <p>この経験から考え方が変わり、人との関わり方も変化したことで、大きな成長に繋がりました。</p>
+                    <h4>Q. エンジニアを目指す女性や、キャリアに悩む女性に向けて、メッセージをお願いします。</h4>
+                    <p>スピンは実績より自己成長したいという気持ちを重視しており、現在活躍している社員のほとんどがIT未経験です。<br>また、他のIT企業よりも女性が多く在籍しております。</p>
+                    <p>エンジニア自ら運営しているレクリエーションや部活動など、関係値を築ける交流の場が多く、<br>他の人のキャリアを知るチャンスがあります。</p>
+                    <p>今はやりたいことが決まってなくても大丈夫！相談したらすぐに乗ってくれる先輩が沢山いますので、<br>是非相談に来てください！一緒にキャリアを築いていきましょう！</p>
+                </div>
             </div>
-        </div>
-    </section>
+            <div class="interview-card" data-aos="fade-left">
+                <div class="interview-photo">
+                    <img src="images/西小野部長.jpeg" alt="西小野部長">
+                </div>
+                <div class="interview-body">
+                    <span class="interview-name">K.N</span>
+                    <p class="interview-catchphrase" data-aos="fade-up">マネジメントも教育も担うインフラエンジニア</p>
+                    <span class="interview-profile">インフラエンジニア / 2022年6月入社</span>
+                    <h4>Q. この会社で働く一番の「やりがい」は何ですか？</h4>
+                    <p>本人の「やってみたい」という意欲を尊重し、積極的に挑戦させてくれる環境そのものです。私自身、未経験からのスタートでしたが、今ではサービスの根幹を支えるサーバー構築という責任ある仕事を任されています。</p>
+                    <p>もちろん最初は知識も経験も足りませんでしたが、「どうすればもっと安定したサービスを提供できるか」を考え、自分の手でインフラという土台を創り上げていく過程に、大きな手応えと面白さを感じています。<br>会社が個人の成長を信じ、挑戦の機会を与えてくれる。だからこそ、常に高い目標を持って仕事に取り組めています。</p>
+                    <h4>Q. 活躍していく上で必要なスキルは？</h4>
+                    <ul>
+                        <li>1つ目は「技術力」です。<br>インフラやネットワークの設計・構築においては、Linuxの操作や製品知識、スケジュール管理能力は不可欠です。</li>
+                        <li>2つ目は「課題解決力」です。<br>サーバー構築や運用では、必ずといっていいほど予期せぬトラブルが発生します。そうしたときに、エラーの切り分けやログ解析をもとに自ら原因を特定し、解決策を見つけ出す力が求められます。</li>
+                        <li>3つ目は「学び続ける姿勢」です。<br>IT業界は変化が激しいため、常に新しい技術をキャッチアップし続けることが求められます。</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="interview-card" data-aos="fade-right">
+                <div class="interview-photo">
+                    <img src="images/木田部長.jpeg" alt="木田部長">
+                </div>
+                <div class="interview-body">
+                    <span class="interview-name">R.K</span>
+                    <p class="interview-catchphrase" data-aos="fade-up">開発エンジニアでもあり、数々のレク企画の立案者！！</p>
+                    <span class="interview-profile">開発エンジニア / 2022年1月入社</span>
+                    <h4>Q. キャリア転身したきっかけは？</h4>
+                    <p>前職はインテリアアドバイザーとしてお客様に家具をご提案していました。お客様と向き合い、一緒に住まいを創り上げる仕事に大きなやりがいを感じていました。</p>
+                    <p>そんな中、社内システムで発注をする機会があったのですが、その使い勝手が正直あまりにも悪くて（笑）。「このシステム作った人、どこにいるの！？」と本気で思ったんです。</p>
+                    <p>その瞬間、「自分ならもっと良いものが作れるかもしれない」と、“ものづくり”への想いが再燃しました。今では、あの時の自分のように「誰だこれ作ったの！」とならないシステムを目指して、日々開発に取り組んでいます。</p>
+                    <h4>Q. 最後に、これからIT業界を目指す人へメッセージをお願いします。</h4>
+                    <p>異業種からの挑戦でも、人に恵まれた環境があればきっと成長できると思います。今、不安を感じている人がいたら、「技術はあとからついてくる」と伝えたいです。<br>大切なのは、自分の想いや目標を持って、周りの人と一緒に成長していく姿勢だと思います。</p>
+                </div>
+            </div>
+            <div class="interview-card" data-aos="fade-right">
+                <div class="interview-photo">
+                    <img src="images/友常七海.jpeg" alt="友常七海">
+                </div>
+                <div class="interview-body">
+                    <span class="interview-name">N.T</span>
+                    <p class="interview-catchphrase" data-aos="fade-up">医療系介護業からのキャリアチェンジ！</p>
+                    <span class="interview-profile">開発エンジニア / 2022年8月入社</span>
+                    <h4>Q. スピンの職場の雰囲気や、チームで働く中で感じる魅力は何ですか？</h4>
+                    <p>スピンの魅力は、何といっても社員どうしのつながりです！普段はバラバラの現場で働いていますが、帰社すると「久しぶり！」「元気？」と温かく声をかけてくれる仲間がいます。<br>交流の場も多く、安心して話ができる環境が魅力ですね。</p>
+                    <p>最近は社員が増えて名前を覚えるのが大変になりましたが、みんなが人とのつながりを大事にしてくれるおかげで、いつ帰社しても楽しく過ごせています。</p>
+                    <h4>Q. 今後挑戦してみたいことや目標は何ですか？</h4>
+                    <p>現在は事業部のマネージャーとして活動していますが、中長期の挑戦として、メンバー一人ひとりが「なりたいキャリア」を自ら描き、実現できる環境づくりに携わりたいと考えています。</p>
+                    <p>多様な背景を持つメンバーが、誰一人取り残されないために必要なリソースを提供し、全員が自分らしくキャリアを掴める場を創るマネージャーを目指しています。</p>
+                </div>
+            </div>
+            <div class="interview-card" data-aos="fade-left">
+                <div class="interview-photo">
+                    <img src="images/梅野部長.jpeg" alt="梅野部長">
+                </div>
+                <div class="interview-body">
+                    <span class="interview-name">T.U</span>
+                    <p class="interview-catchphrase" data-aos="fade-up">入社して1年半でPMへ！！</p>
+                    <span class="interview-profile">コンサルエンジニア / 2022年3月入社</span>
+                    <h4>Q. 仕事をするうえで心がけていることは？</h4>
+                    <p>わからないことは素直に聞き、学んだことを行動で返す。その積み重ねが信頼へとつながり、気づけば“現場で頼られる存在”に少しずつ近づいていると実感しています。</p>
+                    <p>必要なのは、特別なスキルよりも行動力と人との関わりを大切にする姿勢です。そんな自分を育ててくれた環境に、今は感謝しかありません。</p>
+                    <h4>Q. 将来はどんなエンジニアになりたいですか？</h4>
+                    <p>将来は、ITとHR（人事）の両方を活かせる「ハイブリッドエンジニア／コンサルタント」を目指しています。</p>
+                    <p>人事システムの設計・導入支援を通じて、制度設計や人材データの分析で課題解決をはかり、経営層と連携しながら、制度・運用・技術を融合させた組織改革を実現できる存在になりたいと考えています。</p>
+                </div>
+            </div>
+        </section>
 
-    <section id="engineer-career" data-aos="fade-up">
-        <h2>2. キャリアフロー</h2>
-        <p data-aos="fade-up">当社では、多様なキャリアパスを用意し、あなたの成長を全力でサポートします。</p>
+        <section id="engineer-career-section" data-aos="fade-up">
+            <h2>2. キャリアフロー</h2>
+            <p data-aos="fade-up">当社では、多様なキャリアパスを用意し、あなたの成長を全力でサポートします。</p>
 
-        <div class="image-gallery">
-            <div class="gallery-item" data-aos="fade-up" data-aos-delay="50">
-                <h3 class="career-title infra-title">インフラエンジニアのキャリアフロー</h3>
-                <img src="images/インフラエンジニア.jpeg" alt="インフラエンジニアのキャリアパス図" class="content-image" loading="lazy" data-aos="zoom-in">
+            <div class="image-gallery">
+                <div class="gallery-item" data-aos="fade-up" data-aos-delay="50">
+                    <h3 class="career-title infra-title">インフラエンジニアのキャリアフロー</h3>
+                    <img src="images/インフラエンジニア.jpeg" alt="インフラエンジニアのキャリアパス図" class="content-image" loading="lazy" data-aos="zoom-in">
+                </div>
+                <div class="gallery-item" data-aos="fade-up" data-aos-delay="100">
+                    <h3 class="career-title dev-title">開発エンジニアのキャリアフロー</h3>
+                    <img src="images/開発エンジニア.jpeg" alt="開発エンジニアのキャリアパス図" class="content-image" loading="lazy" data-aos="zoom-in">
+                </div>
+                <div class="gallery-item" data-aos="fade-up" data-aos-delay="150">
+                    <h3 class="career-title consult-title">コンサルエンジニアのキャリアフロー</h3>
+                    <img src="images/コンサルエンジニア.jpeg" alt="コンサルエンジニアのキャリアパス図" class="content-image" loading="lazy" data-aos="zoom-in">
+                </div>
+                <div class="gallery-item" data-aos="fade-up" data-aos-delay="200">
+                    <h3 class="career-title sales-title">営業のキャリアフロー</h3>
+                    <img src="images/営業キャリア図.jpeg" alt="営業職のキャリアパス図" class="content-image" loading="lazy" data-aos="zoom-in">
+                </div>
             </div>
-            <div class="gallery-item" data-aos="fade-up" data-aos-delay="100">
-                <h3 class="career-title dev-title">開発エンジニアのキャリアフロー</h3>
-                <img src="images/開発エンジニア.jpeg" alt="開発エンジニアのキャリアパス図" class="content-image" loading="lazy" data-aos="zoom-in">
-            </div>
-            <div class="gallery-item" data-aos="fade-up" data-aos-delay="150">
-                <h3 class="career-title consult-title">コンサルエンジニアのキャリアフロー</h3>
-                <img src="images/コンサルエンジニア.jpeg" alt="コンサルエンジニアのキャリアパス図" class="content-image" loading="lazy" data-aos="zoom-in">
-            </div>
-            <div class="gallery-item" data-aos="fade-up" data-aos-delay="200">
-                <h3 class="career-title sales-title">営業のキャリアフロー</h3>
-                <img src="images/営業キャリア図.jpeg" alt="営業職のキャリアパス図" class="content-image" loading="lazy" data-aos="zoom-in">
-            </div>
-        </div>
-    </section>
+        </section>
 
-    <section id="culture" data-aos="fade-up">
-        <h2>3. 組織文化</h2>
-        <h3 class="intro-text" data-aos="fade-up" data-aos-delay="100">スピンの組織文化とは？</h3>
-        <ul>
-            <li data-aos="fade-up" data-aos-delay="150">
-                未経験からプロフェッショナルを目指せる、人を育てる文化があり、充実した研修制度や一人一人が多様な仕事に挑戦し成長できる環境が整っている。</li>
-            <li data-aos="fade-up" data-aos-delay="200">
-                役職や立場に関わらず、フラットに意見交換ができる風通しの良い組織。社員同士の距離が近く活発なコミュニケーションを通じて互いを高め合える文化がある。</li>
-        </ul>
+        <section id="culture-section" data-aos="fade-up">
+            <h2>3. 組織文化</h2>
+            <h3 class="intro-text" data-aos="fade-up" data-aos-delay="100">スピンの組織文化とは？</h3>
+            <ul>
+                <li data-aos="fade-up" data-aos-delay="150">
+                    未経験からプロフェッショナルを目指せる、人を育てる文化があり、充実した研修制度や一人一人が多様な仕事に挑戦し成長できる環境が整っている。</li>
+                <li data-aos="fade-up" data-aos-delay="200">
+                    役職や立場に関わらず、フラットに意見交換ができる風通しの良い組織。社員同士の距離が近く活発なコミュニケーションを通じて互いを高め合える文化がある。</li>
+            </ul>
 
-        <h3 id="culture-training" data-aos="fade-up" data-aos-delay="250">組織文化（研修）</h3>
-        <ol>
-            <li data-aos="fade-up" data-aos-delay="350">ビジネス研修（思考編～、行動編～）</li>
-            <li data-aos="fade-up" data-aos-delay="400">キャリア研修（インフラ・開発・コンサル）</li>
-            <li data-aos="fade-up" data-aos-delay="450">マネジメント研修</li>
-            <li data-aos="fade-up" data-aos-delay="500">知識研修（インフラ・開発・コンサル）</li>
-            <li data-aos="fade-up" data-aos-delay="550">技術研修（インフラ・開発・コンサル）</li>
-        </ol>
-        <p class="future-call-to-action" data-aos="zoom-in" data-aos-delay="200">ビジネス研修</p>
-        <div class="gallery-item" data-aos="fade-up" data-aos-delay="550">
-            <img src="images/キャリア研修4.jpeg" alt="ビジネス研修風景のイメージ" class="content-image" loading="lazy" width="600" height="400" data-aos="zoom-in">
-        </div>
-
-        <h3 id="culture-club" data-aos="fade-up" data-aos-delay="500">組織文化（部活）</h3>
-        <ol>
-            <li data-aos="fade-up" data-aos-delay="350">健康や日々のリフレッシュする</li>
-            <li data-aos="fade-up" data-aos-delay="400">社員同士の交流を通して悩み事やキャリア相談をしやすい雰囲気作りをする</li>
-            <li data-aos="fade-up" data-aos-delay="450">社員が定着し、共に成長できる場所</li>
-        </ol>
-        <div class="image-gallery">
-            <p class="future-call-to-action" data-aos="zoom-in" data-aos-delay="200">野球部</p>
+            <h3 id="culture-training" data-aos="fade-up" data-aos-delay="250">組織文化（研修）</h3>
+            <ol>
+                <li data-aos="fade-up" data-aos-delay="350">ビジネス研修（思考編～、行動編～）</li>
+                <li data-aos="fade-up" data-aos-delay="400">キャリア研修（インフラ・開発・コンサル）</li>
+                <li data-aos="fade-up" data-aos-delay="450">マネジメント研修</li>
+                <li data-aos="fade-up" data-aos-delay="500">知識研修（インフラ・開発・コンサル）</li>
+                <li data-aos="fade-up" data-aos-delay="550">技術研修（インフラ・開発・コンサル）</li>
+            </ol>
+            <p class="future-call-to-action" data-aos="zoom-in" data-aos-delay="200">ビジネス研修</p>
             <div class="gallery-item" data-aos="fade-up" data-aos-delay="550">
-                <img src="images/野球部.jpeg" alt="部活動１の風景" class="content-image" loading="lazy" width="600" height="400" data-aos="zoom-in">
-            </div>
-            <p class="future-call-to-action" data-aos="zoom-in" data-aos-delay="200">ダーツ部</p>
-            <div class="gallery-item" data-aos="fade-up" data-aos-delay="600">
-                <img src="images/darts.jpeg" alt="活動動２の風景" class="content-image" loading="lazy" width="600" height="400" data-aos="zoom-in">
-            </div>
-        </div>
-
-        <h3 id="culture-recreation" data-aos="fade-up" data-aos-delay="650">組織文化（レクリエーション）</h3>
-        <ul>
-            <li data-aos="fade-up" data-aos-delay="150">
-                様々なレクを毎月1〜2回開催</li>
-        </ul>
-        <div class="image-gallery">
-            <p class="future-call-to-action" data-aos="zoom-in" data-aos-delay="200">BBQレク（年2回：夏開催）</p>
-            <div class="gallery-item" data-aos="fade-up" data-aos-delay="700">
-                <img src="images/BBQレク2.jpeg" alt="BBQの風景" class="content-image" loading="lazy" width="600" height="400" data-aos="zoom-in">
-            </div>
-            <p class="future-call-to-action" data-aos="zoom-in" data-aos-delay="200">社員旅行 in 熱海</p>
-            <div class="gallery-item" data-aos="fade-up" data-aos-delay="750">
-                <img src="images/社員旅行3.jpeg" alt="社員旅行の風景" class="content-image" loading="lazy" width="600" height="400" data-aos="zoom-in">
-            </div>
-        </div>
-    </section>
-
-    <section id="company-video" data-aos="fade-up">
-        <h2>4. 会社の雰囲気（動画）</h2>
-        <p data-aos="fade-up" data-aos-delay="100">SPINTECHNOLOGYの活気ある職場環境や社員の様子をご紹介します。</p>
-        <div class="video-container" data-aos="zoom-in" data-aos-delay="200">
-            <video controls preload="metadata" poster="images/intro_movie_poster.jpg">
-                <source src="videos/intro_movie.mp4" type="video/mp4">
-                お使いのブラウザは動画タグをサポートしていません。
-            </video>
-        </div>
-        <div class="video-container" data-aos="zoom-in" data-aos-delay="200">
-            <video controls preload="metadata" poster="images/Company-wide_general_ meeting_movie_poster.jpg">
-                <source src="videos/Company-wide_general_meeting_202506.movie.mp4" type="video/mp4">
-                お使いのブラウザは動画タグをサポートしていません。
-            </video>
-        </div>
-        <div class="video-container" data-aos="zoom-in" data-aos-delay="200">
-            <video controls preload="metadata" poster="images/Company-wide_general meeting2_movie_poster.jpg">
-                <source src="videos/Company-wide_general_meeting202412.movie.mp4" type="video/mp4">
-                お使いのブラウザは動画タグをサポートしていません。
-            </video>
-        </div>
-    </section>
-
-    <section id="company-overview" data-aos="fade-right">
-        <h2>5. 会社概要</h2>
-        <dl>
-            <dt data-aos="fade-up" data-aos-delay="100">会社名</dt>
-            <dd data-aos="fade-up" data-aos-delay="100">株式会社 SPIN TECHNOLOGY</dd>
-            <dt data-aos="fade-up" data-aos-delay="150">設立年</dt>
-            <dd data-aos="fade-up" data-aos-delay="150">2021年9月1日</dd>
-            <dt data-aos="fade-up" data-aos-delay="200">代表者</dt>
-            <dd data-aos="fade-up" data-aos-delay="200">岡田佳佑</dd>
-            <dt data-aos="fade-up" data-aos-delay="250">従業員数</dt>
-            <dd data-aos="fade-up" data-aos-delay="250">280名（正社員）</dd>
-            <dt data-aos="fade-up" data-aos-delay="300">平均年齢</dt>
-            <dd data-aos="fade-up" data-aos-delay="300">26歳</dd>
-            <dt data-aos="fade-up" data-aos-delay="350">事業所</dt>
-            <dd data-aos="fade-up" data-aos-delay="350">東京都渋谷区 渋谷1-20-1 井門美竹ビル4F</dd>
-            <dt data-aos="fade-up" data-aos-delay="400">TEL</dt>
-            <dd data-aos="fade-up" data-aos-delay="400">03-6427-8921</dd>
-            <dt data-aos="fade-up" data-aos-delay="450">FAX</dt>
-            <dd data-aos="fade-up" data-aos-delay="450">03-6427-0091</dd>
-        </dl>
-    </section>
-
-    <section id="business-overview" data-aos="fade-left">
-        <h2>6. 事業概要</h2>
-        <h3 class="sub-heading" data-aos="zoom-in-up">システムインテグレーション</h3>
-        <ul>
-            <li data-aos="fade-up" data-aos-delay="100">
-                お客様のITシステムに関する様々な課題に対し、分析から設計、開発、導入、運用まで一貫したソリューションを提供し、最適なシステム構築を支援します。</li>
-            <li data-aos="fade-up" data-aos-delay="200">
-                分析：お客様の「困りごと」と「欲しいもの」を明確にする。
-            <li data-aos="fade-up" data-aos-delay="300">    
-                設計：システムの「設計図」を作る。
-            <li data-aos="fade-up" data-aos-delay="400">
-                開発：設計図通りにプログラミング言語（JavaやPython、C言語等）を使用「システムを作る」。
-            <li data-aos="fade-up" data-aos-delay="500">
-                導入：完成したシステムをお客様に届ける。運用：システムを安定して使い続けられるよう支える。</li>
-        </ul>
-        <p style="margin-top: 10px;" data-aos="fade-up" data-aos-delay="300">
-        <h3 class="sub-heading" data-aos="zoom-in-up">受託事業</h3>
-        <ul>
-            <li data-aos="fade-up" data-aos-delay="100">生成AI活用支援・開発</li>
-            <li data-aos="fade-up" data-aos-delay="150">Webアプリケーション・システム開発</li>
-            <li data-aos="fade-up" data-aos-delay="200">スマートフォンアプリケーション</li>
-            <li data-aos="fade-up" data-aos-delay="250">Webサイト・LP・ECサイト</li>
-        </ul>
-        <p style="margin-top: 10px;" data-aos="fade-up" data-aos-delay="300">
-        <h3 class="sub-heading" data-aos="zoom-in-up">SI事業</h3>
-        <ul>
-            <li data-aos="fade-up" data-aos-delay="100">システムソリューション</li>
-            <li data-aos="fade-up" data-aos-delay="150">テクニカルアシスタントソリューション</li>
-            <li data-aos="fade-up" data-aos-delay="200">IT運用サポート</li>
-            <li data-aos="fade-up" data-aos-delay="250">通信ソリューション</li>
-            <li data-aos="fade-up" data-aos-delay="300">キッティングソリューション</li>
-        </ul>
-        <p style="margin-top: 10px;" data-aos="fade-up" data-aos-delay="300">
-        <h3 class="sub-heading" data-aos="zoom-in-up">ITスクール事業</h3>
-        <ul>
-            <li data-aos="fade-up" data-aos-delay="100">IT基礎研修、社会人基礎研修、ネットワーク研修</li>
-            <li data-aos="fade-up" data-aos-delay="100">Linux研修、Java研修、AWS研修 CCNA研修etc...</li>
-        </ul>
-        <p style="margin-top: 10px;" data-aos="fade-up" data-aos-delay="300">
-    </section>
-
-    <section id="business-model" data-aos="fade-up">
-        <h2>7. ビジネスモデル</h2>
-        <ul>
-            <li data-aos="fade-up" data-aos-delay="150">システムインテグレーション<br>設計から運用までの一貫したサービスソリューションの提供</li>
-            <li data-aos="fade-up" data-aos-delay="200">
-                受託開発サービス<br>生成AI活用支援、Webサイト、LP、ECサイト制作から、各種Webシステム、業務システム、スマートフォンアプリ開発まで、お客様の多様なニーズにお応えする受託開発を幅広く手がけています。
-            </li>
-            <li data-aos="fade-up" data-aos-delay="250">
-                IT教育サービス<br>ITスクール事業や企業向けIT研修を通じて、実践的なITスキルや知識習得の機会を提供し、社会全体のIT人材育成に貢献しています。</li>
-            <li data-aos="fade-up" data-aos-delay="300">
-                運用・保守サービス<br>開発したシステムや既存のIT資産が安定的に稼働し続けるよう、確かな技術力に基づいた運用・保守サービスを提供し、お客様のビジネス継続を力強く支えます。</li>
-        </ul>
-        <p data-aos="fade-up" data-aos-delay="350"><strong>現在は上場企業「ボードルア」グループの一員として、安定した経営基盤と信頼性の高いネットワークを活かしながら、自社独自の技術力と柔軟性を発揮できる環境を整えています。</strong></p>
-    <h4 class="contact-call-to-action" data-aos="fade-up" data-aos-delay="250">今後さらなる成長に向け、新たな仲間を募集しています！</h4>
-    </section>
-
-    <section id="strengths" data-aos="fade-up">
-        <h2>8. 会社の強み</h2>
-        <ol>
-            <li data-aos="fade-up" data-aos-delay="100">
-                <h3 class="strength-point">会社に対する自信</h3>
-                <br>当社は、明確なビジョンに基づいた事業戦略と、変化を恐れず挑戦し続ける企業文化により、持続的な成長を実現しています。信頼できるITパートナーとして、お客様と共に未来を創造します。
-            </li>
-            <li data-aos="fade-up" data-aos-delay="200">
-                <h3 class="strength-point">事業に対する自信</h3>
-                <br>お客様の真の課題解決を目指し、より上流工程からビジネスに貢献する一次請けとしての事業を強化しています。社会のニーズに応える革新的なITソリューションを提供できることに自信を持っています。
-            </li>
-            <li data-aos="fade-up" data-aos-delay="300">
-                <h3 class="strength-point">商品・サービスに対する自信</h3>
-                <br>高い技術力と豊富な経験を持つプロフェッショナル集団が、お客様のビジネスを加速させる高品質かつ信頼性の高いITサービスを提供いたします。私たちが提供する価値に、絶対の自信を持っています。
-            </li>
-            <li data-aos="fade-up" data-aos-delay="400">
-                <h3 class="strength-point">社員（自分たち）に対する自信</h3>
-                <br>当社の社員は、自身の成長に情熱を燃やし常に最高のパフォーマンスを目指すプロフェッショナルです。充実した教育・サポート体制のもと、日々進化を続ける私たちの「人」こそが、最大の強みであり、お客様の成功への鍵となります。
-            </li>
-        </ol>
-    </section>
-
-    <section id="mvv" data-aos="fade-up">
-        <h2>9. SPINTECHNOLOGYのMVV</h2>
-        <h3 class="mvv-title" data-aos="fade-up" data-aos-delay="100"><i class="fa-solid fa-lightbulb"></i>MVVとは</h3>
-        <p data-aos="fade-up" data-aos-delay="50">Mission（ミッション）、Vision（ビジョン）、Value（バリュー）の略であり、<br>当社の会社理念である『志しむことから全てがはじまる』を、より具体的な行動や目指す姿に落とし込んだものです。</p>
-        <h3 class="mvv-title" data-aos="fade-up" data-aos-delay="200"><i class="fa-solid fa-flag"></i>Mission </h3>
-        <p data-aos="fade-up" data-aos-delay="150">ITで人を育て、お客様と志を共にする未来を創る</p>
-        <h3 class="mvv-title" data-aos="fade-up" data-aos-delay="300"><i class="fa-solid fa-binoculars"></i>Vision </h3>
-        <p data-aos="fade-up" data-aos-delay="250">「技術力 × 人間力」 = プロフェッショナル<br>社会に貢献できる真のプロフェッショナルを育てられる会社</p>
-        <h3 class="mvv-title" data-aos="fade-up" data-aos-delay="400"><i class="fa-solid fa-gem"></i>Value </h3>
-        <ul>
-            <li data-aos="fade-up" data-aos-delay="350">誠実：行動と言動に責任を持って真面目に向き合うこと</li>
-            <li data-aos="fade-up" data-aos-delay="400">素直：他人からの意見を受け入れ、己を見直したり改善すること</li>
-            <li data-aos="fade-up" data-aos-delay="450">挑戦：失敗や困難を恐れず新しいことに果敢に行動する姿勢</li>
-        </ul>
-        <p data-aos="fade-up" data-aos-delay="200" style="text-align: center; margin-top: 15px;">
-            <span style="color: #FF6B8B;">【あなたに期待する役割】</span>
-            <br>
-            <strong style="font-weight: bold;">
-                私たちは、お客様の課題を技術で解決し、共に成長していく仲間を求めています。<br>未経験からでも、素直さ・誠実さ・挑戦する心があれば、必ずプロフェッショナルとして活躍できる場所があります。
-            </strong>
-        </p>
-    </section>
-
-    <section id="ceo-intro" data-aos="fade-up">
-        <h2>10. 社長紹介</h2>
-        <div class="ceo-content-wrapper">
-            <div class="ceo-text-left" data-aos="fade-right" data-aos-delay="100">
-                <p class="quote" style="font-size: 1.8rem; font-weight: 700;" data-aos="fade-up">「成長意欲のある若者に挑戦の機会を提供し、<br>自己実現を果たしてほしい」という強い想いから<br>SPIN TECHNOLOGYを創業</p>
-                <p data-aos="fade-up" data-aos-delay="150">前職では20代で執行役員を務め、順調にキャリアを積んできましたが、<br>30代を前に「誰かの人生に貢献したい」と考えるようになりました。若い頃、失敗や壁にぶつかりながらも、<br>周囲の支えによって成長できた経験から、今度は自分が若者にその機会を提供する番だと感じたのです。
-                  <br>特に人材不足が叫ばれるIT業界において、未経験でも努力次第で社会に貢献できるチャンスが広がっていると信じています。私は、「熱量さえあれば人は必ず成長できる」と考えており、今度は私が、かつての自分のように<br>「変わりたい」と願うメンバー達に、成長のチャンスを提供したいと考え、安心して挑戦し成長できる環境づくりに尽力しています。</p>
-                <p data-aos="fade-up" data-aos-delay="200"><strong>岡田佳祐</strong></p>
-                <ul>
-                    <li data-aos="fade-up" data-aos-delay="250">趣味：フットサル、野球、ゴルフ、スマブラ</li>
-                </ul>
-                <h3 data-aos="fade-up" data-aos-delay="300">主な経歴</h3>
-                <ul>
-                    <li data-aos="fade-up" data-aos-delay="350">営業職として業界3000人の中で3年連続TOPセールスの獲得</li>
-                    <li data-aos="fade-up" data-aos-delay="400">マネジメント職を経て、100名規模の事業責任者として毎年200%の事業拡大に成功し同社役員に就任</li>
-                    <li data-aos="fade-up" data-aos-delay="450">2021年9月1日　株式会社 SPIN TECHNOLOGY設立</li>
-                </ul>
-            </div>
-            <div class="ceo-image-right" data-aos="fade-left" data-aos-delay="200">
-                <img src="images/岡田社長2.jpeg" alt="岡田代表取締役の顔写真" class="content-image" loading="lazy">
-            </div>
-        </div>
-    </section>
-
-    <section id="history" data-aos="fade-up">
-        <h2>11. 沿革</h2>
-        <ul>
-            <li data-aos="fade-up" data-aos-delay="100">2021年9月　株式会社SPIN TECHNOLOGY設立</li>
-            <li data-aos="fade-up" data-aos-delay="150">設立1年半で正社員160名の達成</li>
-            <li data-aos="fade-up" data-aos-delay="200">2022年11月　本社移転</li>
-            <li data-aos="fade-up" data-aos-delay="250">2021年8月　ITスクール開講</li>
-            <li data-aos="fade-up" data-aos-delay="300">2023年9月　雑誌「ベンチャー通信」に特集</li>
-            <li data-aos="fade-up" data-aos-delay="350">2024年1月　「2024年ベストベンチャー100」に選出</li>
-            <li data-aos="fade-up" data-aos-delay="400">2024年7月　フットサル部がYahoo!ニュースに記載</li>
-            <li data-aos="fade-up" data-aos-delay="450">2024年9月　米国大手経済紙「ウォールストリートジャーナル」に特集</li>
-        </ul>
-    </section>
-
-    <section id="organization-chart" data-aos="fade-down">
-        <h2>12. 組織図</h2>
-        <div class="tabs">
-            <div class="tab-buttons" data-aos="fade-up" data-aos-delay="100">
-                <button class="tab-button active" onclick="openTab('overall')">組織全体図</button>
-                <button class="tab-button" onclick="openTab('engineering')">エンジニアリング事業部</button>
+                <img src="images/キャリア研修4.jpeg" alt="ビジネス研修風景のイメージ" class="content-image" loading="lazy" width="600" height="400" data-aos="zoom-in">
             </div>
 
-            <div id="overall" class="tab-content active">
-                <div id="overall-org-chart-container-tab" class="tab-content-container">
-                    <div class="org-chart">
-                        <ul>
-                            <li>
-                                <div class="node ceo" data-aos="zoom-in">
-                                    <i class="fas fa-user-tie department-icon"></i><br>
-                                    岡田
-                                    <div class="title">代表取締役</div>
-                                </div>
-                                <ul>
-                                    <li>
-                                        <div class="node engineering" data-aos="slide-up" data-aos-delay="100">
-                                            <i class="fas fa-cogs department-icon"></i><br>
-                                            エンジニアリング事業部
-                                            <div class="title">部長5名<br>マネージャー18名<br>エンジニア</div>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="node sales" data-aos="slide-up" data-aos-delay="200">
-                                            <i class="fas fa-handshake department-icon"></i><br>
-                                            営業部
-                                            <div class="title">部長<br>営業: 4名</div>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="node hr" data-aos="slide-up" data-aos-delay="300">
-                                            <i class="fas fa-users department-icon"></i><br>
-                                            人事部
-                                            <div class="title">部長<br>採用: 1名<br>教育: 2名</div>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="node accounting" data-aos="slide-up" data-aos-delay="400">
-                                            <i class="fas fa-calculator department-icon"></i><br>
-                                            経理部
-                                            <div class="title">部長</div>
-                                        </div>
-                                    </li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </div>
+            <h3 id="culture-club" data-aos="fade-up" data-aos-delay="500">組織文化（部活）</h3>
+            <ol>
+                <li data-aos="fade-up" data-aos-delay="350">健康や日々のリフレッシュする</li>
+                <li data-aos="fade-up" data-aos-delay="400">社員同士の交流を通して悩み事やキャリア相談をしやすい雰囲気作りをする</li>
+                <li data-aos="fade-up" data-aos-delay="450">社員が定着し、共に成長できる場所</li>
+            </ol>
+            <div class="image-gallery">
+                <p class="future-call-to-action" data-aos="zoom-in" data-aos-delay="200">野球部</p>
+                <div class="gallery-item" data-aos="fade-up" data-aos-delay="550">
+                    <img src="images/野球部.jpeg" alt="部活動１の風景" class="content-image" loading="lazy" width="600" height="400" data-aos="zoom-in">
+                </div>
+                <p class="future-call-to-action" data-aos="zoom-in" data-aos-delay="200">ダーツ部</p>
+                <div class="gallery-item" data-aos="fade-up" data-aos-delay="600">
+                    <img src="images/darts.jpeg" alt="活動動２の風景" class="content-image" loading="lazy" width="600" height="400" data-aos="zoom-in">
                 </div>
             </div>
 
-            <div id="engineering" class="tab-content">
-                <div id="engineering-dept-org-chart-container-tab" class="tab-content-container">
-                    <div class="org-chart">
-                        <ul>
-                            <li>
-                                <div class="node top-level" data-aos="zoom-in">
-                                    エンジニアリング事業部
-                                </div>
-                                <ul>
-                                    <li>
-                                        <div class="node infra-dept-1" data-aos="slide-up" data-aos-delay="100">
-                                            <i class="fas fa-server department-icon"></i><br>
-                                            第一技術部
-                                            <div class="title">部長<br>マネージャー: 4名</div>
-                                        </div>
-                                        <ul>
-                                            <li>
-                                                <div class="node engineer-group" data-aos="fade-up"
-                                                    data-aos-delay="200">エンジニア</div>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li>
-                                        <div class="node infra-dept-2" data-aos="slide-up" data-aos-delay="150">
-                                            <i class="fas fa-network-wired department-icon"></i><br>
-                                            第二技術部
-                                            <div class="title">部長<br>マネージャー: 4名</div>
-                                        </div>
-                                        <ul>
-                                            <li>
-                                                <div class="node engineer-group" data-aos="fade-up"
-                                                    data-aos-delay="250">エンジニア</div>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li>
-                                        <div class="node dev-dept" data-aos="slide-up" data-aos-delay="200">
-                                            <i class="fas fa-code department-icon"></i><br>
-                                            第三技術部
-                                            <div class="title">部長<br>マネージャー: 4名</div>
-                                        </div>
-                                        <ul>
-                                            <li>
-                                                <div class="node engineer-group" data-aos="fade-up"
-                                                    data-aos-delay="300">エンジニア</div>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li>
-                                        <div class="node consult-dept" data-aos="slide-up" data-aos-delay="250">
-                                            <i class="fas fa-lightbulb department-icon"></i><br>
-                                            第四技術部
-                                            <div class="title">部長<br>マネージャー: 4名</div>
-                                        </div>
-                                        <ul>
-                                            <li>
-                                                <div class="node engineer-group" data-aos="fade-up"
-                                                    data-aos-delay="350">エンジニア</div>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li>
-                                        <div class="node data-science-dept" data-aos="slide-up" data-aos-delay="300">
-                                            <i class="fas fa-chart-line department-icon"></i><br>
-                                            第五技術部
-                                            <div class="title">部長<br>マネージャー: 2名</div>
-                                        </div>
-                                        <ul>
-                                            <li>
-                                                <div class="node engineer-group" data-aos="fade-up"
-                                                    data-aos-delay="400">エンジニア</div>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </div>
+            <h3 id="culture-recreation" data-aos="fade-up" data-aos-delay="650">組織文化（レクリエーション）</h3>
+            <ul>
+                <li data-aos="fade-up" data-aos-delay="150">
+                    様々なレクを毎月1〜2回開催</li>
+            </ul>
+            <div class="image-gallery">
+                <p class="future-call-to-action" data-aos="zoom-in" data-aos-delay="200">BBQレク（年2回：夏開催）</p>
+                <div class="gallery-item" data-aos="fade-up" data-aos-delay="700">
+                    <img src="images/BBQレク2.jpeg" alt="BBQの風景" class="content-image" loading="lazy" width="600" height="400" data-aos="zoom-in">
+                </div>
+                <p class="future-call-to-action" data-aos="zoom-in" data-aos-delay="200">社員旅行 in 熱海</p>
+                <div class="gallery-item" data-aos="fade-up" data-aos-delay="750">
+                    <img src="images/社員旅行3.jpeg" alt="社員旅行の風景" class="content-image" loading="lazy" width="600" height="400" data-aos="zoom-in">
                 </div>
             </div>
-    </section>
+        </section>
 
-    <section id="rules-systems" data-aos="fade-up">
-        <h2>13. 福利厚生と制度</h2>
-        <p data-aos="fade-up" data-aos-delay="100"><span class="red-note">※一部抜粋</span></p>
-        <ol>
-            <li data-aos="fade-up" data-aos-delay="150">年間休日125日　（完全週休2日制（土日休み）<br>GW<br>夏季休暇<br>年末年始<br>慶弔休暇<br>育児休暇<br>ハネムーン休暇</li>
-            <li data-aos="fade-up" data-aos-delay="200">資格取得支援制度（受験料・研修費全額補助）</li>
-            <li data-aos="fade-up" data-aos-delay="250">引越しサポート制度</li>
-            <li data-aos="fade-up" data-aos-delay="300">研修費無料のITスクール付き</li>
-            <li data-aos="fade-up" data-aos-delay="350">社内SPIN大会やゲームスペースで気軽に交流。仕事後にリフレッシュできる文化</li>
-        <h4 class="contact-call-to-action" data-aos="fade-up" data-aos-delay="250">自分のペースで成長できる環境があります！！</h4>
-        </ol>
-    </section>
+        <section id="company-video-section" data-aos="fade-up">
+            <h2>4. 会社の雰囲気（動画）</h2>
+            <p data-aos="fade-up" data-aos-delay="100">SPINTECHNOLOGYの活気ある職場環境や社員の様子をご紹介します。</p>
+            <div class="video-container" data-aos="zoom-in" data-aos-delay="200">
+                <video controls preload="metadata" poster="images/intro_movie_poster.jpg">
+                    <source src="videos/intro_movie.mp4" type="video/mp4">
+                    お使いのブラウザは動画タグをサポートしていません。
+                </video>
+            </div>
+            <div class="video-container" data-aos="zoom-in" data-aos-delay="200">
+                <video controls preload="metadata" poster="images/Company-wide_general_ meeting_movie_poster.jpg">
+                    <source src="videos/Company-wide_general_meeting_202506.movie.mp4" type="video/mp4">
+                    お使いのブラウザは動画タグをサポートしていません。
+                </video>
+            </div>
+            <div class="video-container" data-aos="zoom-in" data-aos-delay="200">
+                <video controls preload="metadata" poster="images/Company-wide_general meeting2_movie_poster.jpg">
+                    <source src="videos/Company-wide_general_meeting202412.movie.mp4" type="video/mp4">
+                    お使いのブラウザは動画タグをサポートしていません。
+                </video>
+            </div>
+        </section>
 
-    <section id="future" data-aos="fade-up">
-        <h2>14. 私たちの目指す未来</h2>
-        <ol>
-            <li>
-                <h3 class="future-subtitle" data-aos="fade-up" data-aos-delay="100">お客様と共にビジネスの未来を創る</h3>
-                <p data-aos="fade-up" data-aos-delay="150">お客様とのパートナーシップを強化し、ビジネス成長に不可欠なITソリューションを提供します。<br>
-                    真のニーズを深く理解し、迅速かつ柔軟な課題解決で、お客様と共に成功を追求します。</p>
-            </li>
-            <li>
-                <h3 class="future-subtitle" data-aos="fade-up" data-aos-delay="200">個の成長がチームの力に輝けるプロフェッショナルへ</h3>
-                <p data-aos="fade-up" data-aos-delay="250">一人ひとりの成長と活躍を最大限に支援し、技術力と人間力を兼ね備えたプロフェッショナルを育成します。<br>
-                    やりがいを持って挑戦できる環境で、社員の幸福度とお客様への価値提供を高めます。<br>
-                    未経験でも安心して成長できる教育・サポート体制が整っています。</p>
-            </li>
-            <li>
-                <h3 class="future-subtitle" data-aos="fade-up" data-aos-delay="300">ITでより良い社会の実現へ貢献</h3>
-                <p data-aos="fade-up" data-aos-delay="350">私たちのMissionとVisionには、ITの力で社会に貢献したいという強い想いがあります。<br>
-                    人材育成と技術革新を通じ、お客様、そして社会全体の発展に貢献し続けます。</p>
-            </li>
-        </ol>
-    </section>
+        <section id="company-overview-section" data-aos="fade-right">
+            <h2>5. 会社概要</h2>
+            <dl>
+                <dt data-aos="fade-up" data-aos-delay="100">会社名</dt>
+                <dd data-aos="fade-up" data-aos-delay="100">株式会社 SPIN TECHNOLOGY</dd>
+                <dt data-aos="fade-up" data-aos-delay="150">設立年</dt>
+                <dd data-aos="fade-up" data-aos-delay="150">2021年9月1日</dd>
+                <dt data-aos="fade-up" data-aos-delay="200">代表者</dt>
+                <dd data-aos="fade-up" data-aos-delay="200">岡田佳佑</dd>
+                <dt data-aos="fade-up" data-aos-delay="250">従業員数</dt>
+                <dd data-aos="fade-up" data-aos-delay="250">280名（正社員）</dd>
+                <dt data-aos="fade-up" data-aos-delay="300">平均年齢</dt>
+                <dd data-aos="fade-up" data-aos-delay="300">26歳</dd>
+                <dt data-aos="fade-up" data-aos-delay="350">事業所</dt>
+                <dd data-aos="fade-up" data-aos-delay="350">東京都渋谷区 渋谷1-20-1 井門美竹ビル4F</dd>
+                <dt data-aos="fade-up" data-aos-delay="400">TEL</dt>
+                <dd data-aos="fade-up" data-aos-delay="400">03-6427-8921</dd>
+                <dt data-aos="fade-up" data-aos-delay="450">FAX</dt>
+                <dd data-aos="fade-up" data-aos-delay="450">03-6427-0091</dd>
+            </dl>
+        </section>
 
-    <section id="summary" data-aos="fade-up">
-        <h2>15. まとめ</h2>
-        <ul>
-            <li data-aos="fade-up" data-aos-delay="100">SPIN TECHNOLOGYは、成長意欲と挑戦する心を大切にする会社です。</li>
-            <li data-aos="fade-up" data-aos-delay="150">未経験からでもプロフェッショナルを目指せる教育・サポート体制があります。</li>
-        </ul>
-        <p class="future-call-to-action" data-aos="zoom-in" data-aos-delay="200">SPIN TECHNOLOGYは、あなたの成長意欲と挑戦する心を何よりも大切にします。<br>私たちのビジョンに共感し、共に未来を創っていきたいと感じた方は、<br>ぜひご連絡ください。<br>社会の未来を、私たちと共に創りましょう！</p>
-    </section>
+        <section id="business-overview-section" data-aos="fade-left">
+            <h2>6. 事業概要</h2>
+            <h3 class="sub-heading" data-aos="zoom-in-up">システムインテグレーション</h3>
+            <ul>
+                <li data-aos="fade-up" data-aos-delay="100">
+                    お客様のITシステムに関する様々な課題に対し、分析から設計、開発、導入、運用まで一貫したソリューションを提供し、最適なシステム構築を支援します。</li>
+                <li data-aos="fade-up" data-aos-delay="200">
+                    分析：お客様の「困りごと」と「欲しいもの」を明確にする。
+                <li data-aos="fade-up" data-aos-delay="300">    
+                    設計：システムの「設計図」を作る。
+                <li data-aos="fade-up" data-aos-delay="400">
+                    開発：設計図通りにプログラミング言語（JavaやPython、C言語等）を使用「システムを作る」。
+                <li data-aos="fade-up" data-aos-delay="500">
+                    導入：完成したシステムをお客様に届ける。運用：システムを安定して使い続けられるよう支える。</li>
+            </ul>
+            <h3 class="sub-heading" data-aos="zoom-in-up">受託事業</h3>
+            <ul>
+                <li data-aos="fade-up" data-aos-delay="100">生成AI活用支援・開発</li>
+                <li data-aos="fade-up" data-aos-delay="150">Webアプリケーション・システム開発</li>
+                <li data-aos="fade-up" data-aos-delay="200">スマートフォンアプリケーション</li>
+                <li data-aos="fade-up" data-aos-delay="250">Webサイト・LP・ECサイト</li>
+            </ul>
+            <h3 class="sub-heading" data-aos="zoom-in-up">SI事業</h3>
+            <ul>
+                <li data-aos="fade-up" data-aos-delay="100">システムソリューション</li>
+                <li data-aos="fade-up" data-aos-delay="150">テクニカルアシスタントソリューション</li>
+                <li data-aos="fade-up" data-aos-delay="200">IT運用サポート</li>
+                <li data-aos="fade-up" data-aos-delay="250">通信ソリューション</li>
+                <li data-aos="fade-up" data-aos-delay="300">キッティングソリューション</li>
+            </ul>
+            <h3 class="sub-heading" data-aos="zoom-in-up">ITスクール事業</h3>
+            <ul>
+                <li data-aos="fade-up" data-aos-delay="100">IT基礎研修、社会人基礎研修、ネットワーク研修</li>
+                <li data-aos="fade-up" data-aos-delay="100">Linux研修、Java研修、AWS研修 CCNA研修etc...</li>
+            </ul>
+        </section>
 
-    <section id="contact" data-aos="fade-up">
-        <h2>16. 採用情報とお問い合わせ</h2>
-        <ul>
-            <li data-aos="fade-up" data-aos-delay="100"><i class="fa-solid fa-globe"></i>公式ホームページ<br><a href="https://spintechnology.jp"
-                    target="_blank">https://spintechnology.jp?hl=ja</a></li>
-            <li data-aos="fade-up" data-aos-delay="150"><i class="fa-brands fa-instagram"></i>公式Instagram<br><a
-                    href="https://www.instagram.com/spintec.official/?hl=ja"
-                    target="_blank">https://www.instagram.com/spintec.official//</a></li>
-            <li data-aos="fade-up" data-aos-delay="200"><i class="fa-solid fa-briefcase"></i>26卒の説明会はこちら<br><a
-                    href="https://job.mynavi.jp/26/pc/corpinfo/displaySeminar/index?optNo=S1YStC&corpId=271969"
-                    target="_blank">https://job.mynavi.jp/26/pc/corpinfo/displaySeminar/index?optNo=S1YStC&corpId=271969</a>
-            </li>
-        </ul>
-        <h4 class="contact-call-to-action" data-aos="fade-up" data-aos-delay="250">ご質問があれば、お気軽に採用担当へお問い合わせ・ご連絡ください。</h4>
-        <div class="qr-code-container" data-aos="zoom-in" data-aos-delay="300">
-            <img src="images/問い合わせQR2.jpeg" alt="お問い合わせ用QRコード" class="content-image" loading="lazy">
-            <p data-aos="fade-up" data-aos-delay="350">スマートフォンでQRコードを読み込んでください</p>
-        </div>
-    </section>
+        <section id="business-model-section" data-aos="fade-up">
+            <h2>7. ビジネスモデル</h2>
+            <ul>
+                <li data-aos="fade-up" data-aos-delay="150">システムインテグレーション<br>設計から運用までの一貫したサービスソリューションの提供</li>
+                <li data-aos="fade-up" data-aos-delay="200">
+                    受託開発サービス<br>生成AI活用支援、Webサイト、LP、ECサイト制作から、各種Webシステム、業務システム、スマートフォンアプリ開発まで、お客様の多様なニーズにお応えする受託開発を幅広く手がけています。
+                </li>
+                <li data-aos="fade-up" data-aos-delay="250">
+                    IT教育サービス<br>ITスクール事業や企業向けIT研修を通じて、実践的なITスキルや知識習得の機会を提供し、社会全体のIT人材育成に貢献しています。</li>
+                <li data-aos="fade-up" data-aos-delay="300">
+                    運用・保守サービス<br>開発したシステムや既存のIT資産が安定的に稼働し続けるよう、確かな技術力に基づいた運用・保守サービスを提供し、お客様のビジネス継続を力強く支えます。</li>
+            </ul>
+            <p data-aos="fade-up" data-aos-delay="350"><strong>現在は上場企業「ボードルア」グループの一員として、安定した経営基盤と信頼性の高いネットワークを活かしながら、自社独自の技術力と柔軟性を発揮できる環境を整えています。</strong></p>
+            <h4 class="contact-call-to-action" data-aos="fade-up" data-aos-delay="250">今後さらなる成長に向け、新たな仲間を募集しています！</h4>
+        </section>
+
+        <section id="strengths-section" data-aos="fade-up">
+            <h2>8. 会社の強み</h2>
+            <ol>
+                <li data-aos="fade-up" data-aos-delay="100">
+                    <h3 class="strength-point">会社に対する自信</h3>
+                    <br>当社は、明確なビジョンに基づいた事業戦略と、変化を恐れず挑戦し続ける企業文化により、持続的な成長を実現しています。信頼できるITパートナーとして、お客様と共に未来を創造します。
+                </li>
+                <li data-aos="fade-up" data-aos-delay="200">
+                    <h3 class="strength-point">事業に対する自信</h3>
+                    <br>お客様の真の課題解決を目指し、より上流工程からビジネスに貢献する一次請けとしての事業を強化しています。社会のニーズに応える革新的なITソリューションを提供できることに自信を持っています。
+                </li>
+                <li data-aos="fade-up" data-aos-delay="300">
+                    <h3 class="strength-point">商品・サービスに対する自信</h3>
+                    <br>高い技術力と豊富な経験を持つプロフェッショナル集団が、お客様のビジネスを加速させる高品質かつ信頼性の高いITサービスを提供いたします。私たちが提供する価値に、絶対の自信を持っています。
+                </li>
+                <li data-aos="fade-up" data-aos-delay="400">
+                    <h3 class="strength-point">社員（自分たち）に対する自信</h3>
+                    <br>当社の社員は、自身の成長に情熱を燃やし常に最高のパフォーマンスを目指すプロフェッショナルです。充実した教育・サポート体制のもと、日々進化を続ける私たちの「人」こそが、最大の強みであり、お客様の成功への鍵となります。
+                </li>
+            </ol>
+        </section>
+
+        <section id="mvv-section" data-aos="fade-up">
+            <h2>9. SPINTECHNOLOGYのMVV</h2>
+            <h3 class="mvv-title" data-aos="fade-up" data-aos-delay="100"><i class="fa-solid fa-lightbulb"></i>MVVとは</h3>
+            <p data-aos="fade-up" data-aos-delay="50">Mission（ミッション）、Vision（ビジョン）、Value（バリュー）の略であり、<br>当社の会社理念である『志しむことから全てがはじまる』を、より具体的な行動や目指す姿に落とし込んだものです。</p>
+            <h3 class="mvv-title" data-aos="fade-up" data-aos-delay="200"><i class="fa-solid fa-flag"></i>Mission </h3>
+            <p data-aos="fade-up" data-aos-delay="150">ITで人を育て、お客様と志を共にする未来を創る</p>
+            <h3 class="mvv-title" data-aos="fade-up" data-aos-delay="300"><i class="fa-solid fa-binoculars"></i>Vision </h3>
+            <p data-aos="fade-up" data-aos-delay="250">「技術力 × 人間力」 = プロフェッショナル<br>社会に貢献できる真のプロフェッショナルを育てられる会社</p>
+            <h3 class="mvv-title" data-aos="fade-up" data-aos-delay="400"><i class="fa-solid fa-gem"></i>Value </h3>
+            <ul>
+                <li data-aos="fade-up" data-aos-delay="350">誠実：行動と言動に責任を持って真面目に向き合うこと</li>
+                <li data-aos="fade-up" data-aos-delay="400">素直：他人からの意見を受け入れ、己を見直したり改善すること</li>
+                <li data-aos="fade-up" data-aos-delay="450">挑戦：失敗や困難を恐れず新しいことに果敢に行動する姿勢</li>
+            </ul>
+            <p data-aos="fade-up" data-aos-delay="200" style="text-align: center; margin-top: 15px;">
+                <span style="color: #FF6B8B;">【あなたに期待する役割】</span>
+                <br>
+                <strong style="font-weight: bold;">
+                    私たちは、お客様の課題を技術で解決し、共に成長していく仲間を求めています。<br>未経験からでも、素直さ・誠実さ・挑戦する心があれば、必ずプロフェッショナルとして活躍できる場所があります。
+                </strong>
+            </p>
+        </section>
+
+        <section id="ceo-intro-section" data-aos="fade-up">
+            <h2>10. 社長紹介</h2>
+            <div class="ceo-content-wrapper">
+                <div class="ceo-text-left" data-aos="fade-right" data-aos-delay="100">
+                    <p class="quote" style="font-size: 1.8rem; font-weight: 700;" data-aos="fade-up">「成長意欲のある若者に挑戦の機会を提供し、<br>自己実現を果たしてほしい」という強い想いから<br>SPIN TECHNOLOGYを創業</p>
+                    <p data-aos="fade-up" data-aos-delay="150">前職では20代で執行役員を務め、順調にキャリアを積んできましたが、<br>30代を前に「誰かの人生に貢献したい」と考えるようになりました。若い頃、失敗や壁にぶつかりながらも、<br>周囲の支えによって成長できた経験から、今度は自分が若者にその機会を提供する番だと感じたのです。
+                        <br>特に人材不足が叫ばれるIT業界において、未経験でも努力次第で社会に貢献できるチャンスが広がっていると信じています。私は、「熱量さえあれば人は必ず成長できる」と考えており、今度は私が、かつての自分のように<br>「変わりたい」と願うメンバー達に、成長のチャンスを提供したいと考え、安心して挑戦し成長できる環境づくりに尽力しています。</p>
+                    <p data-aos="fade-up" data-aos-delay="200"><strong>岡田佳佑</strong></p>
+                    <ul>
+                        <li data-aos="fade-up" data-aos-delay="250">趣味：フットサル、野球、ゴルフ、スマブラ</li>
+                    </ul>
+                    <h3 data-aos="fade-up" data-aos-delay="300">主な経歴</h3>
+                    <ul>
+                        <li data-aos="fade-up" data-aos-delay="350">営業職として業界3000人の中で3年連続TOPセールスの獲得</li>
+                        <li data-aos="fade-up" data-aos-delay="400">マネジメント職を経て、100名規模の事業責任者として毎年200%の事業拡大に成功し同社役員に就任</li>
+                        <li data-aos-up" data-aos-delay="450">2021年9月1日　株式会社 SPIN TECHNOLOGY設立</li>
+                    </ul>
+                </div>
+                <div class="ceo-image-right" data-aos="fade-left" data-aos-delay="200">
+                    <img src="images/岡田社長2.jpeg" alt="岡田代表取締役の顔写真" class="content-image" loading="lazy">
+                </div>
+            </div>
+        </section>
+
+        <section id="history-section" data-aos="fade-up">
+            <h2>11. 沿革</h2>
+            <ul>
+                <li data-aos="fade-up" data-aos-delay="100">2021年9月　株式会社SPIN TECHNOLOGY設立</li>
+                <li data-aos="fade-up" data-aos-delay="150">設立1年半で正社員160名の達成</li>
+                <li data-aos="fade-up" data-aos-delay="200">2022年11月　本社移転</li>
+                <li data-aos="fade-up" data-aos-delay="250">2021年8月　ITスクール開講</li>
+                <li data-aos="fade-up" data-aos-delay="300">2023年9月　雑誌「ベンチャー通信」に特集</li>
+                <li data-aos="fade-up" data-aos-delay="350">2024年1月　「2024年ベストベンチャー100」に選出</li>
+                <li data-aos="fade-up" data-aos-delay="400">2024年7月　フットサル部がYahoo!ニュースに記載</li>
+                <li data-aos="fade-up" data-aos-delay="450">2024年9月　米国大手経済紙「ウォールストリートジャーナル」に特集</li>
+            </ul>
+        </section>
+
+        <section id="organization-chart-section" data-aos="fade-down">
+            <h2>12. 組織図</h2>
+            <div class="tabs">
+                <div class="tab-buttons" data-aos="fade-up" data-aos-delay="100">
+                    <button class="tab-button active" onclick="openTab('overall')">組織全体図</button>
+                    <button class="tab-button" onclick="openTab('engineering')">エンジニアリング事業部</button>
+                </div>
+                <div id="overall" class="tab-content active">
+                    <div id="overall-org-chart-container-tab" class="tab-content-container">
+                        <div class="org-chart">
+                            <ul>
+                                <li>
+                                    <div class="node ceo" data-aos="zoom-in">
+                                        <i class="fas fa-user-tie department-icon"></i><br>
+                                        岡田
+                                        <div class="title">代表取締役</div>
+                                    </div>
+                                    <ul>
+                                        <li>
+                                            <div class="node engineering" data-aos="slide-up" data-aos-delay="100">
+                                                <i class="fas fa-cogs department-icon"></i><br>
+                                                エンジニアリング事業部
+                                                <div class="title">部長5名<br>マネージャー18名<br>エンジニア</div>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="node sales" data-aos="slide-up" data-aos-delay="200">
+                                                <i class="fas fa-handshake department-icon"></i><br>
+                                                営業部
+                                                <div class="title">部長<br>営業: 4名</div>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="node hr" data-aos="slide-up" data-aos-delay="300">
+                                                <i class="fas fa-users department-icon"></i><br>
+                                                人事部
+                                                <div class="title">部長<br>採用: 1名<br>教育: 2名</div>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="node accounting" data-aos="slide-up" data-aos-delay="400">
+                                                <i class="fas fa-calculator department-icon"></i><br>
+                                                経理部
+                                                <div class="title">部長</div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div id="engineering" class="tab-content">
+                    <div id="engineering-dept-org-chart-container-tab" class="tab-content-container">
+                        <div class="org-chart">
+                            <ul>
+                                <li>
+                                    <div class="node top-level" data-aos="zoom-in">
+                                        エンジニアリング事業部
+                                    </div>
+                                    <ul>
+                                        <li>
+                                            <div class="node infra-dept-1" data-aos="slide-up" data-aos-delay="100">
+                                                <i class="fas fa-server department-icon"></i><br>
+                                                第一技術部
+                                                <div class="title">部長<br>マネージャー: 4名</div>
+                                            </div>
+                                            <ul>
+                                                <li>
+                                                    <div class="node engineer-group" data-aos="fade-up"
+                                                        data-aos-delay="200">エンジニア</div>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <div class="node infra-dept-2" data-aos="slide-up" data-aos-delay="150">
+                                                <i class="fas fa-network-wired department-icon"></i><br>
+                                                第二技術部
+                                                <div class="title">部長<br>マネージャー: 4名</div>
+                                            </div>
+                                            <ul>
+                                                <li>
+                                                    <div class="node engineer-group" data-aos="fade-up"
+                                                        data-aos-delay="250">エンジニア</div>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <div class="node dev-dept" data-aos="slide-up" data-aos-delay="200">
+                                                <i class="fas fa-code department-icon"></i><br>
+                                                第三技術部
+                                                <div class="title">部長<br>マネージャー: 4名</div>
+                                            </div>
+                                            <ul>
+                                                <li>
+                                                    <div class="node engineer-group" data-aos="fade-up"
+                                                        data-aos-delay="300">エンジニア</div>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <div class="node consult-dept" data-aos="slide-up" data-aos-delay="250">
+                                                <i class="fas fa-lightbulb department-icon"></i><br>
+                                                第四技術部
+                                                <div class="title">部長<br>マネージャー: 4名</div>
+                                            </div>
+                                            <ul>
+                                                <li>
+                                                    <div class="node engineer-group" data-aos="fade-up"
+                                                        data-aos-delay="350">エンジニア</div>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <div class="node data-science-dept" data-aos="slide-up" data-aos-delay="300">
+                                                <i class="fas fa-chart-line department-icon"></i><br>
+                                                第五技術部
+                                                <div class="title">部長<br>マネージャー: 2名</div>
+                                            </div>
+                                            <ul>
+                                                <li>
+                                                    <div class="node engineer-group" data-aos="fade-up"
+                                                        data-aos-delay="400">エンジニア</div>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+        </section>
+
+        <section id="rules-systems-section" data-aos="fade-up">
+            <h2>13. 福利厚生と制度</h2>
+            <p data-aos="fade-up" data-aos-delay="100"><span class="red-note">※一部抜粋</span></p>
+            <ol>
+                <li data-aos="fade-up" data-aos-delay="150">年間休日125日　（完全週休2日制（土日休み）<br>GW<br>夏季休暇<br>年末年始<br>慶弔休暇<br>育児休暇<br>ハネムーン休暇</li>
+                <li data-aos="fade-up" data-aos-delay="200">資格取得支援制度（受験料・研修費全額補助）</li>
+                <li data-aos="fade-up" data-aos-delay="250">引越しサポート制度</li>
+                <li data-aos="fade-up" data-aos-delay="300">研修費無料のITスクール付き</li>
+                <li data-aos="fade-up" data-aos-delay="350">社内SPIN大会やゲームスペースで気軽に交流。仕事後にリフレッシュできる文化</li>
+            <h4 class="contact-call-to-action" data-aos="fade-up" data-aos-delay="250">自分のペースで成長できる環境があります！！</h4>
+            </ol>
+        </section>
+
+        <section id="future-section" data-aos="fade-up">
+            <h2>14. 私たちの目指す未来</h2>
+            <ol>
+                <li>
+                    <h3 class="future-subtitle" data-aos="fade-up" data-aos-delay="100">お客様と共にビジネスの未来を創る</h3>
+                    <p data-aos="fade-up" data-aos-delay="150">お客様とのパートナーシップを強化し、ビジネス成長に不可欠なITソリューションを提供します。<br>
+                        真のニーズを深く理解し、迅速かつ柔軟な課題解決で、お客様と共に成功を追求します。</p>
+                </li>
+                <li>
+                    <h3 class="future-subtitle" data-aos="fade-up" data-aos-delay="200">個の成長がチームの力に輝けるプロフェッショナルへ</h3>
+                    <p data-aos="fade-up" data-aos-delay="250">一人ひとりの成長と活躍を最大限に支援し、技術力と人間力を兼ね備えたプロフェッショナルを育成します。<br>
+                        やりがいを持って挑戦できる環境で、社員の幸福度とお客様への価値提供を高めます。<br>
+                        未経験でも安心して成長できる教育・サポート体制が整っています。</p>
+                </li>
+                <li>
+                    <h3 class="future-subtitle" data-aos="fade-up" data-aos-delay="300">ITでより良い社会の実現へ貢献</h3>
+                    <p data-aos="fade-up" data-aos-delay="350">私たちのMissionとVisionには、ITの力で社会に貢献したいという強い想いがあります。<br>
+                        人材育成と技術革新を通じ、お客様、そして社会全体の発展に貢献し続けます。</p>
+                </li>
+            </ol>
+        </section>
+
+        <section id="summary-section" data-aos="fade-up">
+            <h2>15. まとめ</h2>
+            <ul>
+                <li data-aos="fade-up" data-aos-delay="100">SPIN TECHNOLOGYは、成長意欲と挑戦する心を大切にする会社です。</li>
+                <li data-aos="fade-up" data-aos-delay="150">未経験からでもプロフェッショナルを目指せる教育・サポート体制があります。</li>
+            </ul>
+            <p class="future-call-to-action" data-aos="zoom-in" data-aos-delay="200">SPIN TECHNOLOGYは、あなたの成長意欲と挑戦する心を何よりも大切にします。<br>私たちのビジョンに共感し、共に未来を創っていきたいと感じた方は、<br>ぜひご連絡ください。<br>社会の未来を、私たちと共に創りましょう！</p>
+        </section>
+
+        <section id="contact-section" data-aos="fade-up">
+            <h2>16. 採用情報とお問い合わせ</h2>
+            <ul>
+                <li data-aos="fade-up" data-aos-delay="100"><i class="fa-solid fa-globe"></i>公式ホームページ<br><a href="https://spintechnology.jp"
+                        target="_blank">https://spintechnology.jp?hl=ja</a></li>
+                <li data-aos="fade-up" data-aos-delay="150"><i class="fa-brands fa-instagram"></i>公式Instagram<br><a
+                        href="https://www.instagram.com/spintec.official/?hl=ja"
+                        target="_blank">https://www.instagram.com/spintec.official//</a></li>
+                <li data-aos="fade-up" data-aos-delay="200"><i class="fa-solid fa-briefcase"></i>26卒の説明会はこちら<br><a
+                        href="https://job.mynavi.jp/26/pc/corpinfo/displaySeminar/index?optNo=S1YStC&corpId=271969"
+                        target="_blank">https://job.mynavi.jp/26/pc/corpinfo/displaySeminar/index?optNo=S1YStC&corpId=271969</a>
+                </li>
+            </ul>
+            <h4 class="contact-call-to-action" data-aos="fade-up" data-aos-delay="250">ご質問があれば、お気軽に採用担当へお問い合わせ・ご連絡ください。</h4>
+            <div class="qr-code-container" data-aos="zoom-in" data-aos-delay="300">
+                <img src="images/問い合わせQR2.jpeg" alt="お問い合わせ用QRコード" class="content-image" loading="lazy">
+                <p data-aos="fade-up" data-aos-delay="350">スマートフォンでQRコードを読み込んでください</p>
+            </div>
+        </section>
+    </main>
 
     <a href="#" id="back-to-top" class="back-to-top-btn">
         <i class="fas fa-arrow-up"></i>
@@ -2104,7 +2170,7 @@
             once: true, // アニメーションを一度だけ実行
             mirror: false, // スクロールバックしても再度アニメーションしない
         });
-         document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function() {
         var backToTopBtn = document.getElementById('back-to-top');
 
         window.addEventListener('scroll', function() {
@@ -2149,7 +2215,7 @@
         if (hamburger && gNav) { // 要素が存在するか確認
             hamburger.addEventListener('click', () => {
                 hamburger.classList.toggle('is-active'); // ハンバーガーアイコンの形を変化
-                gNav.classList.toggle('is-active');     // グローバルナビゲーションの表示/非表示を切り替え
+                gNav.classList.toggle('is-active');      // グローバルナビゲーションの表示/非表示を切り替え
             });
         }
 
