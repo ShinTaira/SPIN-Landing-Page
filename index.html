@@ -24,12 +24,6 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
 
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag() { dataLayer.push(arguments); }
-        gtag('js', new Date());
-        gtag('config', 'G-TY2ZY9YFGG');
-    </script>
     <style>
         /* ==================================================== */
         /* === グローバルスタイル (公式サイト全体に適用) === */
@@ -43,7 +37,6 @@
             font-family: 'Inter', 'Noto Sans JP', sans-serif;
             background-color: transparent;
             color: #333333;
-
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -65,7 +58,8 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(135deg, #A0E7FD 0%, #C0A0FD 100%); /* スカイブルーから藤色へのグラデーション */
+            background: linear-gradient(135deg, #A0E7FD 0%, #C0A0FD 100%);
+            /* スカイブルーから藤色へのグラデーション */
             background-repeat: no-repeat;
             background-size: cover;
             background-position: center center;
@@ -137,23 +131,28 @@
 
         /* 各ボタンの背景色を鮮やかに */
         .p-btn__session {
-            background-color: #00C0F0; /* スカイブルー */
+            background-color: #00C0F0;
+            /* スカイブルー */
         }
 
         .p-btn__recruit {
-            background-color: #76DD6F; /* 明るいグリーン */
+            background-color: #76DD6F;
+            /* 明るいグリーン */
         }
 
         .p-btn__seminar {
-            background-color: #FF6B8B; /* ポップなピンク */
+            background-color: #FF6B8B;
+            /* ポップなピンク */
         }
 
         .p-btn__company {
-            background-color: #FFD166; /* ウォームイエロー */
+            background-color: #FFD166;
+            /* ウォームイエロー */
         }
 
         .p-btn__entry {
-            background-color: #A06CD5; /* パープル */
+            background-color: #A06CD5;
+            /* パープル */
         }
 
         .p-header__btn:hover {
@@ -165,36 +164,48 @@
         /* グローバルナビゲーションのスタイル */
         .p-g-nav {
             display: none;
-            position: fixed; /* fixedに変更 */
-            top: 0; /* 全画面を覆う */
+            position: fixed;
+            /* fixedに変更 */
+            top: 0;
+            /* 全画面を覆う */
             left: 0;
             width: 100%;
-            height: 100%; /* 全画面を覆う */
-            background-color: rgba(255, 255, 255, 0.98); /* ほぼ不透明な白 */
+            height: 100%;
+            /* 全画面を覆う */
+            background-color: rgba(255, 255, 255, 0.98);
+            /* ほぼ不透明な白 */
             padding: 20px;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
             z-index: 999;
             flex-direction: column;
             gap: 15px;
-            justify-content: center; /* 縦方向中央寄せ */
-            align-items: center; /* 横方向中央寄せ */
-            opacity: 0; /* 初期は非表示で透明 */
-            visibility: hidden; /* 初期は非表示 */
+            justify-content: center;
+            /* 縦方向中央寄せ */
+            align-items: center;
+            /* 横方向中央寄せ */
+            opacity: 0;
+            /* 初期は非表示で透明 */
+            visibility: hidden;
+            /* 初期は非表示 */
             transition: opacity 0.3s ease, visibility 0.3s ease;
         }
 
         .p-g-nav.is-active {
             display: flex;
-            opacity: 1; /* アクティブ時に表示 */
-            visibility: visible; /* アクティブ時に表示 */
+            opacity: 1;
+            /* アクティブ時に表示 */
+            visibility: visible;
+            /* アクティブ時に表示 */
         }
 
         .p-g-nav__inner {
             display: flex;
             flex-direction: column;
             gap: 15px;
-            width: 90%; /* スマホでの幅調整 */
-            max-width: 400px; /* スマホでの最大幅 */
+            width: 90%;
+            /* スマホでの幅調整 */
+            max-width: 400px;
+            /* スマホでの最大幅 */
             margin: 0 auto;
         }
 
@@ -207,13 +218,14 @@
             color: #333333;
             transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08);
-            text-align: center; /* リンクテキスト中央寄せ */
+            text-align: center;
+            /* リンクテキスト中央寄せ */
         }
 
         .p-g-nav__item a:hover {
             background-color: #E6EFFF;
             transform: translateY(-2px);
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+            box-shadow: 4px 10px rgba(0, 0, 0, 0.15);
         }
 
         .p-g-nav__sub-title {
@@ -242,7 +254,8 @@
 
         /* ハンバーガーメニューのスタイル */
         .p-hamburger {
-            display: none; /* デフォルトでは非表示 */
+            display: none;
+            /* デフォルトでは非表示 */
             background: none;
             border: none;
             cursor: pointer;
@@ -287,71 +300,124 @@
             margin-top: 5px;
         }
 
-        /* アジェンダタブのスタイル */
+        /* =================================== */
+        /* === アジェンダタブのスタイル === */
+        /* =================================== */
         .agenda-tab {
-            position: fixed; /* 画面に固定する */
-            top: 100px; /* 上からの位置を調整（ヘッダーの下にくるように） */
-            left: 20px; /* 左からの位置を調整 */
-            background-color: rgba(255, 255, 255, 0.9); /* 半透明の白背景 */
+            position: fixed;
+            top: 150px;
+            /* 表示位置（上から） */
+            left: 20px;
+            /* 表示位置（左から） */
+            background-color: rgba(255, 255, 255, 0.95);
             border: 1px solid #ddd;
-            padding: 15px;
             border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            z-index: 100; /* 他の要素より手前に表示 */
-            max-width: 250px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            z-index: 100;
+            width: 200px;
+            /* 横幅を固定 */
             transition: all 0.3s ease;
+            -webkit-font-smoothing: antialiased;
+            /* 文字の表示を滑らかに（Mac/Win差異軽減） */
+            -moz-osx-font-smoothing: grayscale;
         }
 
-        /* アジェンダのタイトル */
+        /* アジェンダのタイトル部分（クリック領域） */
         .agenda-tab h2 {
-            font-size: 1.2em;
-            margin-bottom: 10px;
-            text-align: left;
-            background: none;
-            box-shadow: none;
-            padding: 0;
+            font-size: 1.1em;
+            margin: 0;
+            padding: 15px;
+            cursor: pointer;
+            /* クリックできることを示すカーソルに変更 */
             font-weight: bold;
             color: #333;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            -webkit-user-select: none;
+            /* テキスト選択を無効化 */
+            user-select: none;
         }
 
-        /* アジェンダのリスト */
+        /* 開閉状態を示すアイコン（Font Awesomeを使用） */
+        .agenda-tab h2::after {
+            content: '\f078';
+            /* chevron-downアイコン */
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            font-size: 0.9em;
+            transition: transform 0.3s ease;
+        }
+
+        /* is-openクラスが付いた時（開いた時）のアイコンの向き */
+        .agenda-tab.is-open h2::after {
+            transform: rotate(180deg);
+            /* アイコンを180度回転 */
+        }
+
+        /* アジェンダのリスト部分 */
         .agenda-tab ul {
             list-style-type: none;
-            padding: 0;
+            padding: 0 15px;
+            /* 左右の余白 */
             margin: 0;
+            max-height: 0;
+            /* ★デフォルトで高さを0にして非表示に */
+            overflow: hidden;
+            /* ★はみ出した内容を隠す */
+            transition: max-height 0.4s ease-out, padding 0.4s ease-out;
+            /* スムーズなアニメーション */
+        }
+
+        /* is-openクラスが付いた時（開いた時）のリストのスタイル */
+        .agenda-tab.is-open ul {
+            max-height: 900px;
+            /* ★高さを十分に確保 */
+            padding: 0 15px 15px;
+            /* 開いた時に上下の余白を追加 */
         }
 
         .agenda-tab li {
-            margin-bottom: 5px;
+            margin-bottom: 2px;
         }
 
-        /* アジェンダのリンク */
         .agenda-tab a {
             text-decoration: none;
             color: #007bff;
             transition: color 0.3s ease;
             display: block;
-            padding: 5px 0;
-            font-size: 0.9em;
+            padding: 5px 5px;
+            /* ← 上下の余白を少し小さく */
+            font-size: 12px;
+            /* ← フォントサイズを少し小さく */
+            line-height: 1.3;
+            /* ← 行の高さを少し詰める */
+            border-radius: 4px;
         }
 
-        /* ホバー時のスタイル */
         .agenda-tab a:hover {
             color: #0056b3;
-            text-decoration: underline;
+            background-color: rgba(0, 123, 255, 0.05);
         }
 
-        /* スマホ表示時の非表示設定 */
+        /* アクティブなアジェンダ項目をハイライト表示 */
+        .agenda-tab a.active {
+            color: #FF6B8B;
+            font-weight: bold;
+            background-color: rgba(255, 107, 139, 0.1);
+        }
+
+        /* スマホではアジェンダ自体を非表示にする */
         @media (max-width: 768px) {
             .agenda-tab {
                 display: none;
             }
         }
-        
+
         /* mainのスタイル */
         .l-main {
             width: 100%;
-            max-width: 1200px;
+            max-width: 1120px;
         }
 
         /* section */
@@ -389,27 +455,75 @@
         }
 
         /* 各セクションのh2に個別のグラデーションを設定 */
-        #interviews-section h2 { background: linear-gradient(45deg, #00C0F0, #FFD166); }
-        #engineer-career-section h2 { background: linear-gradient(45deg, #FFD166, #76DD6F); }
-        #culture-section h2 { background: linear-gradient(45deg, #76DD6F, #FF6B8B); }
-        #company-video-section h2 { background: linear-gradient(45deg, #FF6B8B, #A06CD5); }
-        #company-overview-section h2 { background: linear-gradient(45deg, #A06CD5, #00C0F0); }
-        #business-overview-section h2 { background: linear-gradient(45deg, #00C0F0, #76DD6F); }
-        #business-model-section h2 { background: linear-gradient(45deg, #76DD6F, #FFD166); }
-        #strengths-section h2 { background: linear-gradient(45deg, #FFD166, #FF6B8B); }
-        #mvv-section h2 { background: linear-gradient(45deg, #FF6B8B, #A06CD5); }
-        #ceo-intro-section h2 { background: linear-gradient(45deg, #A06CD5, #00C0F0); }
-        #history-section h2 { background: linear-gradient(45deg, #00C0F0, #FFD166); }
-        #organization-chart-section h2 { background: linear-gradient(45deg, #FFD166, #76DD6F); }
-        #rules-systems-section h2 { background: linear-gradient(45deg, #76DD6F, #FF6B8B); }
-        #future-section h2 { background: linear-gradient(45deg, #FF6B8B, #A06CD5); }
-        #summary-section h2 { background: linear-gradient(45deg, #A06CD5, #00C0F0); }
-        #contact-section h2 { background: linear-gradient(45deg, #00C0F0, #FF6B8B); }
+        #interviews-section h2 {
+            background: linear-gradient(45deg, #00C0F0, #FFD166);
+        }
+
+        #engineer-career-section h2 {
+            background: linear-gradient(45deg, #FFD166, #76DD6F);
+        }
+
+        #culture-section h2 {
+            background: linear-gradient(45deg, #76DD6F, #FF6B8B);
+        }
+
+        #company-video-section h2 {
+            background: linear-gradient(45deg, #FF6B8B, #A06CD5);
+        }
+
+        #company-overview-section h2 {
+            background: linear-gradient(45deg, #A06CD5, #00C0F0);
+        }
+
+        #business-overview-section h2 {
+            background: linear-gradient(45deg, #00C0F0, #76DD6F);
+        }
+
+        #business-model-section h2 {
+            background: linear-gradient(45deg, #76DD6F, #FFD166);
+        }
+
+        #strengths-section h2 {
+            background: linear-gradient(45deg, #FFD166, #FF6B8B);
+        }
+
+        #mvv-section h2 {
+            background: linear-gradient(45deg, #FF6B8B, #A06CD5);
+        }
+
+        #ceo-intro-section h2 {
+            background: linear-gradient(45deg, #A06CD5, #00C0F0);
+        }
+
+        #history-section h2 {
+            background: linear-gradient(45deg, #00C0F0, #FFD166);
+        }
+
+        #organization-chart-section h2 {
+            background: linear-gradient(45deg, #FFD166, #76DD6F);
+        }
+
+        #rules-systems-section h2 {
+            background: linear-gradient(45deg, #76DD6F, #FF6B8B);
+        }
+
+        #future-section h2 {
+            background: linear-gradient(45deg, #FF6B8B, #A06CD5);
+        }
+
+        #summary-section h2 {
+            background: linear-gradient(45deg, #A06CD5, #00C0F0);
+        }
+
+        #contact-section h2 {
+            background: linear-gradient(45deg, #00C0F0, #FF6B8B);
+        }
 
 
         /* hero */
-        #hero {
-            background: linear-gradient(45deg, #00C0F0, #A06CD5); /* スカイブルーからパープルへのグラデーション */
+        #hero-section {
+            background: linear-gradient(45deg, #00C0F0, #A06CD5);
+            /* スカイブルーからパープルへのグラデーション */
             color: white;
             text-align: center;
             padding: 100px 20px;
@@ -417,12 +531,13 @@
             border-radius: 20px;
             box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
             transition: none;
-            max-width: 1200px; /* heroセクションも最大幅を適用 */
+            max-width: 1200px;
+            /* heroセクションも最大幅を適用 */
             margin-left: auto;
             margin-right: auto;
         }
 
-        #hero h2 {
+        #hero-section h2 {
             color: #FFFFFF;
             font-size: 4.5rem;
             margin-bottom: 20px;
@@ -433,7 +548,7 @@
             border-radius: 0;
         }
 
-        #hero p {
+        #hero-section p {
             font-size: 1.8rem;
             color: #FFD166;
             margin-bottom: 40px;
@@ -763,25 +878,31 @@
         #overall-org-chart-container-tab .node.engineering {
             background-color: #A0E7FD;
             border: 1px solid #00C0F0;
-            color: #FFFFFF; /* 文字色を白にすると見やすいです */
+            color: #FFFFFF;
+            /* 文字色を白にすると見やすいです */
         }
 
         #overall-org-chart-container-tab .node.sales {
             background-color: #76DD6F;
             border: 1px solid #5BC557;
-            color: #FFFFFF; /* 文字色を白にすると見やすいです */
+            color: #FFFFFF;
+            /* 文字色を白にすると見やすいです */
         }
 
         #overall-org-chart-container-tab .node.hr {
             background-color: #FFD166;
             border: 1px solid #FFC033;
-            color: #FFFFFF; /* 文字色を白にすると見やすいです */
+            color: #FFFFFF;
+            /* 文字色を白にすると見やすいです */
         }
 
         #overall-org-chart-container-tab .node.accounting {
-            background-color: #4DB6AC; /* ティール系の背景色 */
-            border: 1px solid #00897B; /* ティール系のボーダー色 */
-            color: #FFFFFF; /* 文字色を白にすると見やすいです */
+            background-color: #4DB6AC;
+            /* ティール系の背景色 */
+            border: 1px solid #00897B;
+            /* ティール系のボーダー色 */
+            color: #FFFFFF;
+            /* 文字色を白にすると見やすいです */
         }
 
         /* その他の部門ノードのデフォルトスタイル */
@@ -805,25 +926,29 @@
         #engineering-dept-org-chart-container-tab .node.infra-dept-1 {
             background-color: #A0E7FD;
             border: 1px solid #00C0F0;
-            color: #FFFFFF; /* 文字色を白にすると見やすいです */
+            color: #FFFFFF;
+            /* 文字色を白にすると見やすいです */
         }
 
         #engineering-dept-org-chart-container-tab .node.infra-dept-2 {
             background-color: #76DD6F;
             border: 1px solid #5BC557;
-            color: #FFFFFF; /* 文字色を白にすると見やすいです */
+            color: #FFFFFF;
+            /* 文字色を白にすると見やすいです */
         }
 
         #engineering-dept-org-chart-container-tab .node.dev-dept {
             background-color: #FFD166;
             border: 1px solid #FFC033;
-            color: #FFFFFF; /* 文字色を白にすると見やすいです */
+            color: #FFFFFF;
+            /* 文字色を白にすると見やすいです */
         }
 
         #engineering-dept-org-chart-container-tab .node.consult-dept {
             background-color: #FF6B8B;
             border: 1px solid #FF4A6F;
-            color: #FFFFFF; /* 文字色を白にすると見やすいです */
+            color: #FFFFFF;
+            /* 文字色を白にすると見やすいです */
         }
 
         #engineering-dept-org-chart-container-tab .node.engineer-group {
@@ -832,9 +957,12 @@
         }
 
         #engineering-dept-org-chart-container-tab .node.data-science-dept {
-            background-color: #4DB6AC; /* ティール系の背景色 */
-            border: 1px solid #00897B; /* ティール系のボーダー色 */
-            color: #FFFFFF; /* 文字色を白にすると見やすいです */
+            background-color: #4DB6AC;
+            /* ティール系の背景色 */
+            border: 1px solid #00897B;
+            /* ティール系のボーダー色 */
+            color: #FFFFFF;
+            /* 文字色を白にすると見やすいです */
         }
 
         /* エンジニアリング事業部内の階層構造の線 */
@@ -858,7 +986,8 @@
 
         /* PC (769px以上) のみ表示 */
         .u-desktop {
-            display: flex !important; /* ボタンがinline-blockなのでflexを優先 */
+            display: flex !important;
+            /* ボタンがinline-blockなのでflexを優先 */
         }
 
         /* モバイル (768px以下) のみ表示 */
@@ -868,19 +997,18 @@
 
         /* PCでのヘッダーボタンとハンバーガーメニューの表示切り替え */
         @media (min-width: 769px) {
-            .p-header__btn {
-                display: inline-block;
-            }
-            .p-hamburger {
-                display: none;
+        .p-header__btn {
+             display: inline-block;
             }
 
-            /* PC画面でのメインコンテンツの調整 */
-            .l-main {
-                max-width: 920px;
-                margin-left: auto;
-                margin-right: auto;
-                padding: 0 20px; /* 左右の余白を少し調整 */
+        .p-hamburger {
+             display: none;
+            }
+
+        /* PC画面でのメインコンテンツの調整 */
+        body {
+        /* ▼▼▼ ここの数値をアジェンダ幅(200px) + 左からの位置(20px) + 隙間(20px) = 240px に変更 ▼▼▼ */
+             padding-left: 240px;
             }
         }
 
@@ -888,8 +1016,8 @@
         @media (max-width: 768px) {
             body {
                 padding: 15px;
-                padding-top: 100px; /* ヘッダーの高さに合わせて調整 */
-                padding-left: 15px; /* スマホでは余白をリセット */
+                padding-top: 100px;
+                /* ヘッダーの高さに合わせて調整 */
             }
 
             .p-header {
@@ -897,46 +1025,50 @@
             }
 
             .p-header__logo img {
-                max-height: 55px; /* ロゴのサイズを調整 */
+                max-height: 55px;
+                /* ロゴのサイズを調整 */
             }
 
             .p-header__right {
-                gap: 5px; /* ボタン間のスペースを調整 */
+                gap: 5px;
+                /* ボタン間のスペースを調整 */
             }
 
             .u-desktop {
-                display: none !important; /* デスクトップ用ボタンを非表示 */
+                display: none !important;
+                /* デスクトップ用ボタンを非表示 */
             }
 
             .p-hamburger {
-                display: block; /* ハンバーガーメニューを表示 */
+                display: block;
+                /* ハンバーガーメニューを表示 */
             }
 
             /* グローバルナビゲーションを全画面オーバーレイに調整 */
             .p-g-nav {
-                padding-top: 80px; /* ヘッダー分を開ける */
-                overflow-y: auto; /* コンテンツがはみ出たらスクロール可能に */
+                padding-top: 80px;
+                /* ヘッダー分を開ける */
+                overflow-y: auto;
+                /* コンテンツがはみ出たらスクロール可能に */
             }
 
             .p-g-nav__inner {
                 width: 90%;
-                max-width: none; /* スマホで最大幅を無効化 */
-                gap: 12px; /* ナビ内アイテム間のスペースを調整 */
-            }
-
-            .p-g-nav__item a,
-            .p-g-nav__btn {
-                padding: 12px 15px;
-                font-size: 1rem;
+                max-width: none;
+                /* スマホで最大幅を無効化 */
+                gap: 12px;
+                /* ナビ内アイテム間のスペースを調整 */
             }
 
             section {
-                padding: 25px; /* セクションのパディングを調整 */
+                padding: 25px;
+                /* セクションのパディングを調整 */
                 margin-bottom: 25px;
             }
 
             section h2 {
-                font-size: 2rem; /* セクションタイトルの文字サイズを調整 */
+                font-size: 2rem;
+                /* セクションタイトルの文字サイズを調整 */
                 padding: 15px 20px;
             }
 
@@ -945,11 +1077,13 @@
             }
 
             #hero h2 {
-                font-size: 3rem; /* ヒーローセクションタイトルの文字サイズを調整 */
+                font-size: 3rem;
+                /* ヒーローセクションタイトルの文字サイズを調整 */
             }
 
             #hero p {
-                font-size: 1.4rem; /* ヒーローセクション説明文の文字サイズを調整 */
+                font-size: 1.4rem;
+                /* ヒーローセクション説明文の文字サイズを調整 */
             }
 
             section a.btn {
@@ -958,20 +1092,24 @@
             }
 
             .image-gallery {
-                gap: 30px; /* 画像ギャラリーのギャップを調整 */
+                gap: 30px;
+                /* 画像ギャラリーのギャップを調整 */
             }
 
             .qr-code-container img {
-                max-width: 250px; /* QRコードの最大幅を調整 */
+                max-width: 250px;
+                /* QRコードの最大幅を調整 */
             }
 
             .qr-code-container p {
-                font-size: 1rem; /* QRコード説明文の文字サイズを調整 */
+                font-size: 1rem;
+                /* QRコード説明文の文字サイズを調整 */
             }
 
             /* 動画コンテナのモバイル調整 */
             .video-container {
-                padding-bottom: 56.25%; /* アスペクト比維持 */
+                padding-bottom: 56.25%;
+                /* アスペクト比維持 */
             }
 
             /* 社長紹介セクションのモバイルでの調整 */
@@ -983,7 +1121,8 @@
 
             #ceo-intro-section .ceo-image-right {
                 order: -1;
-                max-width: 250px; /* 画像の最大幅を調整 */
+                max-width: 250px;
+                /* 画像の最大幅を調整 */
             }
 
             #ceo-intro-section .ceo-text-left {
@@ -1018,18 +1157,24 @@
             #business-model-section>p:nth-child(3)+ul>li {
                 font-size: 0.9rem;
             }
+
             .node {
-                min-width: 120px; /* ノードの最小幅を調整 */
+                min-width: 120px;
+                /* ノードの最小幅を調整 */
                 font-size: 0.8rem;
                 padding: 10px 15px;
             }
+
             .node .department-icon {
                 font-size: 1.2rem;
             }
+
             .node .title {
                 font-size: 0.7rem;
             }
-            .node .details, .node .role-description {
+
+            .node .details,
+            .node .role-description {
                 font-size: 0.6rem;
             }
         }
@@ -1059,15 +1204,15 @@
                 padding: 12px 18px;
             }
 
-            #hero {
+            #hero-section {
                 padding: 50px 10px;
             }
 
-            #hero h2 {
+            #hero-section h2 {
                 font-size: 2.5rem;
             }
 
-            #hero p {
+            #hero-section p {
                 font-size: 1.2rem;
             }
 
@@ -1077,7 +1222,8 @@
             }
 
             .tab-button {
-                width: 100%; /* 1列表示 */
+                width: 100%;
+                /* 1列表示 */
                 margin: 5px 0;
                 font-size: 0.9rem;
             }
@@ -1119,8 +1265,10 @@
             #business-model-section>p:nth-child(3)+ul>li {
                 font-size: 0.9rem;
             }
+
             .node {
-                min-width: 100px; /* ノードの最小幅をさらに調整 */
+                min-width: 100px;
+                /* ノードの最小幅をさらに調整 */
                 font-size: 0.7rem;
                 padding: 8px 12px;
             }
@@ -1133,7 +1281,8 @@
         #business-overview-section h3.sub-heading {
             font-size: 1.5rem;
             font-weight: 600;
-            color: #00C0F0; /* スカイブルー */
+            color: #00C0F0;
+            /* スカイブルー */
             margin-top: 20px;
             margin-bottom: 10px;
         }
@@ -1142,27 +1291,32 @@
 
         /* インフラエンジニアのタイトル色 */
         #engineer-career-section .gallery-item h3.infra-title {
-            color: #00C0F0; /* スカイブルー */
+            color: #00C0F0;
+            /* スカイブルー */
         }
 
         /* 開発エンジニアのタイトル色 */
         #engineer-career-section .gallery-item h3.dev-title {
-            color: #FFD166; /* ウォームイエロー */
+            color: #FFD166;
+            /* ウォームイエロー */
         }
 
         /* コンサルエンジニアのタイトル色 */
         #engineer-career-section .gallery-item h3.consult-title {
-            color: #FF6B8B; /* ポップなピンク */
+            color: #FF6B8B;
+            /* ポップなピンク */
         }
 
         /* 営業タイトルの色指定 */
         #engineer-career-section .gallery-item h3.sales-title {
-            color: #76DD6F; /* ★営業タイトルを明るいグリーンに変更 */
+            color: #76DD6F;
+            /* ★営業タイトルを明るいグリーンに変更 */
         }
 
         /* 3. MVVの項目 */
         #mvv-section .mvv-title {
-            color: #FF6B8B; /* ポップなピンク */
+            color: #FF6B8B;
+            /* ポップなピンク */
             font-weight: 700;
         }
 
@@ -1170,7 +1324,8 @@
         #culture-section .intro-text {
             font-size: 1.75rem;
             font-weight: 600;
-            color: #FFD166; /* ウォームイエロー */
+            color: #FFD166;
+            /* ウォームイエロー */
             margin-bottom: 20px;
         }
 
@@ -1178,14 +1333,16 @@
         #strengths-section .strength-point {
             font-size: 1.5rem;
             font-weight: 600;
-            color: #A06CD5; /* パープル */
+            color: #A06CD5;
+            /* パープル */
             margin-top: 20px;
             margin-bottom: 10px;
         }
 
         /* 6. 規則と制度、福利厚生の※一部抜粋 */
         .red-note {
-            color: #FF6B8B; /* ポップなピンク */
+            color: #FF6B8B;
+            /* ポップなピンク */
             font-weight: 700;
         }
 
@@ -1193,12 +1350,14 @@
         .future-call-to-action {
             font-size: 1.8rem;
             font-weight: 800;
-            color: #00C0F0; /* スカイブルー */
+            color: #00C0F0;
+            /* スカイブルー */
             text-align: center;
             margin-top: 30px;
             margin-bottom: 30px;
             line-height: 1.5;
-            text-shadow: 2px 2px 8px rgba(0, 192, 240, 0.5); /* スカイブルーのシャドウ */
+            text-shadow: 2px 2px 8px rgba(0, 192, 240, 0.5);
+            /* スカイブルーのシャドウ */
         }
 
         /* レスポンシブ調整: 小さい画面での文字サイズ調整 */
@@ -1218,12 +1377,14 @@
         .future-subtitle {
             font-size: 1.4rem;
             font-weight: 700;
-            color: #A06CD5; /* パープル */
+            color: #A06CD5;
+            /* パープル */
             margin-top: 25px;
             margin-bottom: 10px;
             text-align: left;
             padding-bottom: 5px;
-            border-bottom: 2px solid #FFD166; /* ウォームイエローの下線 */
+            border-bottom: 2px solid #FFD166;
+            /* ウォームイエローの下線 */
             display: block;
             width: fit-content;
             max-width: 80%;
@@ -1250,13 +1411,15 @@
         .contact-call-to-action {
             font-size: 1.5rem;
             font-weight: 700;
-            color: #FF6B8B; /* ポップなピンク */
+            color: #FF6B8B;
+            /* ポップなピンク */
             text-align: center;
             margin-top: 35px;
             margin-bottom: 25px;
             line-height: 1.5;
             padding-bottom: 5px;
-            border-bottom: 2px dashed #00C0F0; /* スカイブルーの点線の下線 */
+            border-bottom: 2px dashed #00C0F0;
+            /* スカイブルーの点線の下線 */
             display: block;
             width: fit-content;
             max-width: 80%;
@@ -1338,17 +1501,20 @@
             grid-template-columns: auto 1fr;
             gap: 15px 20px;
         }
+
         #company-overview-section dt {
             font-weight: 700;
             color: #007BFF;
             padding-right: 20px;
             position: relative;
         }
+
         #company-overview-section dt::after {
             content: ":";
             position: absolute;
             right: 5px;
         }
+
         #company-overview-section dd {
             margin: 0;
         }
@@ -1367,15 +1533,17 @@
             justify-content: center;
             align-items: center;
             text-decoration: none;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-            opacity: 0; /* 初期状態は非表示 */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            opacity: 0;
+            /* 初期状態は非表示 */
             visibility: hidden;
             transition: opacity 0.3s, visibility 0.3s, background-color 0.3s;
             z-index: 999;
         }
 
         .back-to-top-btn.visible {
-            opacity: 1; /* スクロールしたら表示 */
+            opacity: 1;
+            /* スクロールしたら表示 */
             visibility: visible;
         }
 
@@ -1393,27 +1561,31 @@
             border-radius: 15px;
             padding: 30px;
             display: flex;
-            align-items: flex-start; /* 写真とテキストを上揃えに変更 */
-            gap: 30px; /* 写真とテキストの間隔 */
+            align-items: flex-start;
+            /* 写真とテキストを上揃えに変更 */
+            gap: 30px;
+            /* 写真とテキストの間隔 */
             margin-bottom: 25px;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
         }
 
         /* 写真を囲むコンテナ (四角形に変更) */
         #interviews-section .interview-photo {
             width: 200px;
             height: 250px;
-            border-radius: 10px; /* ★円形から、角丸の四角形に変更 */
+            border-radius: 10px;
+            /* ★円形から、角丸の四角形に変更 */
             overflow: hidden;
             flex-shrink: 0;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
         }
 
         /* 写真自体のスタイル調整 */
         #interviews-section .interview-photo img {
             width: 100%;
             height: 100%;
-            object-fit: cover; /* 画像の比率を保ったままコンテナを埋める */
+            object-fit: cover;
+            /* 画像の比率を保ったままコンテナを埋める */
             margin: 0;
             box-shadow: none;
         }
@@ -1435,7 +1607,8 @@
             font-size: 0.8rem;
             color: #666;
             display: block;
-            margin-bottom: 20px; /* プロフィールとQ&Aの間に余白 */
+            margin-bottom: 20px;
+            /* プロフィールとQ&Aの間に余白 */
         }
 
         #interviews-section .interview-body h4 {
@@ -1453,7 +1626,8 @@
         #interviews-section .interview-body .interview-catchphrase {
             font-size: 1.1rem;
             font-weight: bold;
-            color: #FF6B8B; /* ポップなピンク */
+            color: #FF6B8B;
+            /* ポップなピンク */
             margin-bottom: 10px;
         }
 
@@ -1468,8 +1642,10 @@
         /* ===== レスポンシブ対応（スマホ表示）===== */
         @media (max-width: 768px) {
             #interviews-section .interview-card {
-                flex-direction: column; /* 縦並びにする */
-                align-items: center; /* 中央揃えに */
+                flex-direction: column;
+                /* 縦並びにする */
+                align-items: center;
+                /* 中央揃えに */
                 gap: 20px;
                 padding: 20px;
             }
@@ -1480,7 +1656,8 @@
             }
 
             #interviews-section .interview-body {
-                text-align: center; /* テキストも中央揃えに */
+                text-align: center;
+                /* テキストも中央揃えに */
             }
         }
     </style>
@@ -1501,8 +1678,7 @@
                     <a href="#contact-section"><span>お問い合わせはコチラ</span></a>
                 </div>
                 <div class="p-header__btn p-btn p-btn__seminar u-desktop">
-                    <a href="https://job.mynavi.jp/26/pc/corpinfo/displaySeminar/index?optNo=S1YStC&corpId=271969"
-                        target="_blank">
+                    <a href="https://job.mynavi.jp/26/pc/corpinfo/displaySeminar/index?optNo=S1YStC&corpId=271969" target="_blank">
                         <span>26卒の方はこちら</span>
                     </a>
                 </div>
@@ -1557,7 +1733,7 @@
     </header>
 
     <main class="l-main">
-        <section id="hero" data-aos="fade-up">
+        <section id="hero-section" data-aos="fade-up">
             <div>
                 <h2 data-aos="zoom-in-down" data-aos-delay="200">志しむことから<br>全てがはじまる</h2>
                 <p data-aos="zoom-in-up" data-aos-delay="400">未経験からITプロフェッショナルへ<br>充実した研修制度と多岐にわたる事業で<br>あなたのキャリアを全力サポート</p>
@@ -1586,7 +1762,7 @@
                 <li><a href="#contact-section">16. 採用情報とお問い合わせ</a></li>
             </ul>
         </div>
-        
+
         <section id="interviews-section" class="container">
             <h2 class="section-title" data-aos="fade-up">1. 先輩社員の声</h2>
             <div class="interview-card" data-aos="fade-right">
@@ -1826,7 +2002,7 @@
                     お客様のITシステムに関する様々な課題に対し、分析から設計、開発、導入、運用まで一貫したソリューションを提供し、最適なシステム構築を支援します。</li>
                 <li data-aos="fade-up" data-aos-delay="200">
                     分析：お客様の「困りごと」と「欲しいもの」を明確にする。
-                <li data-aos="fade-up" data-aos-delay="300">    
+                <li data-aos="fade-up" data-aos-delay="300">
                     設計：システムの「設計図」を作る。
                 <li data-aos="fade-up" data-aos-delay="400">
                     開発：設計図通りにプログラミング言語（JavaやPython、C言語等）を使用「システムを作る」。
@@ -1850,8 +2026,8 @@
             </ul>
             <h3 class="sub-heading" data-aos="zoom-in-up">ITスクール事業</h3>
             <ul>
-                <li data-aos="fade-up" data-aos-delay="100">IT基礎研修、社会人基礎研修、ネットワーク研修</li>
-                <li data-aos="fade-up" data-aos-delay="100">Linux研修、Java研修、AWS研修 CCNA研修etc...</li>
+                <li data-aos="fade-up" data-aos-delay="100">IT基礎研修、社会人基礎研修、ネットワーク研修 etc...</li>
+                <li data-aos="fade-up" data-aos-delay="100">Linux研修、Java研修、AWS研修、CCNA研修 etc...</li>
             </ul>
         </section>
 
@@ -1931,7 +2107,7 @@
                     <ul>
                         <li data-aos="fade-up" data-aos-delay="350">営業職として業界3000人の中で3年連続TOPセールスの獲得</li>
                         <li data-aos="fade-up" data-aos-delay="400">マネジメント職を経て、100名規模の事業責任者として毎年200%の事業拡大に成功し同社役員に就任</li>
-                        <li data-aos-up" data-aos-delay="450">2021年9月1日　株式会社 SPIN TECHNOLOGY設立</li>
+                        <li data-aos="fade-up" data-aos-delay="450">2021年9月1日　株式会社 SPIN TECHNOLOGY設立</li>
                     </ul>
                 </div>
                 <div class="ceo-image-right" data-aos="fade-left" data-aos-delay="200">
@@ -2023,8 +2199,7 @@
                                             </div>
                                             <ul>
                                                 <li>
-                                                    <div class="node engineer-group" data-aos="fade-up"
-                                                        data-aos-delay="200">エンジニア</div>
+                                                    <div class="node engineer-group" data-aos="fade-up" data-aos-delay="200">エンジニア</div>
                                                 </li>
                                             </ul>
                                         </li>
@@ -2036,8 +2211,7 @@
                                             </div>
                                             <ul>
                                                 <li>
-                                                    <div class="node engineer-group" data-aos="fade-up"
-                                                        data-aos-delay="250">エンジニア</div>
+                                                    <div class="node engineer-group" data-aos="fade-up" data-aos-delay="250">エンジニア</div>
                                                 </li>
                                             </ul>
                                         </li>
@@ -2049,8 +2223,7 @@
                                             </div>
                                             <ul>
                                                 <li>
-                                                    <div class="node engineer-group" data-aos="fade-up"
-                                                        data-aos-delay="300">エンジニア</div>
+                                                    <div class="node engineer-group" data-aos="fade-up" data-aos-delay="300">エンジニア</div>
                                                 </li>
                                             </ul>
                                         </li>
@@ -2062,8 +2235,7 @@
                                             </div>
                                             <ul>
                                                 <li>
-                                                    <div class="node engineer-group" data-aos="fade-up"
-                                                        data-aos-delay="350">エンジニア</div>
+                                                    <div class="node engineer-group" data-aos="fade-up" data-aos-delay="350">エンジニア</div>
                                                 </li>
                                             </ul>
                                         </li>
@@ -2075,8 +2247,7 @@
                                             </div>
                                             <ul>
                                                 <li>
-                                                    <div class="node engineer-group" data-aos="fade-up"
-                                                        data-aos-delay="400">エンジニア</div>
+                                                    <div class="node engineer-group" data-aos="fade-up" data-aos-delay="400">エンジニア</div>
                                                 </li>
                                             </ul>
                                         </li>
@@ -2097,7 +2268,7 @@
                 <li data-aos="fade-up" data-aos-delay="250">引越しサポート制度</li>
                 <li data-aos="fade-up" data-aos-delay="300">研修費無料のITスクール付き</li>
                 <li data-aos="fade-up" data-aos-delay="350">社内SPIN大会やゲームスペースで気軽に交流。仕事後にリフレッシュできる文化</li>
-            <h4 class="contact-call-to-action" data-aos="fade-up" data-aos-delay="250">自分のペースで成長できる環境があります！！</h4>
+                <h4 class="contact-call-to-action" data-aos="fade-up" data-aos-delay="250">自分のペースで成長できる環境があります！！</h4>
             </ol>
         </section>
 
@@ -2135,14 +2306,9 @@
         <section id="contact-section" data-aos="fade-up">
             <h2>16. 採用情報とお問い合わせ</h2>
             <ul>
-                <li data-aos="fade-up" data-aos-delay="100"><i class="fa-solid fa-globe"></i>公式ホームページ<br><a href="https://spintechnology.jp"
-                        target="_blank">https://spintechnology.jp?hl=ja</a></li>
-                <li data-aos="fade-up" data-aos-delay="150"><i class="fa-brands fa-instagram"></i>公式Instagram<br><a
-                        href="https://www.instagram.com/spintec.official/?hl=ja"
-                        target="_blank">https://www.instagram.com/spintec.official//</a></li>
-                <li data-aos="fade-up" data-aos-delay="200"><i class="fa-solid fa-briefcase"></i>26卒の説明会はこちら<br><a
-                        href="https://job.mynavi.jp/26/pc/corpinfo/displaySeminar/index?optNo=S1YStC&corpId=271969"
-                        target="_blank">https://job.mynavi.jp/26/pc/corpinfo/displaySeminar/index?optNo=S1YStC&corpId=271969</a>
+                <li data-aos="fade-up" data-aos-delay="100"><i class="fa-solid fa-globe"></i>公式ホームページ<br><a href="https://spintechnology.jp" target="_blank">https://spintechnology.jp?hl=ja</a></li>
+                <li data-aos="fade-up" data-aos-delay="150"><i class="fa-brands fa-instagram"></i>公式Instagram<br><a href="https://www.instagram.com/spintec.official/?hl=ja" target="_blank">https://www.instagram.com/spintec.official//</a></li>
+                <li data-aos="fade-up" data-aos-delay="200"><i class="fa-solid fa-briefcase"></i>26卒の説明会はこちら<br><a href="https://job.mynavi.jp/26/pc/corpinfo/displaySeminar/index?optNo=S1YStC&corpId=271969" target="_blank">https://job.mynavi.jp/26/pc/corpinfo/displaySeminar/index?optNo=S1YStC&corpId=271969</a>
                 </li>
             </ul>
             <h4 class="contact-call-to-action" data-aos="fade-up" data-aos-delay="250">ご質問があれば、お気軽に採用担当へお問い合わせ・ご連絡ください。</h4>
@@ -2162,27 +2328,87 @@
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-        // AOS.jsの初期化設定を調整
+        // --- AOS.js（アニメーション）の初期化 ---
         AOS.init({
-            duration: 0, // アニメーションのduration（ミリ秒）
-            easing: 'ease-out-cubic', // 滑らかなイージングに変更
-            delay: 0, // アニメーション開始までの遅延（ミリ秒）
-            once: true, // アニメーションを一度だけ実行
-            mirror: false, // スクロールバックしても再度アニメーションしない
+            duration: 800,
+            easing: 'ease-out-cubic',
+            delay: 100,
+            once: true,
+            mirror: false,
         });
-        document.addEventListener('DOMContentLoaded', function() {
-        var backToTopBtn = document.getElementById('back-to-top');
 
-        window.addEventListener('scroll', function() {
-            if (window.scrollY > 300) { // 300pxスクロールしたら表示
-                backToTopBtn.classList.add('visible');
-            } else {
-                backToTopBtn.classList.remove('visible');
+        // --- ページの読み込み完了後に実行する処理 ---
+        document.addEventListener('DOMContentLoaded', function() {
+
+            // トップに戻るボタンの表示切替
+            var backToTopBtn = document.getElementById('back-to-top');
+            window.addEventListener('scroll', function() {
+                if (window.scrollY > 300) {
+                    backToTopBtn.classList.add('visible');
+                } else {
+                    backToTopBtn.classList.remove('visible');
+                }
+            });
+
+            // 組織図タブの初期表示
+            openTab('overall');
+
+            // アジェンダの開閉機能
+            const agendaTab = document.querySelector('.agenda-tab');
+            const agendaTitle = document.querySelector('.agenda-tab h2');
+            if (agendaTab && agendaTitle) {
+                agendaTitle.addEventListener('click', () => {
+                    agendaTab.classList.toggle('is-open');
+                });
             }
+
+            // アジェンダのスクロール追従ハイライト機能
+            const agendaLinks = document.querySelectorAll('.agenda-tab a');
+            const sections = document.querySelectorAll('main section[id]');
+            const activateAgendaLink = () => {
+                let index = sections.length;
+                while (--index && window.scrollY + 150 < sections[index].offsetTop) {}
+
+                agendaLinks.forEach((link) => link.classList.remove('active'));
+                if (index >= 0) {
+                    const activeLink = document.querySelector(`.agenda-tab a[href="#${sections[index].id}"]`);
+                    if (activeLink) {
+                        activeLink.classList.add('active');
+                    }
+                }
+            };
+            window.addEventListener('scroll', activateAgendaLink);
+            activateAgendaLink();
+
+            // ハンバーガーメニューの開閉機能
+            const hamburger = document.querySelector('.p-hamburger');
+            const gNav = document.querySelector('.p-g-nav');
+            if (hamburger && gNav) {
+                hamburger.addEventListener('click', () => {
+                    hamburger.classList.toggle('is-active');
+                    gNav.classList.toggle('is-active');
+                });
+            }
+
+            // ハンバーガーメニュー内のリンククリックでメニューを閉じる
+            const gNavItems = document.querySelectorAll('.p-g-nav__item a');
+            gNavItems.forEach(item => {
+                item.addEventListener('click', () => {
+                    hamburger.classList.remove('is-active');
+                    gNav.classList.remove('is-active');
+                });
+            });
+
+            const gNavBtns = document.querySelectorAll('.p-g-nav__btn a');
+            gNavBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    hamburger.classList.remove('is-active');
+                    gNav.classList.remove('is-active');
+                });
+            });
         });
-    });
-    </script>
-    <script>
+
+        // --- 組織図のタブ切り替え機能 ---
         function openTab(tabName) {
             var i;
             var x = document.getElementsByClassName("tab-content");
@@ -2194,49 +2420,14 @@
                 buttons[i].classList.remove("active");
             }
             document.getElementById(tabName).style.display = "block";
-            // event.currentTargetがnullになる場合があるためチェック
-            if (event.currentTarget) {
-                event.currentTarget.classList.add("active");
-            } else {
-                // イベント経由でない場合（初期表示時など）は、対応するボタンにactiveクラスを付与
-                document.querySelector(`.tab-button[onclick="openTab('${tabName}')"]`).classList.add('active');
+
+            // event.currentTarget が存在しない場合があるため、より安全な方法に変更
+            const currentButton = document.querySelector(`.tab-button[onclick="openTab('${tabName}')"]`);
+            if (currentButton) {
+                currentButton.classList.add("active");
             }
         }
-
-        // 初期表示で「組織全体図」タブをアクティブにする
-        document.addEventListener('DOMContentLoaded', function () {
-            openTab('overall');
-        });
-
-        // ハンバーガーメニューの開閉機能 (JavaScript)
-        const hamburger = document.querySelector('.p-hamburger');
-        const gNav = document.querySelector('.p-g-nav');
-
-        if (hamburger && gNav) { // 要素が存在するか確認
-            hamburger.addEventListener('click', () => {
-                hamburger.classList.toggle('is-active'); // ハンバーガーアイコンの形を変化
-                gNav.classList.toggle('is-active');      // グローバルナビゲーションの表示/非表示を切り替え
-            });
-        }
-
-        // ハンバーガーメニュー内のリンクがクリックされたときにメニューを閉じる
-        const gNavItems = document.querySelectorAll('.p-g-nav__item a');
-
-        gNavItems.forEach(item => {
-            item.addEventListener('click', () => {
-                hamburger.classList.remove('is-active');
-                gNav.classList.remove('is-active');
-            });
-        });
-
-        const gNavBtns = document.querySelectorAll('.p-g-nav__btn a');
-
-        gNavBtns.forEach(btn => {
-            btn.addEventListener('click', () => {
-                hamburger.classList.remove('is-active');
-                gNav.classList.remove('is-active');
-            });
-        });
     </script>
 </body>
+
 </html>
